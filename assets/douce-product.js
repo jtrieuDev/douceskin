@@ -49,3 +49,60 @@
   // Dawn re-mounts <product-info> when it swaps to another product (combined listings).
   document.addEventListener('product-info:loaded', (event) => setup(event.target));
 })();
+
+/*
+  DOUCE: purchase options (Subscribe & Save / one-time).
+  Keeps the hidden `selling_plan` input of the native product form in sync
+  with the selected card, and re-renders the cards when the variant changes
+  (prices differ per variant) while keeping the shopper's choice.
+*/
+(function () {
+  function sync(container) {
+    const input = container.querySelector('.douce-purchase__input');
+    const checked = container.querySelector('.douce-purchase__radio-input:checked');
+    if (!input) return;
+    const value = checked ? checked.value : '';
+    input.value = value;
+    input.disabled = value === '';
+  }
+
+  document.addEventListener('change', (event) => {
+    if (!event.target.classList || !event.target.classList.contains('douce-purchase__radio-input')) return;
+    const container = event.target.closest('.douce-purchase');
+    if (container) sync(container);
+  });
+
+  function onVariantChange({ data }) {
+    if (!data || !data.html || !data.sectionId) return;
+    const id = `DoucePurchase-${data.sectionId}`;
+    const current = document.getElementById(id);
+    const fresh = data.html.getElementById(id);
+    if (!current || !fresh) return;
+
+    const previous = current.querySelector('.douce-purchase__radio-input:checked');
+    const previousValue = previous ? previous.value : null;
+    current.innerHTML = fresh.innerHTML;
+
+    if (previousValue !== null) {
+      const radios = Array.from(current.querySelectorAll('.douce-purchase__radio-input'));
+      const match =
+        radios.find((radio) => radio.value === previousValue) ||
+        (previousValue !== '' ? radios.find((radio) => radio.value !== '') : null);
+      if (match) match.checked = true;
+    }
+    sync(current);
+  }
+
+  function init() {
+    document.querySelectorAll('.douce-purchase').forEach(sync);
+    if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+      subscribe(PUB_SUB_EVENTS.variantChange, onVariantChange);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

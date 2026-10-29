@@ -250,9 +250,12 @@
                 {%- when 'collapsible_tab' -%}
                   {%- comment -%} DOUCE: under-gallery accordions repeat here on mobile only {%- endcomment -%}
                   {%- if block.settings.douce_under_gallery -%}
-                    <div class="douce-mobile-accordion medium-hide large-up-hide">
+                    {%- capture douce_mobile_accordion -%}
                       {%- render 'douce-accordion', block: block, section_id: section.id, id_prefix: 'Mobile', editor_attributes: false -%}
-                    </div>
+                    {%- endcapture -%}
+                    {%- if douce_mobile_accordion != blank -%}
+                      <div class="douce-mobile-accordion medium-hide large-up-hide">{{ douce_mobile_accordion }}</div>
+                    {%- endif -%}
                     {%- continue -%}
                   {%- endif -%}
                   {%- comment -%} /DOUCE {%- endcomment -%}
@@ -733,6 +736,14 @@
                   </product-recommendations>
                 {%- when 'icon-with-text' -%}
                   {% render 'icon-with-text', block: block %}
+                {%- comment -%} DOUCE {%- endcomment -%}
+                {%- when 'douce_purchase_options' -%}
+                  {%- render 'douce-purchase-options',
+                    block: block,
+                    product: product,
+                    product_form_id: product_form_id,
+                    section_id: section.id
+                  -%}
               {%- endcase -%}
             {%- endfor -%}
             <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -870,6 +881,95 @@
           "id": "douce_card_includes",
           "label": "Card details",
           "info": "Only list what is genuinely included."
+        }
+      ]
+    },
+    {
+      "type": "douce_purchase_options",
+      "name": "DOUCE purchase options",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Prices, compare-at prices and savings come from Shopify. Subscription options only appear when a subscription app has a selling plan on the product."
+        },
+        {
+          "type": "select",
+          "id": "default_option",
+          "label": "Selected by default",
+          "options": [
+            { "value": "subscription", "label": "Subscribe & Save" },
+            { "value": "one_time", "label": "One-time purchase" }
+          ],
+          "default": "subscription"
+        },
+        {
+          "type": "header",
+          "content": "Subscribe & Save"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_subscription",
+          "label": "Show subscription option",
+          "info": "Only shown when the product has a selling plan.",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "sub_banner",
+          "label": "Banner",
+          "default": "Most popular"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Title",
+          "default": "Subscribe & Save"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_plan_name",
+          "label": "Show plan name",
+          "info": "The name set in your subscription app, e.g. delivery frequency.",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "sub_description",
+          "label": "Description",
+          "info": "Describe the plan exactly as configured in your subscription app."
+        },
+        {
+          "type": "text",
+          "id": "sub_pill",
+          "label": "Highlight",
+          "info": "Only for a genuine included benefit."
+        },
+        {
+          "type": "select",
+          "id": "savings_format",
+          "label": "Savings badge",
+          "options": [
+            { "value": "amount", "label": "Amount (-$14)" },
+            { "value": "percent", "label": "Percentage (-15%)" },
+            { "value": "none", "label": "Hidden" }
+          ],
+          "default": "amount"
+        },
+        {
+          "type": "header",
+          "content": "One-time purchase"
+        },
+        {
+          "type": "text",
+          "id": "one_time_title",
+          "label": "Title",
+          "default": "One-time purchase"
+        },
+        {
+          "type": "richtext",
+          "id": "one_time_description",
+          "label": "Description"
         }
       ]
     },

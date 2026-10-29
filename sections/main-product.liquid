@@ -41,6 +41,8 @@
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- comment -%} DOUCE {%- endcomment -%}
+  <script src="{{ 'douce-product.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
@@ -78,6 +80,18 @@
       <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
         <div class="grid__item product__media-wrapper">
           {% render 'product-media-gallery', variant_images: variant_images %}
+          {%- comment -%} DOUCE: accordions shown under the gallery on tablet/desktop {%- endcomment -%}
+          {%- capture douce_media_accordions -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'collapsible_tab' and block.settings.douce_under_gallery -%}
+                {%- render 'douce-accordion', block: block, section_id: section.id, id_prefix: 'Media', editor_attributes: true -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endcapture -%}
+          {%- if douce_media_accordions != blank -%}
+            <div class="douce-media-accordions small-hide">{{ douce_media_accordions }}</div>
+          {%- endif -%}
+          {%- comment -%} /DOUCE {%- endcomment -%}
         </div>
         <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           <section
@@ -107,6 +121,28 @@
                     </a>
                   </div>
                 {%- when 'price' -%}
+                  {%- comment -%} DOUCE: optional purchase-option card around the native price {%- endcomment -%}
+                  {%- if block.settings.douce_card -%}
+                    <div class="douce-purchase-card" {{ block.shopify_attributes }}>
+                      <div class="douce-purchase-card__head">
+                        {%- if block.settings.douce_card_title != blank -%}
+                          <p class="douce-purchase-card__title">{{ block.settings.douce_card_title | escape }}</p>
+                        {%- endif -%}
+                        <div id="price-{{ section.id }}" class="douce-purchase-card__price" role="status">
+                          {%- render 'price',
+                            product: product,
+                            use_variant: true,
+                            show_badges: true,
+                            price_class: 'price--large'
+                          -%}
+                        </div>
+                      </div>
+                      {%- if block.settings.douce_card_includes != blank -%}
+                        <div class="douce-purchase-card__includes">{{ block.settings.douce_card_includes }}</div>
+                      {%- endif -%}
+                    </div>
+                  {%- else -%}
+                  {%- comment -%} /DOUCE {%- endcomment -%}
                   <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
@@ -115,6 +151,7 @@
                       price_class: 'price--large'
                     -%}
                   </div>
+                  {%- endif -%}
                   {%- if product.quantity_price_breaks_configured? -%}
                     <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                       <span>{{ 'products.product.volume_pricing.note' | t }}</span>
@@ -211,6 +248,14 @@
                 {%- when 'custom_liquid' -%}
                   {{ block.settings.custom_liquid }}
                 {%- when 'collapsible_tab' -%}
+                  {%- comment -%} DOUCE: under-gallery accordions repeat here on mobile only {%- endcomment -%}
+                  {%- if block.settings.douce_under_gallery -%}
+                    <div class="douce-mobile-accordion medium-hide large-up-hide">
+                      {%- render 'douce-accordion', block: block, section_id: section.id, id_prefix: 'Mobile', editor_attributes: false -%}
+                    </div>
+                    {%- continue -%}
+                  {%- endif -%}
+                  {%- comment -%} /DOUCE {%- endcomment -%}
                   <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                     <details id="Details-{{ block.id }}-{{ section.id }}">
                       <summary>
@@ -802,7 +847,31 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "DOUCE"
+        },
+        {
+          "type": "checkbox",
+          "id": "douce_card",
+          "label": "Show as purchase option card",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "douce_card_title",
+          "label": "Card title",
+          "default": "One-time purchase"
+        },
+        {
+          "type": "richtext",
+          "id": "douce_card_includes",
+          "label": "Card details",
+          "info": "Only list what is genuinely included."
+        }
+      ]
     },
     {
       "type": "sku",
@@ -1020,6 +1089,13 @@
       "type": "collapsible_tab",
       "name": "t:sections.main-product.blocks.collapsible_tab.name",
       "settings": [
+        {
+          "type": "checkbox",
+          "id": "douce_under_gallery",
+          "label": "DOUCE: show under the gallery",
+          "info": "Desktop: below the product images. Mobile: in the product info column.",
+          "default": false
+        },
         {
           "type": "text",
           "id": "heading",

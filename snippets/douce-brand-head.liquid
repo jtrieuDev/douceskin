@@ -1,0 +1,47 @@
+{% doc %}
+  Outputs DOUCE brand tokens (Theme settings > DOUCE brand) and, when enabled,
+  the DOUCE web fonts. Rendered in <head> after base.css.
+{% enddoc %}
+
+{%- if settings.douce_google_fonts -%}
+  {%- assign douce_display_family = settings.douce_font_display | default: 'Cormorant Garamond' -%}
+  {%- assign douce_body_family = settings.douce_font_body | default: 'Manrope' -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family={{ douce_display_family | url_encode | replace: '%20', '+' }}:ital,wght@0,400;0,500;0,600;1,400;1,500&family={{ douce_body_family | url_encode | replace: '%20', '+' }}:wght@400;500;600;700&display=swap"
+  >
+{%- endif -%}
+
+{%- style -%}
+  :root {
+    --douce-pine: {{ settings.douce_color_pine }};
+    --douce-pine-rgb: {{ settings.douce_color_pine.red }}, {{ settings.douce_color_pine.green }}, {{ settings.douce_color_pine.blue }};
+    --douce-leaf: {{ settings.douce_color_leaf }};
+    --douce-leaf-rgb: {{ settings.douce_color_leaf.red }}, {{ settings.douce_color_leaf.green }}, {{ settings.douce_color_leaf.blue }};
+    --douce-lime-rgb: {{ settings.douce_color_lime.red }}, {{ settings.douce_color_lime.green }}, {{ settings.douce_color_lime.blue }};
+    --douce-mint-rgb: {{ settings.douce_color_mint.red }}, {{ settings.douce_color_mint.green }}, {{ settings.douce_color_mint.blue }};
+    --douce-lime: {{ settings.douce_color_lime }};
+    --douce-lime-deep: {{ settings.douce_color_lime_deep }};
+    --douce-mint: {{ settings.douce_color_mint }};
+    --douce-mint-deep: {{ settings.douce_color_mint_deep }};
+    --douce-stock: {{ settings.douce_color_stock }};
+    --dc-page-width: {{ settings.douce_page_width | default: 1320 }}px;
+    --dc-section-gap: {{ settings.douce_section_spacing | default: 120 }}px;
+    {%- if settings.douce_google_fonts %}
+      --font-display: '{{ douce_display_family }}', Georgia, 'Times New Roman', serif;
+      --font-body: '{{ douce_body_family }}', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-heading-family: var(--font-display);
+      --font-heading-style: normal;
+      --font-heading-weight: 500;
+      --font-body-family: var(--font-body);
+      --font-body-style: normal;
+      --font-body-weight: 400;
+      --font-body-weight-bold: 700;
+    {%- else %}
+      --font-display: var(--font-heading-family);
+      --font-body: var(--font-body-family);
+    {%- endif %}
+  }
+{%- endstyle -%}

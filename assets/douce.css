@@ -5,20 +5,26 @@
 */
 
 :root {
-  --douce-ivory: #f8f6f1;
-  --douce-sand: #e9e3d8;
-  --douce-sage: #a6aa91;
-  --douce-olive: #34372f;
-  --douce-soft-black: #242420;
+  /*
+    Legacy DOUCE roles, now mapped to the Vivid palette from
+    Theme settings > DOUCE brand (see snippets/douce-brand-head.liquid).
+    ivory = page, sand = soft surface, sage = hairlines,
+    olive = selection / links / icons, soft-black = text.
+  */
+  --douce-ivory-rgb: 255, 255, 255;
+  --douce-sand-rgb: var(--douce-mint-rgb, 243, 248, 236);
+  --douce-sage-rgb: var(--douce-leaf-rgb, 14, 107, 53);
+  --douce-olive-rgb: var(--douce-leaf-rgb, 14, 107, 53);
+  --douce-soft-black-rgb: var(--douce-pine-rgb, 16, 41, 27);
 
-  --douce-ivory-rgb: 248, 246, 241;
-  --douce-sand-rgb: 233, 227, 216;
-  --douce-sage-rgb: 166, 170, 145;
-  --douce-olive-rgb: 52, 55, 47;
-  --douce-soft-black-rgb: 36, 36, 32;
+  --douce-ivory: rgb(var(--douce-ivory-rgb));
+  --douce-sand: rgb(var(--douce-sand-rgb));
+  --douce-sage: rgba(var(--douce-sage-rgb), 0.3);
+  --douce-olive: rgb(var(--douce-olive-rgb));
+  --douce-soft-black: rgb(var(--douce-soft-black-rgb));
 
-  --douce-radius: 1.2rem;
-  --douce-radius-small: 0.8rem;
+  --douce-radius: 2rem;
+  --douce-radius-small: 1.2rem;
 }
 
 /* =========================================================
@@ -27,29 +33,33 @@
    ========================================================= */
 
 product-info[id^='MainProduct-'] {
-  /* sage is decorative only (contrast ~2.2:1 on ivory) */
   --color-background: var(--douce-ivory-rgb);
   --gradient-background: var(--douce-ivory);
   --color-foreground: var(--douce-soft-black-rgb);
   --color-background-contrast: var(--douce-sand-rgb);
   --color-shadow: var(--douce-soft-black-rgb);
-  --color-button: var(--douce-olive-rgb);
-  --color-button-text: var(--douce-ivory-rgb);
+  --color-button: var(--douce-lime-rgb, 212, 240, 30);
+  --color-button-text: var(--douce-pine-rgb, 16, 41, 27);
   --color-secondary-button: var(--douce-ivory-rgb);
   --color-secondary-button-text: var(--douce-olive-rgb);
   --color-link: var(--douce-olive-rgb);
-  --color-badge-foreground: var(--douce-olive-rgb);
-  --color-badge-background: var(--douce-ivory-rgb);
+  --color-accent: var(--douce-olive-rgb);
+  --color-badge-foreground: var(--douce-ivory-rgb);
+  --color-badge-background: var(--douce-olive-rgb);
   --color-badge-border: var(--douce-olive-rgb);
   --payment-terms-background-color: var(--douce-ivory);
 
-  --buttons-radius: var(--douce-radius-small);
-  --buttons-radius-outset: calc(var(--douce-radius-small) + 1px);
-  --inputs-radius: var(--douce-radius-small);
-  --inputs-radius-outset: calc(var(--douce-radius-small) + 1px);
+  --buttons-radius: 10rem;
+  --buttons-radius-outset: calc(10rem + 1px);
+  --inputs-radius: 10rem;
+  --inputs-radius-outset: calc(10rem + 1px);
   --variant-pills-radius: var(--douce-radius-small);
 
   color: rgb(var(--color-foreground));
+}
+
+product-info[id^='MainProduct-'] .product__title h1 {
+  font-family: var(--font-display);
 }
 
 /* =========================================================
@@ -141,7 +151,7 @@ product-info[id^='MainProduct-'] .product__media-wrapper:has(.douce-media-accord
 product-info[id^='MainProduct-'] .douce-accordion {
   margin: 0;
   border-top: 0;
-  border-bottom: 0.1rem solid rgba(var(--douce-sage-rgb), 0.6);
+  border-bottom: 0.1rem solid rgba(var(--douce-sage-rgb), 0.2);
 }
 
 product-info[id^='MainProduct-'] .douce-accordion summary {
@@ -294,7 +304,7 @@ product-info[id^='MainProduct-'] .product-form__input--pill input[type='radio'] 
 }
 
 product-info[id^='MainProduct-'] .product-form__input--pill input[type='radio']:checked + label {
-  border: 0.2rem solid rgb(var(--douce-olive-rgb));
+  border: 0.2rem solid #a8d92b;
   padding: 1.5rem 1.1rem;
   background-color: rgb(var(--douce-sand-rgb));
   color: rgb(var(--douce-soft-black-rgb));
@@ -403,8 +413,8 @@ product-info[id^='MainProduct-'] .douce-purchase__card:hover {
 }
 
 product-info[id^='MainProduct-'] .douce-purchase__radio-input:checked + .douce-purchase__card {
-  border: 0.2rem solid rgb(var(--douce-olive-rgb));
-  background: rgba(var(--douce-sand-rgb), 0.55);
+  border: 0.2rem solid #a8d92b;
+  background: rgb(var(--douce-sand-rgb));
 }
 
 product-info[id^='MainProduct-'] .douce-purchase__radio-input:focus-visible + .douce-purchase__card {
@@ -415,7 +425,7 @@ product-info[id^='MainProduct-'] .douce-purchase__radio-input:focus-visible + .d
 product-info[id^='MainProduct-'] .douce-purchase__banner {
   display: block;
   padding: 0.8rem 1.6rem;
-  background: rgb(var(--douce-olive-rgb));
+  background: rgb(var(--douce-soft-black-rgb));
   color: rgb(var(--douce-ivory-rgb));
   font-size: 1.4rem;
   font-weight: 600;
@@ -697,6 +707,63 @@ product-info[id^='MainProduct-'] .icon-with-text--horizontal .h4 {
   letter-spacing: 0.1rem;
   text-transform: uppercase;
   color: rgb(var(--douce-olive-rgb));
+}
+
+/* Trust badges (douce_trust_badges block): Dawn icons in a sand rectangle */
+product-info[id^='MainProduct-'] .douce-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1.6rem;
+  margin-bottom: 0;
+  padding: 2rem 1.6rem;
+  border-radius: var(--douce-radius);
+  background: rgb(var(--douce-sand-rgb));
+}
+
+product-info[id^='MainProduct-'] .douce-trust__item {
+  flex: 1 1 0;
+  min-width: 9rem;
+}
+
+product-info[id^='MainProduct-'] .douce-trust__item,
+product-info[id^='MainProduct-'] .douce-trust__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: rgb(var(--douce-olive-rgb));
+}
+
+product-info[id^='MainProduct-'] .douce-trust__link {
+  text-decoration: none;
+}
+
+product-info[id^='MainProduct-'] .douce-trust__link:hover .douce-trust__text {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+product-info[id^='MainProduct-'] .douce-trust__icon {
+  margin-bottom: 0.8rem;
+}
+
+product-info[id^='MainProduct-'] .douce-trust__icon .svg-wrapper {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+product-info[id^='MainProduct-'] .douce-trust__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+product-info[id^='MainProduct-'] .douce-trust__text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
 }
 
 /* Description */

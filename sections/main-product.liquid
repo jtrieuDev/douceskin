@@ -79,7 +79,22 @@
     <div class="page-width">
       <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
         <div class="grid__item product__media-wrapper">
+          {%- comment -%} DOUCE: badge over the gallery {%- endcomment -%}
+          {%- if section.settings.douce_media_badge != blank -%}
+            <div class="dc-gallery-badge"><span class="dc-pill" style="background: var(--douce-mint); color: var(--douce-leaf);">{{ section.settings.douce_media_badge | escape }}</span></div>
+          {%- endif -%}
           {% render 'product-media-gallery', variant_images: variant_images %}
+          {%- comment -%} DOUCE: lifestyle images under the gallery (desktop) {%- endcomment -%}
+          {%- if section.settings.douce_media_image_1 != blank or section.settings.douce_media_image_2 != blank -%}
+            <div class="dc-gallery-extras">
+              {%- if section.settings.douce_media_image_1 != blank -%}
+                <div class="dc-media">{%- render 'douce-image', image: section.settings.douce_media_image_1, sizes: '(min-width: 990px) 25vw, 50vw' -%}</div>
+              {%- endif -%}
+              {%- if section.settings.douce_media_image_2 != blank -%}
+                <div class="dc-media">{%- render 'douce-image', image: section.settings.douce_media_image_2, sizes: '(min-width: 990px) 25vw, 50vw' -%}</div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
           {%- comment -%} DOUCE: accordions shown under the gallery on tablet/desktop {%- endcomment -%}
           {%- capture douce_media_accordions -%}
             {%- for block in section.blocks -%}
@@ -737,6 +752,12 @@
                 {%- when 'icon-with-text' -%}
                   {% render 'icon-with-text', block: block %}
                 {%- comment -%} DOUCE {%- endcomment -%}
+                {%- when 'douce_checklist' -%}
+                  {%- render 'douce-checklist', block: block -%}
+                {%- when 'douce_kit_picker' -%}
+                  {%- render 'douce-kit-picker', block: block, product: product -%}
+                {%- when 'douce_trust_badges' -%}
+                  {%- render 'douce-trust-badges', block: block -%}
                 {%- when 'douce_purchase_options' -%}
                   {%- render 'douce-purchase-options',
                     block: block,
@@ -882,6 +903,267 @@
           "label": "Card details",
           "info": "Only list what is genuinely included."
         }
+      ]
+    },
+    {
+      "type": "douce_trust_badges",
+      "name": "DOUCE trust badges",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Only show offers you actually provide. Free delivery and money-back claims must match your shipping and refund policies and your Google Merchant Center settings."
+        },
+        {
+          "type": "header",
+          "content": "Badge 1"
+        },
+        {
+          "type": "text",
+          "id": "text_1",
+          "label": "Text",
+          "info": "Leave empty to hide this badge."
+        },
+        {
+          "type": "select",
+          "id": "icon_1",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" },
+            { "value": "plane", "label": "Plane" },
+            { "value": "check_mark", "label": "Check mark" },
+            { "value": "chat_bubble", "label": "Chat bubble" },
+            { "value": "price_tag", "label": "Price tag" },
+            { "value": "box", "label": "Box" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "star", "label": "Star" }
+          ],
+          "default": "lock"
+        },
+        {
+          "type": "select",
+          "id": "link_1",
+          "label": "Link",
+          "info": "Policy links only appear once the policy exists in Settings > Policies.",
+          "options": [
+            { "value": "none", "label": "No link" },
+            { "value": "refund_policy", "label": "Refund policy" },
+            { "value": "shipping_policy", "label": "Shipping policy" },
+            { "value": "terms", "label": "Terms of service" },
+            { "value": "custom", "label": "Custom link" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "url",
+          "id": "url_1",
+          "label": "Custom link"
+        },
+        {
+          "type": "header",
+          "content": "Badge 2"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "Text",
+          "info": "Leave empty to hide this badge."
+        },
+        {
+          "type": "select",
+          "id": "icon_2",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" },
+            { "value": "plane", "label": "Plane" },
+            { "value": "check_mark", "label": "Check mark" },
+            { "value": "chat_bubble", "label": "Chat bubble" },
+            { "value": "price_tag", "label": "Price tag" },
+            { "value": "box", "label": "Box" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "star", "label": "Star" }
+          ],
+          "default": "truck"
+        },
+        {
+          "type": "select",
+          "id": "link_2",
+          "label": "Link",
+          "info": "Policy links only appear once the policy exists in Settings > Policies.",
+          "options": [
+            { "value": "none", "label": "No link" },
+            { "value": "refund_policy", "label": "Refund policy" },
+            { "value": "shipping_policy", "label": "Shipping policy" },
+            { "value": "terms", "label": "Terms of service" },
+            { "value": "custom", "label": "Custom link" }
+          ],
+          "default": "shipping_policy"
+        },
+        {
+          "type": "url",
+          "id": "url_2",
+          "label": "Custom link"
+        },
+        {
+          "type": "header",
+          "content": "Badge 3"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "label": "Text",
+          "info": "Leave empty to hide this badge."
+        },
+        {
+          "type": "select",
+          "id": "icon_3",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" },
+            { "value": "plane", "label": "Plane" },
+            { "value": "check_mark", "label": "Check mark" },
+            { "value": "chat_bubble", "label": "Chat bubble" },
+            { "value": "price_tag", "label": "Price tag" },
+            { "value": "box", "label": "Box" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "star", "label": "Star" }
+          ],
+          "default": "return"
+        },
+        {
+          "type": "select",
+          "id": "link_3",
+          "label": "Link",
+          "info": "Policy links only appear once the policy exists in Settings > Policies.",
+          "options": [
+            { "value": "none", "label": "No link" },
+            { "value": "refund_policy", "label": "Refund policy" },
+            { "value": "shipping_policy", "label": "Shipping policy" },
+            { "value": "terms", "label": "Terms of service" },
+            { "value": "custom", "label": "Custom link" }
+          ],
+          "default": "refund_policy"
+        },
+        {
+          "type": "url",
+          "id": "url_3",
+          "label": "Custom link"
+        },
+        {
+          "type": "header",
+          "content": "Badge 4"
+        },
+        {
+          "type": "text",
+          "id": "text_4",
+          "label": "Text",
+          "info": "Leave empty to hide this badge."
+        },
+        {
+          "type": "select",
+          "id": "icon_4",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" },
+            { "value": "plane", "label": "Plane" },
+            { "value": "check_mark", "label": "Check mark" },
+            { "value": "chat_bubble", "label": "Chat bubble" },
+            { "value": "price_tag", "label": "Price tag" },
+            { "value": "box", "label": "Box" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "star", "label": "Star" }
+          ],
+          "default": "check_mark"
+        },
+        {
+          "type": "select",
+          "id": "link_4",
+          "label": "Link",
+          "info": "Policy links only appear once the policy exists in Settings > Policies.",
+          "options": [
+            { "value": "none", "label": "No link" },
+            { "value": "refund_policy", "label": "Refund policy" },
+            { "value": "shipping_policy", "label": "Shipping policy" },
+            { "value": "terms", "label": "Terms of service" },
+            { "value": "custom", "label": "Custom link" }
+          ],
+          "default": "shipping_policy"
+        },
+        {
+          "type": "url",
+          "id": "url_4",
+          "label": "Custom link"
+        }
+      ]
+    },
+    {
+      "type": "douce_checklist",
+      "name": "DOUCE checklist",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [{"value":"checkmark","label":"Check"},{"value":"leaf","label":"Leaf"},{"value":"plant","label":"Plant"},{"value":"recycle","label":"Recycle"},{"value":"truck","label":"Truck"},{"value":"snowflake","label":"Snowflake"},{"value":"heart","label":"Heart"},{"value":"star","label":"Star"}],
+          "default": "checkmark"
+        },
+        {
+          "type": "select",
+          "id": "columns",
+          "label": "Columns",
+          "options": [{ "value": "1", "label": "1" }, { "value": "2", "label": "2" }],
+          "default": "2"
+        },
+        { "type": "text", "id": "item_1", "label": "Item 1", "default": "Reduces chlorine" },
+        { "type": "text", "id": "item_2", "label": "Item 2", "default": "Catches sediment & rust" },
+        { "type": "text", "id": "item_3", "label": "Item 3", "default": "Fits any ½\" hose" },
+        { "type": "text", "id": "item_4", "label": "Item 4", "default": "Steady pressure" },
+        { "type": "text", "id": "item_5", "label": "Item 5" },
+        { "type": "text", "id": "item_6", "label": "Item 6" }
+      ]
+    },
+    {
+      "type": "douce_kit_picker",
+      "name": "DOUCE kit picker",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Shows up to 3 kits as cards. Each kit is its own product; choosing a card opens that product. Add this block to every kit product's template so shoppers can switch between them."
+        },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Choose your kit" },
+        { "type": "text", "id": "note", "label": "Note", "default": "Bundle and save" },
+        { "type": "header", "content": "Kit 1" },
+        { "type": "product", "id": "product_1", "label": "Product" },
+        { "type": "text", "id": "title_1", "label": "Title", "default": "Showerhead" },
+        { "type": "text", "id": "subtitle_1", "label": "Subtitle", "default": "Filters installed · 2 months" },
+        { "type": "text", "id": "tag_1", "label": "Tag" },
+        { "type": "header", "content": "Kit 2" },
+        { "type": "product", "id": "product_2", "label": "Product" },
+        { "type": "text", "id": "title_2", "label": "Title", "default": "Starter Kit" },
+        { "type": "text", "id": "subtitle_2", "label": "Subtitle", "default": "Showerhead + 3 replacement filters" },
+        { "type": "text", "id": "tag_2", "label": "Tag", "default": "Most popular" },
+        { "type": "header", "content": "Kit 3" },
+        { "type": "product", "id": "product_3", "label": "Product" },
+        { "type": "text", "id": "title_3", "label": "Title", "default": "Complete Kit" },
+        { "type": "text", "id": "subtitle_3", "label": "Subtitle", "default": "Starter Kit + stainless hose" },
+        { "type": "text", "id": "tag_3", "label": "Tag", "default": "Best value" }
       ]
     },
     {
@@ -2334,6 +2616,28 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "DOUCE gallery"
+    },
+    {
+      "type": "text",
+      "id": "douce_media_badge",
+      "label": "Badge over the main image",
+      "info": "Leave empty to hide.",
+      "default": "Launch edition"
+    },
+    {
+      "type": "image_picker",
+      "id": "douce_media_image_1",
+      "label": "Lifestyle image 1",
+      "info": "Shown under the gallery on desktop."
+    },
+    {
+      "type": "image_picker",
+      "id": "douce_media_image_2",
+      "label": "Lifestyle image 2"
     },
     {
       "type": "header",

@@ -1,0 +1,84 @@
+{% doc %}
+  DOUCE kit picker: up to 3 kit products shown as selectable cards.
+  Each card links to its product; the card for the current product is marked selected.
+
+  @param {object} block - douce_kit_picker block.
+  @param {product} product - The product being viewed.
+{% enddoc %}
+{%- liquid
+  assign kit_count = 0
+  for i in (1..3)
+    assign key = 'product_' | append: i
+    if block.settings[key] != blank
+      assign kit_count = kit_count | plus: 1
+    endif
+  endfor
+-%}
+{%- if kit_count > 0 or request.design_mode -%}
+  <div class="dc-kits" {{ block.shopify_attributes }}>
+    {%- if block.settings.heading != blank or block.settings.note != blank -%}
+      <div class="dc-kits__head">
+        <p class="dc-kits__label" id="KitLabel-{{ block.id }}">{{ block.settings.heading | escape }}</p>
+        {%- if block.settings.note != blank -%}
+          <p class="dc-kits__note">{{ block.settings.note | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    <nav aria-labelledby="KitLabel-{{ block.id }}" class="dc-kits">
+      {%- for i in (1..3) -%}
+        {%- liquid
+          assign product_key = 'product_' | append: i
+          assign title_key = 'title_' | append: i
+          assign sub_key = 'subtitle_' | append: i
+          assign tag_key = 'tag_' | append: i
+          assign kit = block.settings[product_key]
+          if kit == blank and request.design_mode == false
+            continue
+          endif
+          assign is_current = false
+          if kit != blank and kit.id == product.id
+            assign is_current = true
+          endif
+          assign kit_title = block.settings[title_key] | default: kit.title
+        -%}
+        <a
+          class="dc-kit"
+          href="{% if kit != blank %}{{ kit.url }}{% else %}#{% endif %}"
+          {% if is_current %}
+            aria-current="true"
+          {% endif %}
+        >
+          <span class="dc-kit__radio" aria-hidden="true"></span>
+          <span class="dc-media">
+            {%- if kit.featured_media != blank -%}
+              {{
+                kit.featured_media
+                | image_url: width: 192
+                | image_tag: widths: '64, 128, 192', sizes: '64px', loading: 'lazy', alt: ''
+              }}
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </span>
+          <span>
+            <span class="dc-kit__title">{{ kit_title | default: 'Kit' | escape }}</span>
+            {%- if block.settings[sub_key] != blank -%}
+              <span class="dc-kit__sub">{{ block.settings[sub_key] | escape }}</span>
+            {%- endif -%}
+          </span>
+          <span class="dc-kit__price">
+            {%- if kit != blank -%}
+              <span>{{ kit.price | money }}</span>
+              {%- if kit.compare_at_price > kit.price -%}
+                <s>{{ kit.compare_at_price | money }}</s>
+              {%- endif -%}
+            {%- endif -%}
+          </span>
+          {%- if block.settings[tag_key] != blank -%}
+            <span class="dc-kit__tag">{{ block.settings[tag_key] | escape }}</span>
+          {%- endif -%}
+        </a>
+      {%- endfor -%}
+    </nav>
+  </div>
+{%- endif -%}

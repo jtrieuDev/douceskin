@@ -3323,6 +3323,10 @@ h3,
   text-transform: uppercase;
 }
 
+.product__media-wrapper:has(> .dc-gallery-badge) {
+  position: relative;
+}
+
 .dc-gallery-badge {
   position: absolute;
   left: 18px;

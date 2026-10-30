@@ -80,7 +80,7 @@
                 </a>
               </li>
             {%- else -%}
-              <li class="dc-text">{{ 'sections.featured_blog.onboarding_title' | t }}</li>
+              <li class="dc-text">{{ section.settings.empty_text | escape }}</li>
             {%- endfor -%}
           </ol>
           {%- if paginate.pages > 1 -%}
@@ -160,6 +160,7 @@
     { "type": "text", "id": "count_label", "label": "Article count label", "default": "articles" },
     { "type": "checkbox", "id": "show_read_time", "label": "Show reading time", "default": true },
     { "type": "text", "id": "minutes_label", "label": "Reading time label", "default": "min" },
+    { "type": "text", "id": "empty_text", "label": "Text when there are no articles", "default": "New articles are on the way." },
     {
       "type": "header",
       "content": "Sidebar"

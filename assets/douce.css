@@ -233,7 +233,8 @@ product-info[id^='MainProduct-'] .product__title > * {
 
 @media screen and (min-width: 990px) {
   product-info[id^='MainProduct-'] .product__title > * {
-    font-size: calc(var(--font-heading-scale) * 4.4rem);
+    font-size: calc(var(--font-heading-scale) * 5.2rem);
+    line-height: 1.02;
   }
 }
 
@@ -807,5 +808,117 @@ product-info[id^='MainProduct-'] .product__description {
 
   product-info[id^='MainProduct-'] .product__info-container > .douce-mobile-accordion + .douce-mobile-accordion {
     margin-top: 0;
+  }
+}
+
+/* =========================================================
+   Product Final layout: vertical thumbnails, square main image,
+   eyebrow above the title, short intro, accordions in the panel.
+   ========================================================= */
+
+/* Main image: square, rounded, mint backdrop */
+product-info[id^='MainProduct-'] .product__media-list .product-media-container {
+  --ratio: 1 !important;
+  --ratio-percent: 100% !important;
+  border-radius: 2rem;
+  background: var(--douce-mint);
+}
+
+/* Eyebrow sits above the title */
+product-info[id^='MainProduct-'] .product__info-container > .product__text.caption-with-letter-spacing + .product__title {
+  margin-top: 1.2rem;
+}
+
+product-info[id^='MainProduct-'] .product__text.caption-with-letter-spacing {
+  color: rgb(var(--color-accent));
+  margin-bottom: 0;
+}
+
+/* Short intro under the title */
+product-info[id^='MainProduct-'] .product__info-container > .product__text:not(.caption-with-letter-spacing):not(.subtitle) {
+  margin-top: 1.2rem;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: rgba(var(--color-foreground), 0.72);
+}
+
+/* Accordions stack flush inside the panel */
+product-info[id^='MainProduct-'] .product__info-container > .douce-accordion + .douce-accordion {
+  margin-top: 0;
+}
+
+product-info[id^='MainProduct-'] .product__info-container > .douce-accordion .accordion__content {
+  padding-left: 3.6rem;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: rgba(var(--color-foreground), 0.72);
+}
+
+@media screen and (min-width: 750px) {
+  /* Thumbnails in a 76px column left of the main image */
+  product-info[id^='MainProduct-'] media-gallery:has(> .thumbnail-slider) {
+    display: grid;
+    grid-template-columns: 7.6rem minmax(0, 1fr);
+    column-gap: 1.4rem;
+    align-items: start;
+  }
+
+  product-info[id^='MainProduct-'] media-gallery > slider-component[id^='GalleryViewer-'] {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  product-info[id^='MainProduct-'] media-gallery > .thumbnail-slider {
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+    margin: 0;
+  }
+
+  product-info[id^='MainProduct-'] .thumbnail-slider .thumbnail-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  product-info[id^='MainProduct-'] .thumbnail-slider .thumbnail-list__item {
+    width: 100%;
+    max-width: none;
+  }
+
+  product-info[id^='MainProduct-'] .thumbnail-slider .slider-button {
+    display: none;
+  }
+
+  product-info[id^='MainProduct-'] .thumbnail {
+    border: 0;
+    border-radius: 1rem;
+    background: var(--douce-mint);
+  }
+
+  product-info[id^='MainProduct-'] .thumbnail[aria-current] {
+    box-shadow: none;
+    outline: 0.2rem solid var(--douce-leaf);
+    outline-offset: 0.2rem;
+  }
+
+  /* Badge and lifestyle images line up with the main image, not the thumbnails */
+  product-info[id^='MainProduct-'] .product__media-wrapper:has(.thumbnail-slider) .dc-gallery-badge {
+    left: calc(7.6rem + 1.4rem + 1.8rem);
+  }
+
+  product-info[id^='MainProduct-'] .product__media-wrapper:has(.thumbnail-slider) .dc-gallery-extras {
+    padding-left: 9rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  product-info[id^='MainProduct-'] .product__info-wrapper {
+    padding-left: 6.4rem;
   }
 }

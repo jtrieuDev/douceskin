@@ -27,6 +27,7 @@
       }
     });
   };
+  window.douceFormatMoney = formatMoney;
 
   /* Before / after slider */
   if (!customElements.get('douce-compare')) {
@@ -125,7 +126,8 @@
             if (priceItem && target) target.textContent = priceItem.textContent.trim();
             const label = this.querySelector('[data-sticky-label]');
             const mainLabel = this.mainButton.querySelector('span');
-            if (label && mainLabel) label.textContent = mainLabel.textContent.trim();
+            // The main button may read "Add to cart · $69.00"; the bar shows its own price.
+            if (label && mainLabel) label.textContent = mainLabel.textContent.split(' · ')[0].trim();
             this.button.disabled = Boolean(variant && !variant.available);
           });
         }

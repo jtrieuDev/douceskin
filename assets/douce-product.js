@@ -106,3 +106,62 @@
     init();
   }
 })();
+
+/*
+  DOUCE: "Add to cart · $69.00" on the main button. The price follows the
+  selected purchase option (subscription or one-time) times the quantity.
+  Dawn rewrites the label on variant changes; the observer re-applies it.
+*/
+(function () {
+  const SEP = ' · ';
+
+  function update(info) {
+    const button = info.querySelector('button[id^="ProductSubmitButton-"]');
+    const label = button && button.querySelector('span');
+    const purchase = info.querySelector('.douce-purchase');
+    if (!label || !purchase || typeof window.douceFormatMoney !== 'function') return;
+
+    const base = label.textContent.split(SEP)[0].trim();
+    const addLabel = (window.variantStrings && window.variantStrings.addToCart) || base;
+    if (button.disabled || base !== addLabel) {
+      if (label.textContent !== base) label.textContent = base;
+      return;
+    }
+
+    const option =
+      purchase.querySelector('.douce-purchase__radio-input:checked') ||
+      purchase.querySelector('.douce-purchase__radio-input');
+    const price = Number(option && option.dataset.price);
+    if (!price) return;
+
+    const quantityInput = info.querySelector('.quantity__input');
+    const quantity = Math.max(1, parseInt(quantityInput && quantityInput.value, 10) || 1);
+    const text = base + SEP + window.douceFormatMoney(price * quantity, purchase.dataset.moneyFormat);
+    if (label.textContent !== text) label.textContent = text;
+  }
+
+  function watch(root) {
+    root.querySelectorAll('product-info[id^="MainProduct-"]').forEach((info) => {
+      if (info.dataset.douceAtcPrice) return;
+      info.dataset.douceAtcPrice = 'true';
+      const run = () => update(info);
+      info.addEventListener('change', run);
+      new MutationObserver(run).observe(info, {
+        subtree: true,
+        childList: true,
+        characterData: true,
+        attributes: true,
+        attributeFilter: ['disabled'],
+      });
+      run();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => watch(document));
+  } else {
+    watch(document);
+  }
+  document.addEventListener('shopify:section:load', (event) => watch(event.target));
+  document.addEventListener('product-info:loaded', (event) => watch(event.target.closest('section') || document));
+})();

@@ -3435,3 +3435,49 @@ douce-video video {
 douce-video.is-playing .dc-video-toggle {
   display: none;
 }
+
+/* Breadcrumbs */
+.dc-breadcrumbs {
+  padding-top: var(--dc-pt, 20px);
+  background: rgb(var(--color-background));
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+
+.dc-breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 auto;
+  list-style: none;
+  color: rgba(var(--color-foreground), 0.68);
+}
+
+.dc-breadcrumbs li {
+  display: flex;
+  gap: 8px;
+}
+
+.dc-breadcrumbs li + li::before {
+  content: '/';
+}
+
+.dc-breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dc-breadcrumbs a:hover {
+  color: rgb(var(--color-foreground));
+  text-decoration: underline;
+}
+
+.dc-breadcrumbs [aria-current] {
+  color: rgb(var(--color-foreground));
+}
+
+@media screen and (max-width: 749px) {
+  .dc-breadcrumbs {
+    display: none;
+  }
+}

@@ -43,6 +43,7 @@
   id="DoucePurchase-{{ section_id }}"
   class="douce-purchase"
   data-section="{{ section_id }}"
+  data-money-format="{{ shop.money_format | escape }}"
   {{ block.shopify_attributes }}
 >
   <fieldset class="douce-purchase__options">
@@ -63,6 +64,7 @@
             name="DoucePurchase-{{ section_id }}"
             id="{{ input_id }}"
             value="{{ plan.id }}"
+            data-price="{{ allocation.price }}"
             {% if selected_plan_id == plan.id %}
               checked
             {% endif %}
@@ -127,6 +129,7 @@
           name="DoucePurchase-{{ section_id }}"
           id="{{ input_id }}"
           value=""
+          data-price="{{ variant.price }}"
           {% if selected_plan_id == '' %}
             checked
           {% endif %}

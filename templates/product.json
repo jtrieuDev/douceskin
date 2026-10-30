@@ -29,18 +29,6 @@
           },
           "disabled": true
         },
-        "benefits": {
-          "type": "icon-with-text",
-          "settings": {
-            "layout": "vertical",
-            "icon_1": "none",
-            "heading_1": "",
-            "icon_2": "none",
-            "heading_2": "",
-            "icon_3": "none",
-            "heading_3": ""
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -61,7 +49,8 @@
         },
         "description": {
           "type": "description",
-          "settings": {}
+          "settings": {},
+          "disabled": true
         },
         "subtitle": {
           "type": "text",
@@ -86,7 +75,7 @@
         "why": {
           "type": "collapsible_tab",
           "settings": {
-            "douce_under_gallery": true,
+            "douce_under_gallery": false,
             "heading": "Why DOUCE",
             "icon": "leaf",
             "content": "{{ product.metafields.douce.why | metafield_tag }}"
@@ -99,12 +88,13 @@
             "heading": "Key Benefits",
             "icon": "check_mark",
             "content": "{{ product.metafields.douce.benefits | metafield_tag }}"
-          }
+          },
+          "disabled": true
         },
         "filter_tab": {
           "type": "collapsible_tab",
           "settings": {
-            "douce_under_gallery": true,
+            "douce_under_gallery": false,
             "heading": "Filter Replacement",
             "icon": "recycle",
             "content": "{{ product.metafields.douce.filter_replacement | metafield_tag }}"
@@ -113,7 +103,7 @@
         "box_tab": {
           "type": "collapsible_tab",
           "settings": {
-            "douce_under_gallery": true,
+            "douce_under_gallery": false,
             "heading": "What's Included in the Box",
             "icon": "box",
             "content": "{{ product.metafields.douce.box_contents | metafield_tag }}"
@@ -180,41 +170,58 @@
             "subtitle_3": "Starter Kit + stainless hose",
             "tag_3": "Best value"
           }
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "text": "Two-stage filtration in a clear handle, so you can see what stays out of your shower. Kinder to dry, sensitive skin and hair.",
+            "text_style": "body"
+          }
+        },
+        "shipping_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "douce_under_gallery": false,
+            "heading": "Shipping & Returns",
+            "icon": "truck",
+            "content": "<p>Free US delivery in 3–5 business days. Return within 60 days for a full refund.</p>"
+          }
         }
       },
       "block_order": [
-        "title",
         "subtitle",
+        "title",
         "rating",
+        "intro",
+        "checklist",
         "variant_picker",
-        "price",
+        "kits",
         "purchase_options",
-        "benefits",
         "quantity_selector",
         "buy_buttons",
-        "reassurance",
         "trust_badges",
-        "description",
-        "checklist",
-        "kits",
         "why",
-        "benefits_tab",
         "filter_tab",
-        "box_tab"
+        "box_tab",
+        "shipping_tab",
+        "price",
+        "reassurance",
+        "description",
+        "benefits_tab"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
+        "constrain_to_viewport": false,
+        "media_fit": "cover",
         "gallery_layout": "thumbnail",
-        "mobile_thumbnails": "show",
+        "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 48,
+        "padding_top": 20,
         "padding_bottom": 48
       }
     },
@@ -223,7 +230,8 @@
       "settings": {
         "padding_top": 36,
         "padding_bottom": 0
-      }
+      },
+      "disabled": true
     },
     "related-products": {
       "type": "related-products",
@@ -241,7 +249,8 @@
         "show_rating": false,
         "padding_top": 36,
         "padding_bottom": 28
-      }
+      },
+      "disabled": true
     },
     "benefits": {
       "type": "douce-icon-columns",
@@ -489,9 +498,21 @@
         "show_on_mobile": true,
         "color_scheme": "scheme-1"
       }
+    },
+    "breadcrumbs": {
+      "type": "douce-breadcrumbs",
+      "settings": {
+        "home_label": "Home",
+        "shop_label": "Shop",
+        "current_label": "",
+        "aria_label": "Breadcrumb",
+        "color_scheme": "scheme-1",
+        "padding_top": 20
+      }
     }
   },
   "order": [
+    "breadcrumbs",
     "main",
     "disclosures",
     "related-products",

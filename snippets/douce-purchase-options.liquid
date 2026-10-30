@@ -91,7 +91,7 @@
                   {%- if block.settings.savings_format != 'none' -%}
                     <span class="douce-purchase__savings">
                       {%- if block.settings.savings_format == 'percent' -%}
-                        -{{ savings | times: 100 | divided_by: compare_price | round }}%
+                        -{{ savings | times: 100.0 | divided_by: compare_price | round }}%
                       {%- else -%}
                         -{{ savings | money_without_trailing_zeros }}
                       {%- endif -%}

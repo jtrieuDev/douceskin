@@ -11,7 +11,8 @@
       parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
       return parts.join(decimal);
     };
-    const template = format || '${{amount}}';
+    // Some stores wrap the format in HTML (<span class=money>); prices are set as text.
+    const template = (format || '${{amount}}').replace(/<[^>]*>/g, '');
     return template.replace(/\{\{\s*(\w+)\s*\}\}/, (_, key) => {
       switch (key) {
         case 'amount_no_decimals':
@@ -95,6 +96,12 @@
           });
           this.observer.observe(this.mainButton);
 
+          this.onPurchaseChange = (event) => {
+            if (event.target.classList?.contains('douce-purchase__radio-input')) this.syncPurchasePrice();
+          };
+          document.addEventListener('change', this.onPurchaseChange);
+          this.syncPurchasePrice();
+
           if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
             this.unsubscribe = subscribe(PUB_SUB_EVENTS.variantChange, (event) => this.onVariantChange(event));
           }
@@ -103,6 +110,7 @@
         disconnectedCallback() {
           this.observer?.disconnect();
           this.unsubscribe?.();
+          document.removeEventListener('change', this.onPurchaseChange);
         }
 
         setVisible(visible) {
@@ -120,16 +128,29 @@
             if (variant && variantEl && variant.title && variant.title !== 'Default Title') {
               variantEl.textContent = variant.title;
             }
-            const price = sectionId && document.getElementById(`price-${sectionId}`);
-            const priceItem = price?.querySelector('.price--on-sale .price-item--last, .price__regular .price-item--regular');
-            const target = this.querySelector('[data-sticky-price]');
-            if (priceItem && target) target.textContent = priceItem.textContent.trim();
+            if (!this.syncPurchasePrice()) {
+              const price = sectionId && document.getElementById(`price-${sectionId}`);
+              const priceItem = price?.querySelector('.price--on-sale .price-item--last, .price__regular .price-item--regular');
+              const target = this.querySelector('[data-sticky-price]');
+              if (priceItem && target) target.textContent = priceItem.textContent.trim();
+            }
+            const available = !variant || variant.available;
             const label = this.querySelector('[data-sticky-label]');
-            const mainLabel = this.mainButton.querySelector('span');
-            // The main button may read "Add to cart · $69.00"; the bar shows its own price.
-            if (label && mainLabel) label.textContent = mainLabel.textContent.split(' · ')[0].trim();
-            this.button.disabled = Boolean(variant && !variant.available);
+            const soldOut = window.variantStrings?.soldOut || this.button.dataset.soldOut;
+            if (label) label.textContent = available ? this.button.dataset.label : soldOut;
+            this.button.disabled = !available;
           });
+        }
+
+        // Shows the price of the chosen purchase option (subscription or one-time).
+        syncPurchasePrice() {
+          const purchase = document.querySelector('product-info .douce-purchase');
+          const option = purchase?.querySelector('.douce-purchase__radio-input:checked');
+          const target = this.querySelector('[data-sticky-price]');
+          const price = Number(option?.dataset.price);
+          if (!price || !target) return false;
+          target.textContent = formatMoney(price, purchase.dataset.moneyFormat);
+          return true;
         }
       }
     );
@@ -236,6 +257,9 @@
             });
             const data = await res.json();
             if (!res.ok || data.status) throw new Error(data.description || data.message || 'Error');
+            if (typeof publish === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+              publish(PUB_SUB_EVENTS.cartUpdate, { source: 'douce-bundle', cartData: data });
+            }
             if (cart && typeof cart.renderContents === 'function') {
               cart.classList.remove('is-empty');
               cart.renderContents(data);

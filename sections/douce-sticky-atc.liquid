@@ -43,6 +43,8 @@
         type="button"
         class="dc-btn dc-btn--{{ section.settings.button_style }} dc-btn--m"
         data-sticky-button
+        data-label="{{ section.settings.button_label | escape }}"
+        data-sold-out="{{ 'products.product.sold_out' | t | escape }}"
         tabindex="-1"
         {% unless current_variant.available %}
           disabled

@@ -711,6 +711,7 @@ h3,
   background: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
   font-family: var(--font-body);
+  letter-spacing: 0; /* Dawn's body tracking (0.06rem) is not in the design */
   overflow: hidden;
 }
 
@@ -786,6 +787,7 @@ h3,
 
 .dc-footer__col-title {
   margin: 0 0 6px;
+  font-family: var(--font-body); /* h2: Dawn would give it the heading font */
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.2px;

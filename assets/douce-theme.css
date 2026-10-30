@@ -21,6 +21,20 @@
   }
 }
 
+/* The design system renders all text antialiased; without it macOS draws
+   type heavier, most visibly white headlines on dark backgrounds. */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dawn hides every empty div (base.css div:empty). These are purely
+   decorative layers, so keep them rendered. */
+.dc-hero div.dc-hero__overlay,
+.dc-ba div.dc-ba__line {
+  display: block;
+}
+
 /* =========================================================
    Global type (only when DOUCE fonts are on, so Dawn's
    font settings keep working otherwise)
@@ -1096,6 +1110,8 @@ h3,
    ========================================================= */
 
 .dc-steps__card {
+  /* A scheme card inside the section: Dawn gives .color-scheme-N 75% text */
+  color: rgb(var(--color-foreground));
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 72px;

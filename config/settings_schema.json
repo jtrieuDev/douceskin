@@ -1516,19 +1516,38 @@
         "id": "douce_google_fonts",
         "label": "Use DOUCE web fonts",
         "default": true,
-        "info": "Loads the fonts below from Google Fonts and uses them instead of the Typography settings."
+        "info": "Uses Cormorant Garamond and Manrope instead of the Typography settings."
+      },
+      {
+        "type": "select",
+        "id": "douce_font_host",
+        "label": "Font source",
+        "options": [
+          {
+            "value": "shopify",
+            "label": "Hosted by Shopify (theme files)"
+          },
+          {
+            "value": "google",
+            "label": "Google Fonts"
+          }
+        ],
+        "default": "shopify",
+        "info": "Shopify hosting serves Cormorant Garamond and Manrope from the theme. Choose Google Fonts to use the font names below."
       },
       {
         "type": "text",
         "id": "douce_font_display",
         "label": "Display font (headlines)",
+        "info": "Google Fonts only.",
         "default": "Cormorant Garamond"
       },
       {
         "type": "text",
         "id": "douce_font_body",
         "label": "Body font",
-        "default": "Manrope"
+        "default": "Manrope",
+        "info": "Google Fonts only."
       },
       {
         "type": "header",

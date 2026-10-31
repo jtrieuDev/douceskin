@@ -128,9 +128,12 @@
       return;
     }
 
+    const kit = info.querySelector('.dc-kit__input:checked');
     const option =
-      purchase.querySelector('.douce-purchase__radio-input:checked') ||
-      purchase.querySelector('.douce-purchase__radio-input');
+      kit && kit.value !== 'self'
+        ? kit
+        : purchase.querySelector('.douce-purchase__radio-input:checked') ||
+          purchase.querySelector('.douce-purchase__radio-input');
     const price = Number(option && option.dataset.price);
     if (!price) return;
 
@@ -164,4 +167,133 @@
   }
   document.addEventListener('shopify:section:load', (event) => watch(event.target));
   document.addEventListener('product-info:loaded', (event) => watch(event.target.closest('section') || document));
+})();
+
+/*
+  DOUCE: kit picker. The cards are radios, not links: the checked card decides
+  which variant the native product form adds to the cart (the current product
+  on its own, or a kit, which is another product). Nothing navigates.
+
+  - On change, the variant id of the checked card is written to the product
+    form(s), the same way Dawn does it, and the Add to cart state follows.
+  - A kit cannot be bought on a selling plan of the standalone product, so while
+    a kit is selected the purchase options are forced to "One-time purchase" and hidden.
+  - Dawn re-renders the section when the finish changes; the fresh cards already
+    carry the kit variants matching the new finish. They are swapped in, the
+    shopper's choice is kept, and the variant id is re-applied after Dawn's own update.
+*/
+(function () {
+  const selection = {};
+
+  function setSubmit(info, radio) {
+    const button = info.querySelector('button[id^="ProductSubmitButton-"]');
+    const label = button && button.querySelector('span');
+    if (!button || !label || !window.variantStrings) return;
+    if (radio.dataset.available === 'true') {
+      if (button.disabled) {
+        button.removeAttribute('disabled');
+        label.textContent = window.variantStrings.addToCart;
+      }
+    } else if (!button.disabled) {
+      button.setAttribute('disabled', 'disabled');
+      label.textContent = window.variantStrings.soldOut;
+    }
+  }
+
+  function apply(container) {
+    const info = container.closest('product-info');
+    const radio = container.querySelector('.dc-kit__input:checked');
+    if (!info || !radio) return;
+    const isKit = radio.value !== 'self';
+    selection[container.id] = radio.value;
+
+    const section = info.dataset.section;
+    info
+      .querySelectorAll(`#product-form-${section}, #product-form-installment-${section}`)
+      .forEach((form) => {
+        const input = form.querySelector('input[name="id"]');
+        if (!input || input.value === radio.dataset.variantId) return;
+        input.value = radio.dataset.variantId;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+
+    info.querySelectorAll('.douce-purchase').forEach((purchase) => {
+      purchase.toggleAttribute('data-kit-selected', isKit);
+      if (!isKit) return;
+      const oneTime = Array.from(purchase.querySelectorAll('.douce-purchase__radio-input')).find(
+        (r) => r.value === ''
+      );
+      if (oneTime && !oneTime.checked) {
+        oneTime.checked = true;
+        oneTime.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+
+    setSubmit(info, radio);
+  }
+
+  // When the product on its own is sold out in this finish, its card cannot be selected.
+  // If a kit is available the first one is chosen; otherwise no card is selected.
+  function normalize(container) {
+    const self = container.querySelector('.dc-kit__input[value="self"]');
+    if (!self) return;
+    const kits = Array.from(container.querySelectorAll('.dc-kit__input')).filter(
+      (r) => r.value !== 'self' && !r.disabled
+    );
+    const soldOut = self.dataset.available !== 'true';
+    const card = self.closest('.dc-kit');
+    if (!soldOut) return;
+    self.disabled = true;
+    card.classList.add('dc-kit--soldout');
+    const sub = card.querySelector('.dc-kit__sub');
+    const text = (window.variantStrings && window.variantStrings.soldOut) || 'Sold out';
+    if (sub) sub.textContent = text;
+    else {
+      const holder = card.querySelector('.dc-kit__title');
+      if (holder) holder.insertAdjacentHTML('afterend', `<span class="dc-kit__sub">${text}</span>`);
+    }
+    if (!kits.length) {
+      // Nothing is available in this finish: no card can be selected.
+      self.checked = false;
+      return;
+    }
+    if (self.checked || !container.querySelector('.dc-kit__input:checked')) {
+      kits[0].checked = true;
+      kits[0].dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  }
+
+  document.addEventListener('change', (event) => {
+    const target = event.target;
+    if (!target.classList || !target.classList.contains('dc-kit__input')) return;
+    const container = target.closest('.dc-kits[id^="DouceKits-"]');
+    if (container) apply(container);
+  });
+
+  function onVariantChange({ data }) {
+    if (!data || !data.html) return;
+    document.querySelectorAll('.dc-kits[id^="DouceKits-"]').forEach((current) => {
+      const fresh = data.html.getElementById(current.id);
+      if (fresh) current.innerHTML = fresh.innerHTML;
+      const wanted = selection[current.id];
+      const radios = Array.from(current.querySelectorAll('.dc-kit__input'));
+      const match = radios.find((r) => r.value === wanted && !r.disabled);
+      if (match) match.checked = true;
+      apply(current);
+      normalize(current);
+    });
+  }
+
+  function init() {
+    document.querySelectorAll('.dc-kits[id^="DouceKits-"]').forEach(normalize);
+    if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+      subscribe(PUB_SUB_EVENTS.variantChange, onVariantChange);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();

@@ -33,7 +33,8 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "swatch_shape": "square"
+            "swatch_shape": "circle",
+            "swatch_colors": "Crystal White: #F2F4F5\nSmoky Black: #2B2B2B\nAqua Blue: #8FD3E8\nSoft Green: #B7D9B0"
           }
         },
         "quantity_selector": {
@@ -75,7 +76,7 @@
         "why": {
           "type": "collapsible_tab",
           "settings": {
-            "douce_under_gallery": false,
+            "douce_under_gallery": true,
             "heading": "Why DOUCE",
             "icon": "leaf",
             "content": "{{ product.metafields.douce.why | metafield_tag }}"
@@ -94,7 +95,7 @@
         "filter_tab": {
           "type": "collapsible_tab",
           "settings": {
-            "douce_under_gallery": false,
+            "douce_under_gallery": true,
             "heading": "Filter Replacement",
             "icon": "recycle",
             "content": "{{ product.metafields.douce.filter_replacement | metafield_tag }}"
@@ -103,7 +104,7 @@
         "box_tab": {
           "type": "collapsible_tab",
           "settings": {
-            "douce_under_gallery": false,
+            "douce_under_gallery": true,
             "heading": "What's Included in the Box",
             "icon": "box",
             "content": "{{ product.metafields.douce.box_contents | metafield_tag }}"
@@ -181,7 +182,7 @@
         "shipping_tab": {
           "type": "collapsible_tab",
           "settings": {
-            "douce_under_gallery": false,
+            "douce_under_gallery": true,
             "heading": "Shipping & Returns",
             "icon": "truck",
             "content": "<p>Free US delivery in 3–5 business days. Return within 60 days for a full refund.</p>"
@@ -215,7 +216,7 @@
         "media_size": "medium",
         "constrain_to_viewport": false,
         "media_fit": "cover",
-        "gallery_layout": "thumbnail",
+        "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",

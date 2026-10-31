@@ -41,7 +41,7 @@
 
 <div
   id="DoucePurchase-{{ section_id }}"
-  class="douce-purchase"
+  class="douce-purchase{% unless has_plans %} douce-purchase--solo{% endunless %}"
   data-section="{{ section_id }}"
   data-money-format="{{ shop.money_format | escape }}"
   {{ block.shopify_attributes }}

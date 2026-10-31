@@ -673,8 +673,27 @@ product-info[id^='MainProduct-'] .product-form__submit {
   letter-spacing: 0.06rem;
 }
 
+product-info[id^='MainProduct-'] .product-form__submit:not([disabled]) {
+  background-color: var(--douce-lime);
+  border-color: var(--douce-lime);
+  color: var(--douce-pine);
+  box-shadow: 0 6px 18px rgba(var(--douce-pine-rgb), 0.14);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
 product-info[id^='MainProduct-'] .product-form__submit:not([disabled]):hover {
-  --color-button: var(--douce-soft-black-rgb);
+  background-color: var(--douce-lime-deep);
+  border-color: var(--douce-lime-deep);
+  box-shadow: 0 8px 22px rgba(var(--douce-pine-rgb), 0.2);
+}
+
+product-info[id^='MainProduct-'] .product-form__submit:not([disabled]):active {
+  transform: scale(0.985);
+}
+
+product-info[id^='MainProduct-'] .product-form__submit:focus-visible {
+  outline: 2px solid var(--douce-pine);
+  outline-offset: 3px;
 }
 
 /* Reassurance strip (icon-with-text, horizontal layout) */
@@ -856,38 +875,34 @@ product-info[id^='MainProduct-'] .product__info-container > .douce-accordion .ac
 }
 
 @media screen and (min-width: 750px) {
-  /* Thumbnails in a 76px column left of the main image */
+  /* Thumbnails in a row under the main image */
   product-info[id^='MainProduct-'] media-gallery:has(> .thumbnail-slider) {
-    display: grid;
-    grid-template-columns: 7.6rem minmax(0, 1fr);
-    column-gap: 1.4rem;
-    align-items: start;
-  }
-
-  product-info[id^='MainProduct-'] media-gallery > slider-component[id^='GalleryViewer-'] {
-    grid-column: 2;
-    grid-row: 1;
+    display: block;
   }
 
   product-info[id^='MainProduct-'] media-gallery > .thumbnail-slider {
-    grid-column: 1;
-    grid-row: 1;
     display: block;
-    margin: 0;
+    margin: 1.4rem 0 0;
   }
 
   product-info[id^='MainProduct-'] .thumbnail-slider .thumbnail-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
     gap: 1rem;
     margin: 0;
-    padding: 0;
-    overflow: visible;
+    padding: 0.4rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  product-info[id^='MainProduct-'] .thumbnail-slider .thumbnail-list::-webkit-scrollbar {
+    display: none;
   }
 
   product-info[id^='MainProduct-'] .thumbnail-slider .thumbnail-list__item {
-    width: 100%;
+    flex: 0 0 7.6rem;
+    width: 7.6rem;
     max-width: none;
   }
 
@@ -906,19 +921,51 @@ product-info[id^='MainProduct-'] .product__info-container > .douce-accordion .ac
     outline: 0.2rem solid var(--douce-leaf);
     outline-offset: 0.2rem;
   }
-
-  /* Badge and lifestyle images line up with the main image, not the thumbnails */
-  product-info[id^='MainProduct-'] .product__media-wrapper:has(.thumbnail-slider) .dc-gallery-badge {
-    left: calc(7.6rem + 1.4rem + 1.8rem);
-  }
-
-  product-info[id^='MainProduct-'] .product__media-wrapper:has(.thumbnail-slider) .dc-gallery-extras {
-    padding-left: 9rem;
-  }
 }
 
 @media screen and (min-width: 990px) {
   product-info[id^='MainProduct-'] .product__info-wrapper {
     padding-left: 6.4rem;
   }
+}
+
+/* Kit picker: a kit has no subscription, so the purchase options are hidden while one is selected. */
+.douce-purchase[data-kit-selected] {
+  display: none;
+}
+
+/* No subscription plan on the product: the lone "One-time purchase" card is hidden (it stays in the DOM for the price label). */
+.douce-purchase--solo {
+  display: none;
+}
+
+/* Small phones: keep "Add to cart · $69.00" on one line. */
+@media screen and (max-width: 480px) {
+  product-info[id^='MainProduct-'] .product-form__submit {
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    white-space: nowrap;
+    padding-inline: 1rem;
+  }
+}
+
+/* Sold-out color swatches: clearer strike-through (no standalone item and no kit available). */
+.product-form__input .swatch-input__input:disabled + .swatch-input__label > .swatch,
+.product-form__input .swatch-input__input.visually-disabled + .swatch-input__label > .swatch {
+  opacity: 1;
+}
+
+.product-form__input .swatch-input__input:disabled + .swatch-input__label > .swatch::before,
+.product-form__input .swatch-input__input.visually-disabled + .swatch-input__label > .swatch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.product-form__input .swatch-input__input:disabled + .swatch-input__label > .swatch::after,
+.product-form__input .swatch-input__input.visually-disabled + .swatch-input__label > .swatch::after {
+  --crossed-line--size: 0.25rem;
+  background-color: rgb(var(--color-foreground));
+  box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 0.85);
 }

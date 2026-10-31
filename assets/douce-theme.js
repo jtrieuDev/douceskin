@@ -80,6 +80,14 @@
           this.button = this.querySelector('[data-sticky-button]');
           if (!this.mainButton || !this.button) return;
 
+          const img = this.querySelector('.dc-media img');
+          this.orig = {
+            title: this.querySelector('.dc-sticky-atc__title')?.textContent,
+            sub: this.querySelector('[data-sticky-variant]')?.textContent,
+            src: img?.getAttribute('src'),
+            srcset: img?.getAttribute('srcset'),
+          };
+
           this.button.addEventListener('click', () => {
             if (this.mainButton.disabled) {
               this.mainButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -97,7 +105,8 @@
           this.observer.observe(this.mainButton);
 
           this.onPurchaseChange = (event) => {
-            if (event.target.classList?.contains('douce-purchase__radio-input')) this.syncPurchasePrice();
+            const cls = event.target.classList;
+            if (cls?.contains('douce-purchase__radio-input') || cls?.contains('dc-kit__input')) this.syncPurchasePrice();
           };
           document.addEventListener('change', this.onPurchaseChange);
           this.syncPurchasePrice();
@@ -127,6 +136,7 @@
             const variantEl = this.querySelector('[data-sticky-variant]');
             if (variant && variantEl && variant.title && variant.title !== 'Default Title') {
               variantEl.textContent = variant.title;
+              if (this.orig) this.orig.sub = variant.title;
             }
             if (!this.syncPurchasePrice()) {
               const price = sectionId && document.getElementById(`price-${sectionId}`);
@@ -142,8 +152,37 @@
           });
         }
 
+        // Shows the kit chosen in the kit picker (title, image, price), or restores the product.
+        syncKit() {
+          const radio = document.querySelector('product-info .dc-kit__input:checked');
+          const isKit = Boolean(radio && radio.value !== 'self');
+          const title = this.querySelector('.dc-sticky-atc__title');
+          const sub = this.querySelector('[data-sticky-variant]');
+          const img = this.querySelector('.dc-media img');
+          const o = this.orig || {};
+          if (title) title.textContent = isKit && radio.dataset.title ? radio.dataset.title : o.title;
+          if (sub) sub.textContent = isKit ? radio.dataset.variantTitle || o.sub || '' : o.sub;
+          if (img) {
+            const src = isKit && radio.dataset.image ? radio.dataset.image : o.src;
+            if (src) img.setAttribute('src', src);
+            if (isKit && radio.dataset.image) img.removeAttribute('srcset');
+            else if (o.srcset) img.setAttribute('srcset', o.srcset);
+          }
+          if (isKit) {
+            const target = this.querySelector('[data-sticky-price]');
+            const price = Number(radio.dataset.price);
+            const purchase = document.querySelector('product-info .douce-purchase');
+            if (target && price) {
+              target.textContent = formatMoney(price, purchase?.dataset.moneyFormat || window.Shopify?.money_format);
+              return true;
+            }
+          }
+          return false;
+        }
+
         // Shows the price of the chosen purchase option (subscription or one-time).
         syncPurchasePrice() {
+          if (this.syncKit()) return true;
           const purchase = document.querySelector('product-info .douce-purchase');
           const option = purchase?.querySelector('.douce-purchase__radio-input:checked');
           const target = this.querySelector('[data-sticky-price]');

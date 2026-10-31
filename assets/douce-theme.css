@@ -1327,11 +1327,16 @@ h3,
   right: 16px;
 }
 
-.dc-ba .dc-ba__tag.dc-ba__tag--after,
 .dc-ba .dc-ba__tag.dc-ba__tag--before {
   background-color: var(--douce-lime);
   border-color: var(--douce-lime);
   color: #0f2415;
+}
+
+.dc-ba .dc-ba__tag.dc-ba__tag--after {
+  background-color: #0f2415;
+  border-color: #0f2415;
+  color: var(--douce-lime);
 }
 
 .dc-ba__range {

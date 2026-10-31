@@ -1327,6 +1327,13 @@ h3,
   right: 16px;
 }
 
+.dc-ba .dc-ba__tag.dc-ba__tag--after,
+.dc-ba .dc-ba__tag.dc-ba__tag--before {
+  background-color: var(--douce-lime);
+  border-color: var(--douce-lime);
+  color: #0f2415;
+}
+
 .dc-ba__range {
   position: absolute;
   inset: 0;

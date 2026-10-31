@@ -21,7 +21,7 @@
         "heading-2": {
           "type": "heading",
           "settings": {
-            "heading": "Your skin notices <em>the water.</em>"
+            "heading": "Your skin & hair notices <em>the water.</em>"
           }
         },
         "text-3": {
@@ -33,7 +33,7 @@
         "buttons-4": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop now · from $69",
+            "button_label_1": "Shop now \u00b7 from $69",
             "button_link_1": "shopify://collections/all",
             "button_style_1": "primary",
             "button_label_2": "How it works",
@@ -56,7 +56,7 @@
         "check-7": {
           "type": "check",
           "settings": {
-            "text": "Fits any ½\" hose"
+            "text": "Fits any \u00bd\" hose"
           }
         },
         "check-8": {
@@ -137,58 +137,6 @@
         "padding_bottom": 0
       }
     },
-    "problem": {
-      "type": "douce-feature-cards",
-      "blocks": {
-        "card-1": {
-          "type": "card",
-          "settings": {
-            "tag": "Chlorine",
-            "title": "Tight, dry skin",
-            "text": "<p>Chlorine strips the natural oils that keep skin calm. You feel it as tightness after you towel off.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "card-2": {
-          "type": "card",
-          "settings": {
-            "tag": "Hard water",
-            "title": "Dull, brittle hair",
-            "text": "<p>Calcium and magnesium build up on each strand, so hair feels coated, frizzy and harder to rinse.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "card-3": {
-          "type": "card",
-          "settings": {
-            "tag": "Sediment",
-            "title": "Residue you can see",
-            "text": "<p>Rust and sediment from older pipes leave film on glass, tile and your skin.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "card-1",
-        "card-2",
-        "card-3"
-      ],
-      "settings": {
-        "eyebrow": "The problem",
-        "heading": "Your shower water <em>isn't as soft as it looks.</em>",
-        "text": "<p>Most US tap water is treated with chlorine, and around 85% of homes have hard water. In a hot shower, both land straight on your skin and scalp. For eczema-prone skin and thinning hair, that daily exposure adds up.</p>",
-        "columns": 3,
-        "image_ratio": "portrait",
-        "mobile_rail": true,
-        "color_scheme": "scheme-1",
-        "accent_italic": false,
-        "padding_top": 120,
-        "padding_bottom": 0
-      }
-    },
     "how": {
       "type": "douce-steps",
       "blocks": {
@@ -204,7 +152,7 @@
           "type": "step",
           "settings": {
             "number": "02",
-            "title": "5µm PP cotton filter",
+            "title": "5\u00b5m PP cotton filter",
             "text": "<p>Lines the clear handle and catches rust, sediment and fine particles.</p>"
           }
         },
@@ -243,21 +191,28 @@
     "before_after": {
       "type": "douce-before-after",
       "settings": {
+        "image_before": "shopify://shop_images/finalbefore.jpg",
+        "image_after": "shopify://shop_images/finalafter.jpg",
         "label_before": "Day 1",
         "label_after": "Day 60",
         "slider_label": "Compare before and after",
-        "eyebrow": "Before & after",
-        "heading": "This stayed out <em>of your shower.</em>",
-        "text": "<p>Drag to compare the same PP filter on day one and after two months. Your water looked clear the whole time.</p>",
-        "note": "Results vary with your local water. Photographed in a hard-water home.",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "dark",
-        "layout": "image_left",
+        "eyebrow": "The problem",
+        "heading": "Your shower water <em>isn't as soft as it looks.</em>",
+        "text": "",
+        "note": "",
+        "button_label": "Shop DOUCE",
+        "button_link": "shopify://collections/all",
+        "button_style": "primary",
+        "layout": "image_right",
         "color_scheme": "scheme-1",
         "accent_italic": false,
         "padding_top": 120,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "problem_title": "The problem",
+        "problem_text": "<p>Most US tap water is treated with chlorine, and around 85% of homes have hard water. In a hot shower, both reach your skin and scalp every day. Chlorine can leave skin feeling tight and dry, and minerals can leave hair feeling coated.</p>",
+        "solution_title": "The solution",
+        "solution_text": "<p>DOUCE's two-stage filter is designed to reduce chlorine and catch sediment right at the showerhead.</p>",
+        "image": "shopify://shop_images/finalafter.jpg"
       }
     },
     "timeline": {
@@ -318,83 +273,84 @@
         "padding_bottom": 0
       }
     },
-    "compare": {
-      "type": "douce-comparison",
+    "people": {
+      "type": "douce-photo-strip",
       "blocks": {
-        "row-1": {
-          "type": "row",
+        "photo_7dakqd": {
+          "type": "photo",
           "settings": {
-            "label": "Reduces chlorine",
-            "value_1": "Yes",
-            "value_2": "—",
-            "value_3": "Yes"
+            "image": "shopify://shop_images/1.jpg",
+            "alt": ""
           }
         },
-        "row-2": {
-          "type": "row",
+        "photo-1": {
+          "type": "photo",
           "settings": {
-            "label": "Catches sediment & rust",
-            "value_1": "Yes",
-            "value_2": "—",
-            "value_3": "Some"
+            "image": "shopify://shop_images/2.jpg",
+            "alt": ""
           }
         },
-        "row-3": {
-          "type": "row",
+        "photo-2": {
+          "type": "photo",
           "settings": {
-            "label": "See when to change it",
-            "value_1": "Clear handle",
-            "value_2": "—",
-            "value_3": "—"
+            "image": "shopify://shop_images/3.jpg",
+            "alt": ""
           }
         },
-        "row-4": {
-          "type": "row",
+        "photo-3": {
+          "type": "photo",
           "settings": {
-            "label": "Tool-free install",
-            "value_1": "2 min",
-            "value_2": "Yes",
-            "value_3": "Wrench"
+            "image": "shopify://shop_images/4.jpg",
+            "alt": ""
           }
         },
-        "row-5": {
-          "type": "row",
+        "photo-4": {
+          "type": "photo",
           "settings": {
-            "label": "Filter refills",
-            "value_1": "$24 / 3",
-            "value_2": "—",
-            "value_3": "$40+"
+            "image": "shopify://shop_images/5.jpg",
+            "alt": ""
           }
         },
-        "row-6": {
-          "type": "row",
+        "photo-5": {
+          "type": "photo",
           "settings": {
-            "label": "60-day guarantee",
-            "value_1": "Yes",
-            "value_2": "—",
-            "value_3": "Varies"
+            "image": "shopify://shop_images/6.jpg",
+            "alt": ""
+          }
+        },
+        "photo-6": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/7.jpg",
+            "alt": ""
+          }
+        },
+        "photo-7": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/8.jpg",
+            "alt": ""
           }
         }
       },
       "block_order": [
-        "row-1",
-        "row-2",
-        "row-3",
-        "row-4",
-        "row-5",
-        "row-6"
+        "photo_7dakqd",
+        "photo-1",
+        "photo-2",
+        "photo-3",
+        "photo-4",
+        "photo-5",
+        "photo-6",
+        "photo-7"
       ],
       "settings": {
-        "eyebrow": "Compare",
-        "heading": "Not all filters <em>are equal.</em>",
-        "text": "<p>Most filtered showerheads hide the cartridge. DOUCE shows you exactly what it's catching.</p>",
-        "button_label": "Shop DOUCE",
-        "button_link": "shopify://collections/all",
-        "button_style": "dark",
-        "feature_label": "Feature",
-        "column_1": "DOUCE",
-        "column_2": "Standard head",
-        "column_3": "Wall-mount filter",
+        "eyebrow": "",
+        "heading": "People like you who <em>ditched their old showerhead.</em>",
+        "text": "",
+        "note": "",
+        "speed": 5,
+        "ratio": "4 / 5",
+        "pause_on_hover": true,
         "color_scheme": "scheme-1",
         "accent_italic": false,
         "padding_top": 120,
@@ -409,7 +365,7 @@
           "settings": {
             "link": "",
             "caption": "Unboxing to first shower in two minutes",
-            "handle": "@creator · Austin, TX"
+            "handle": "@creator \u00b7 Austin, TX"
           }
         },
         "reel-2": {
@@ -417,7 +373,7 @@
           "settings": {
             "link": "",
             "caption": "My filter after six weeks",
-            "handle": "@creator · Phoenix, AZ"
+            "handle": "@creator \u00b7 Phoenix, AZ"
           }
         },
         "reel-3": {
@@ -425,7 +381,7 @@
           "settings": {
             "link": "",
             "caption": "Hard water hair, week two",
-            "handle": "@creator · Chicago, IL"
+            "handle": "@creator \u00b7 Chicago, IL"
           }
         },
         "reel-4": {
@@ -433,7 +389,7 @@
           "settings": {
             "link": "",
             "caption": "Swapping the filter, start to finish",
-            "handle": "@creator · Brooklyn, NY"
+            "handle": "@creator \u00b7 Brooklyn, NY"
           }
         }
       },
@@ -443,6 +399,7 @@
         "reel-3",
         "reel-4"
       ],
+      "disabled": true,
       "settings": {
         "eyebrow": "Real showers",
         "heading": "See it <em>in their bathrooms.</em>",
@@ -455,8 +412,7 @@
         "accent_italic": false,
         "padding_top": 120,
         "padding_bottom": 0
-      },
-      "disabled": true
+      }
     },
     "shop": {
       "type": "douce-product-grid",
@@ -465,7 +421,7 @@
           "type": "product",
           "settings": {
             "product": "",
-            "title": "Filtered Showerhead — Chrome",
+            "title": "Filtered Showerhead \u2014 Chrome",
             "subtitle": "From $69 with Subscribe & Save",
             "badge": "Bestseller"
           }
@@ -474,7 +430,7 @@
           "type": "product",
           "settings": {
             "product": "",
-            "title": "Filtered Showerhead — Smoke",
+            "title": "Filtered Showerhead \u2014 Smoke",
             "subtitle": "From $69 with Subscribe & Save",
             "badge": "New finish"
           }
@@ -532,7 +488,7 @@
           "type": "question",
           "settings": {
             "question": "Will it fit my shower?",
-            "answer": "<p>DOUCE fits any standard ½\" shower hose. No tools or plumber needed. No hose? Add ours for $24.</p>"
+            "answer": "<p>DOUCE fits any standard \u00bd\" shower hose. No tools or plumber needed. No hose? Add ours for $24.</p>"
           }
         },
         "question-4": {
@@ -578,76 +534,14 @@
         "padding_top": 120,
         "padding_bottom": 120
       }
-    },
-    "people": {
-      "type": "douce-photo-strip",
-      "blocks": {
-        "photo-1": {
-          "type": "photo",
-          "settings": {}
-        },
-        "photo-2": {
-          "type": "photo",
-          "settings": {}
-        },
-        "photo-3": {
-          "type": "photo",
-          "settings": {}
-        },
-        "photo-4": {
-          "type": "photo",
-          "settings": {}
-        },
-        "photo-5": {
-          "type": "photo",
-          "settings": {}
-        },
-        "photo-6": {
-          "type": "photo",
-          "settings": {}
-        },
-        "photo-7": {
-          "type": "photo",
-          "settings": {}
-        },
-        "photo-8": {
-          "type": "photo",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "photo-1",
-        "photo-2",
-        "photo-3",
-        "photo-4",
-        "photo-5",
-        "photo-6",
-        "photo-7",
-        "photo-8"
-      ],
-      "settings": {
-        "eyebrow": "",
-        "heading": "People like you who <em>ditched their old showerhead.</em>",
-        "text": "",
-        "note": "",
-        "speed": 5,
-        "ratio": "4 / 5",
-        "pause_on_hover": true,
-        "color_scheme": "scheme-1",
-        "accent_italic": false,
-        "padding_top": 120,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
     "hero",
     "press",
-    "problem",
-    "how",
     "before_after",
+    "how",
     "timeline",
-    "compare",
     "people",
     "reels",
     "shop",

@@ -1348,6 +1348,38 @@ h3,
   gap: 20px;
 }
 
+.dc-ba__points {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(var(--color-foreground), 0.15);
+}
+
+.dc-ba__point {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.15);
+}
+
+.dc-ba__point-title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.dc-ba__compare--static img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dc-ba--square .dc-ba__compare {
+  aspect-ratio: 1 / 1;
+}
+
 @media screen and (max-width: 749px) {
   .dc-ba {
     grid-template-columns: minmax(0, 1fr);

@@ -14,11 +14,25 @@
     "announcement": {
       "type": "douce-announcement-bar",
       "blocks": {
-        "msg-1": { "type": "announcement", "settings": { "text": "Free US delivery", "link": "" } },
-        "msg-2": { "type": "announcement", "settings": { "text": "60-day money-back guarantee", "link": "" } },
-        "msg-3": { "type": "announcement", "settings": { "text": "Subscribe &amp; save $10 on your showerhead", "link": "" } }
+        "msg-1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free Shipping",
+            "link": ""
+          }
+        },
+        "msg-2": {
+          "type": "announcement",
+          "settings": {
+            "text": "60-day money-back guarantee",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["msg-1", "msg-2", "msg-3"],
+      "block_order": [
+        "msg-1",
+        "msg-2"
+      ],
       "settings": {
         "separator": "·",
         "color_scheme": "scheme-3"
@@ -48,5 +62,8 @@
       }
     }
   },
-  "order": ["announcement", "header"]
+  "order": [
+    "announcement",
+    "header"
+  ]
 }

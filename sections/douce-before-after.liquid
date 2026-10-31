@@ -4,7 +4,16 @@
   style="--dc-pt: {{ section.settings.padding_top }}px; --dc-pb: {{ section.settings.padding_bottom }}px;"
 >
   <div class="dc-container">
-    <div class="dc-ba{% if section.settings.layout == 'image_right' %} dc-ba--reverse{% endif %}">
+    <div class="dc-ba{% if section.settings.layout == 'image_right' %} dc-ba--reverse{% endif %}{% if section.settings.problem_text != blank or section.settings.solution_text != blank %} dc-ba--square{% endif %}">
+      {%- if section.settings.image != blank -%}
+        <div class="dc-ba__compare dc-ba__compare--static">
+          {%- render 'douce-image',
+            image: section.settings.image,
+            sizes: '(min-width: 750px) 50vw, 100vw',
+            placeholder: 'product-apparel-2'
+          -%}
+        </div>
+      {%- else -%}
       <douce-compare class="dc-ba__compare">
         <div class="dc-ba__layer dc-ba__layer--before">
           {%- render 'douce-image',
@@ -40,6 +49,7 @@
           {{- 'icon-arrow.svg' | inline_asset_content -}}
         </div>
       </douce-compare>
+      {%- endif -%}
 
       <div class="dc-ba__content">
         {%- if section.settings.eyebrow != blank -%}
@@ -50,6 +60,22 @@
         {%- endif -%}
         {%- if section.settings.text != blank -%}
           <div class="dc-text">{{ section.settings.text }}</div>
+        {%- endif -%}
+        {%- if section.settings.problem_text != blank or section.settings.solution_text != blank -%}
+          <div class="dc-ba__points">
+            {%- if section.settings.problem_text != blank -%}
+              <div class="dc-ba__point">
+                <h3 class="dc-ba__point-title">{{ section.settings.problem_title | escape }}</h3>
+                <div class="dc-text dc-text--s">{{ section.settings.problem_text }}</div>
+              </div>
+            {%- endif -%}
+            {%- if section.settings.solution_text != blank -%}
+              <div class="dc-ba__point">
+                <h3 class="dc-ba__point-title">{{ section.settings.solution_title | escape }}</h3>
+                <div class="dc-text dc-text--s">{{ section.settings.solution_text }}</div>
+              </div>
+            {%- endif -%}
+          </div>
         {%- endif -%}
         {%- if section.settings.note != blank -%}
           <p class="dc-note">{{ section.settings.note | escape }}</p>
@@ -71,6 +97,7 @@
   "tag": "div",
   "class": "section-douce-before-after",
   "settings": [
+    { "type": "image_picker", "id": "image", "label": "Single image", "info": "If set, shows this picture instead of the before/after slider." },
     { "type": "image_picker", "id": "image_before", "label": "Before image" },
     { "type": "image_picker", "id": "image_after", "label": "After image" },
     { "type": "text", "id": "label_before", "label": "Before label", "default": "Day 1" },
@@ -84,6 +111,10 @@
       "label": "Text",
       "default": "<p>Drag to compare the same PP filter on day one and after two months. Your water looked clear the whole time.</p>"
     },
+    { "type": "text", "id": "problem_title", "label": "Problem title", "default": "The problem" },
+    { "type": "richtext", "id": "problem_text", "label": "Problem text", "info": "Leave empty to hide." },
+    { "type": "text", "id": "solution_title", "label": "Solution title", "default": "The solution" },
+    { "type": "richtext", "id": "solution_text", "label": "Solution text", "info": "Leave empty to hide." },
     { "type": "text", "id": "note", "label": "Small print", "default": "Results vary with your local water. Photographed in a hard-water home." },
     { "type": "text", "id": "button_label", "label": "Button label", "info": "Leave empty to hide." },
     { "type": "url", "id": "button_link", "label": "Button link" },

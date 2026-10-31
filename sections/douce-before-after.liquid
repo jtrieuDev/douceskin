@@ -12,6 +12,12 @@
             sizes: '(min-width: 750px) 50vw, 100vw',
             placeholder: 'product-apparel-2'
           -%}
+          {%- if section.settings.label_before != blank -%}
+            <span class="dc-pill dc-ba__tag dc-ba__tag--before">{{ section.settings.label_before | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.label_after != blank -%}
+            <span class="dc-pill dc-pill--dark dc-ba__tag dc-ba__tag--after">{{ section.settings.label_after | escape }}</span>
+          {%- endif -%}
         </div>
       {%- else -%}
       <douce-compare class="dc-ba__compare">

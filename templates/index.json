@@ -137,6 +137,33 @@
         "padding_bottom": 0
       }
     },
+    "before_after": {
+      "type": "douce-before-after",
+      "settings": {
+        "image": "shopify://shop_images/finalbeforeafter.jpg",
+        "image_before": "shopify://shop_images/finalbefore.jpg",
+        "image_after": "shopify://shop_images/finalafter.jpg",
+        "label_before": "Day 1",
+        "label_after": "Day 60",
+        "slider_label": "Compare before and after",
+        "eyebrow": "The problem",
+        "heading": "Your shower water <em>isn't as soft as it looks.</em>",
+        "text": "",
+        "problem_title": "The problem",
+        "problem_text": "<p>Most US tap water is treated with chlorine, and around 85% of homes have hard water. In a hot shower, both reach your skin and scalp every day. Chlorine can leave skin feeling tight and dry, and minerals can leave hair feeling coated.</p>",
+        "solution_title": "The solution",
+        "solution_text": "<p>DOUCE's two-stage filter is designed to reduce chlorine and catch sediment right at the showerhead.</p>",
+        "note": "",
+        "button_label": "Shop DOUCE",
+        "button_link": "shopify://collections/all",
+        "button_style": "primary",
+        "layout": "image_right",
+        "color_scheme": "scheme-1",
+        "accent_italic": false,
+        "padding_top": 120,
+        "padding_bottom": 0
+      }
+    },
     "how": {
       "type": "douce-steps",
       "blocks": {
@@ -175,44 +202,17 @@
         "eyebrow": "How it works",
         "heading": "Two stages. <em>One clear handle.</em>",
         "text": "",
-        "contain_image": true,
+        "contain_image": false,
         "video_autoplay": false,
         "video_label": "Play video",
-        "media_ratio": "square",
-        "layout": "card",
-        "image_position": "right",
+        "media_ratio": "landscape",
+        "layout": "plain",
+        "image_position": "left",
         "number_style": "text",
-        "color_scheme": "scheme-3",
-        "accent_italic": true,
-        "padding_top": 120,
-        "padding_bottom": 0
-      }
-    },
-    "before_after": {
-      "type": "douce-before-after",
-      "settings": {
-        "image_before": "shopify://shop_images/finalbefore.jpg",
-        "image_after": "shopify://shop_images/finalafter.jpg",
-        "label_before": "Day 1",
-        "label_after": "Day 60",
-        "slider_label": "Compare before and after",
-        "eyebrow": "The problem",
-        "heading": "Your shower water <em>isn't as soft as it looks.</em>",
-        "text": "",
-        "note": "",
-        "button_label": "Shop DOUCE",
-        "button_link": "shopify://collections/all",
-        "button_style": "primary",
-        "layout": "image_right",
         "color_scheme": "scheme-1",
-        "accent_italic": false,
-        "padding_top": 120,
-        "padding_bottom": 0,
-        "problem_title": "The problem",
-        "problem_text": "<p>Most US tap water is treated with chlorine, and around 85% of homes have hard water. In a hot shower, both reach your skin and scalp every day. Chlorine can leave skin feeling tight and dry, and minerals can leave hair feeling coated.</p>",
-        "solution_title": "The solution",
-        "solution_text": "<p>DOUCE's two-stage filter is designed to reduce chlorine and catch sediment right at the showerhead.</p>",
-        "image": "shopify://shop_images/finalafter.jpg"
+        "accent_italic": true,
+        "padding_top": 72,
+        "padding_bottom": 0
       }
     },
     "timeline": {

@@ -1230,6 +1230,16 @@ h3,
   .dc-steps--image-left .dc-steps__media {
     order: 0;
   }
+
+  .dc-step {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .dc-step__num {
+    font-size: 22px;
+  }
 }
 
 /* =========================================================

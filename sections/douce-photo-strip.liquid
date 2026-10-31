@@ -1,0 +1,111 @@
+{%- comment -%}
+  DOUCE: scrolling photo strip ("People just like you who ditched their old showerhead").
+  Customer photos slide slowly from right to left in a loop. Pauses on hover,
+  and becomes a manual swipe row for visitors who prefer reduced motion.
+  Use only real photos of real customers, with their permission.
+{%- endcomment -%}
+{%- liquid
+  assign photo_count = section.blocks.size
+  assign duration = section.settings.speed | times: photo_count
+-%}
+<section
+  class="dc-section color-{{ section.settings.color_scheme }}{% if section.settings.accent_italic %} dc-accent-italic{% endif %}"
+  style="--dc-pt: {{ section.settings.padding_top }}px; --dc-pb: {{ section.settings.padding_bottom }}px;"
+>
+  {%- if section.settings.heading != blank or section.settings.eyebrow != blank -%}
+    <div class="dc-container">
+      <div class="dc-row-head">
+        <div class="dc-stack" style="--dc-stack-gap: 16px;">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="dc-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="dc-heading dc-heading--m">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.text != blank -%}
+          <div class="dc-text dc-text--s">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if photo_count > 0 -%}
+    <div
+      class="dc-strip{% if section.settings.pause_on_hover %} dc-strip--pausable{% endif %}"
+      style="--dc-strip-duration: {{ duration }}s; --dc-strip-ratio: {{ section.settings.ratio }};"
+      role="group"
+      aria-label="{{ section.settings.heading | strip_html | escape }}"
+    >
+      <div class="dc-strip__track">
+        {%- for copy in (1..2) -%}
+          <ul class="dc-strip__list" role="list"{% if copy == 2 %} aria-hidden="true"{% endif %}>
+            {%- for block in section.blocks -%}
+              <li class="dc-strip__item" {% if copy == 1 %}{{ block.shopify_attributes }}{% endif %}>
+                <div class="dc-media">
+                  {%- render 'douce-image',
+                    image: block.settings.image,
+                    sizes: '(min-width: 750px) 22vw, 60vw',
+                    placeholder: 'lifestyle-1',
+                    alt: block.settings.alt
+                  -%}
+                </div>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.note != blank -%}
+    <div class="dc-container">
+      <p class="dc-strip__note">{{ section.settings.note | escape }}</p>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "DOUCE photo strip",
+  "tag": "div",
+  "class": "section-douce-photo-strip",
+  "max_blocks": 16,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "People like you who <em>ditched their old showerhead.</em>" },
+    { "type": "richtext", "id": "text", "label": "Text", "info": "Shown on the right of the heading." },
+    { "type": "text", "id": "note", "label": "Small note under the photos", "info": "For example: Photos shared by DOUCE customers. Individual results vary." },
+    { "type": "range", "id": "speed", "label": "Seconds per photo", "min": 2, "max": 10, "step": 1, "default": 5, "info": "Higher is slower." },
+    { "type": "select", "id": "ratio", "label": "Photo shape", "options": [
+      { "value": "1 / 1", "label": "Square" },
+      { "value": "4 / 5", "label": "Portrait" },
+      { "value": "3 / 4", "label": "Tall portrait" }
+    ], "default": "4 / 5" },
+    { "type": "checkbox", "id": "pause_on_hover", "label": "Pause when hovered", "default": true },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "accent_italic", "label": "Accent colour on italic words", "default": false },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 120 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "alt", "label": "Description for screen readers", "info": "Leave empty to use the image's own alt text." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DOUCE photo strip",
+      "blocks": [
+        { "type": "photo" }, { "type": "photo" }, { "type": "photo" },
+        { "type": "photo" }, { "type": "photo" }, { "type": "photo" }
+      ]
+    }
+  ]
+}
+{% endschema %}

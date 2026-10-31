@@ -3580,3 +3580,69 @@ douce-video.is-playing .dc-video-toggle {
     font-size: 14px;
   }
 }
+
+/* =========================================================
+   Photo strip (looping customer photos)
+   ========================================================= */
+
+.dc-strip {
+  overflow: hidden;
+  width: 100%;
+}
+
+.dc-strip__track {
+  display: flex;
+  width: max-content;
+  animation: dc-strip-slide var(--dc-strip-duration, 30s) linear infinite;
+  will-change: transform;
+}
+
+.dc-strip--pausable:hover .dc-strip__track,
+.dc-strip:focus-within .dc-strip__track {
+  animation-play-state: paused;
+}
+
+.dc-strip__list {
+  display: flex;
+  flex: none;
+  gap: 16px;
+  margin: 0;
+  padding: 0 16px 0 0;
+  list-style: none;
+}
+
+.dc-strip__item {
+  flex: none;
+  width: clamp(190px, 22vw, 300px);
+}
+
+.dc-strip__item .dc-media {
+  aspect-ratio: var(--dc-strip-ratio, 4 / 5);
+  border-radius: var(--dc-radius-m);
+  background: var(--douce-mint);
+}
+
+.dc-strip__note {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: rgba(var(--color-foreground), 0.6);
+}
+
+@keyframes dc-strip-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-strip {
+    overflow-x: auto;
+  }
+
+  .dc-strip__track {
+    animation: none;
+  }
+
+  .dc-strip__list[aria-hidden='true'] {
+    display: none;
+  }
+}

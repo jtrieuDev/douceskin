@@ -455,7 +455,8 @@
         "accent_italic": false,
         "padding_top": 120,
         "padding_bottom": 0
-      }
+      },
+      "disabled": true
     },
     "shop": {
       "type": "douce-product-grid",
@@ -577,6 +578,66 @@
         "padding_top": 120,
         "padding_bottom": 120
       }
+    },
+    "people": {
+      "type": "douce-photo-strip",
+      "blocks": {
+        "photo-1": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo-2": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo-3": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo-4": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo-5": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo-6": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo-7": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo-8": {
+          "type": "photo",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "photo-1",
+        "photo-2",
+        "photo-3",
+        "photo-4",
+        "photo-5",
+        "photo-6",
+        "photo-7",
+        "photo-8"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "People like you who <em>ditched their old showerhead.</em>",
+        "text": "",
+        "note": "",
+        "speed": 5,
+        "ratio": "4 / 5",
+        "pause_on_hover": true,
+        "color_scheme": "scheme-1",
+        "accent_italic": false,
+        "padding_top": 120,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -587,6 +648,7 @@
     "before_after",
     "timeline",
     "compare",
+    "people",
     "reels",
     "shop",
     "faq",

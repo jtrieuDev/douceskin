@@ -936,6 +936,14 @@ h3,
 
 .dc-hero__media img {
   object-position: var(--dc-focal-x, 50%) var(--dc-focal-y, 50%);
+  transform: scale(var(--dc-zoom, 1));
+  transform-origin: var(--dc-focal-x, 50%) var(--dc-focal-y, 50%);
+}
+
+@media screen and (max-width: 749px) {
+  .dc-hero__media img {
+    transform: none;
+  }
 }
 
 .dc-hero__media .placeholder-svg {

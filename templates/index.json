@@ -65,10 +65,11 @@
       "settings": {
         "image": "shopify://shop_images/edit14.jpg",
         "overlay_opacity": 92,
-        "min_height": 680,
+        "min_height": 600,
+        "zoom": 130,
         "color_scheme": "scheme-3",
         "accent_italic": true,
-        "focal_y": 50,
+        "focal_y": 30,
         "focal_x": 100
       }
     },

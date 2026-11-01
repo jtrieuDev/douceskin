@@ -5,7 +5,7 @@
 -%}
 <section
   class="dc-section dc-hero color-{{ section.settings.color_scheme }}{% if section.settings.accent_italic %} dc-accent-italic{% endif %}"
-  style="--dc-pt: 0px; --dc-pb: 0px; --dc-hero-h: {{ section.settings.min_height }}px; --dc-overlay: {{ overlay }}; --dc-focal-x: {{ section.settings.focal_x }}%; --dc-focal-y: {{ section.settings.focal_y }}%;"
+  style="--dc-pt: 0px; --dc-pb: 0px; --dc-hero-h: {{ section.settings.min_height }}px; --dc-overlay: {{ overlay }}; --dc-focal-x: {{ section.settings.focal_x }}%; --dc-focal-y: {{ section.settings.focal_y }}%; --dc-zoom: {{ section.settings.zoom | divided_by: 100.0 }};"
 >
   <div class="dc-hero__media">
     {%- render 'douce-image',
@@ -98,6 +98,17 @@
       "step": 5,
       "unit": "%",
       "default": 50
+    },
+    {
+      "type": "range",
+      "id": "zoom",
+      "label": "Image zoom",
+      "info": "Zooms into the photo around the focus point. Use it to crop empty space (e.g. ceiling) and keep the subject centered.",
+      "min": 100,
+      "max": 160,
+      "step": 5,
+      "unit": "%",
+      "default": 100
     },
     {
       "type": "range",

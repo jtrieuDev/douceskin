@@ -2030,6 +2030,49 @@ h3,
   }
 }
 
+.dc-iconcols--compact {
+  padding: 22px 32px;
+  gap: 16px 28px;
+  border-radius: var(--dc-radius-xl);
+}
+
+.dc-iconcols--compact .dc-iconcol {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.dc-iconcols--compact .dc-iconcol__icon {
+  flex: none;
+  width: 38px;
+  height: 38px;
+}
+
+.dc-iconcols--compact .dc-iconcol .dc-title {
+  --dc-t-size: 19px;
+  margin: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .dc-iconcols--compact {
+    padding: 18px 16px;
+    gap: 14px 12px;
+  }
+
+  .dc-iconcols--compact .dc-iconcol {
+    gap: 8px;
+  }
+
+  .dc-iconcols--compact .dc-iconcol__icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .dc-iconcols--compact .dc-iconcol .dc-title {
+    --dc-t-size: 16px;
+  }
+}
+
 /* =========================================================
    Quotes
    ========================================================= */

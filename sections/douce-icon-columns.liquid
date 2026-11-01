@@ -9,7 +9,7 @@
         <h2 class="dc-heading dc-heading--s">{{ section.settings.heading }}</h2>
       </div>
     {%- endif -%}
-    <ul class="dc-iconcols color-{{ section.settings.color_scheme }}" role="list" style="--dc-cols: {{ section.settings.columns }};">
+    <ul class="dc-iconcols{% if section.settings.compact %} dc-iconcols--compact{% endif %} color-{{ section.settings.color_scheme }}" role="list" style="--dc-cols: {{ section.settings.columns }};">
       {%- for block in section.blocks -%}
         <li class="dc-iconcol" {{ block.shopify_attributes }}>
           <span class="dc-iconcol__icon">
@@ -39,6 +39,7 @@
   "max_blocks": 8,
   "settings": [
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "info": "Optional." },
+    { "type": "checkbox", "id": "compact", "label": "Compact strip (icon beside title)", "default": false },
     { "type": "range", "id": "columns", "label": "Columns (desktop)", "min": 2, "max": 4, "step": 1, "default": 4 },
     { "type": "color_scheme", "id": "color_scheme", "label": "Panel color scheme", "default": "scheme-2" },
     { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },

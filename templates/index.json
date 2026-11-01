@@ -51,7 +51,7 @@
       "settings": {
         "image": "shopify://shop_images/spray-crop.png",
         "overlay_opacity": 92,
-        "min_height": 760,
+        "min_height": 600,
         "color_scheme": "scheme-3",
         "accent_italic": true
       }
@@ -382,7 +382,7 @@
         "mobile_rail": true,
         "color_scheme": "scheme-1",
         "accent_italic": false,
-        "padding_top": 120,
+        "padding_top": 56,
         "padding_bottom": 0
       }
     },
@@ -501,18 +501,19 @@
         "columns": 4,
         "color_scheme": "scheme-2",
         "padding_top": 40,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "compact": true
       }
     }
   },
   "order": [
     "hero",
-    "trust",
     "before_after",
     "how",
     "timeline",
     "people",
     "reels",
+    "trust",
     "shop",
     "faq",
     "guarantee"

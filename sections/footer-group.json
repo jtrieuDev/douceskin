@@ -27,19 +27,17 @@
         "help": {
           "type": "links",
           "settings": {
-            "heading": "Help",
+            "heading": "Support",
             "label_1": "Contact us",
             "url_1": "/pages/contact",
-            "label_2": "Shipping",
-            "url_2": "/policies/shipping-policy",
-            "label_3": "Returns & refunds",
-            "url_3": "/policies/refund-policy"
+            "label_2": "FAQ",
+            "url_2": "/#faq"
           }
         },
         "legal": {
           "type": "policies",
           "settings": {
-            "heading": "Legal"
+            "heading": "Policies"
           }
         }
       },

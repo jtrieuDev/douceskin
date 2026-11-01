@@ -2039,7 +2039,12 @@ h3,
 .dc-iconcols--compact .dc-iconcol {
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+}
+
+.dc-iconcols--compact .dc-iconcol .dc-title {
+  text-align: left;
 }
 
 .dc-iconcols--compact .dc-iconcol__icon {

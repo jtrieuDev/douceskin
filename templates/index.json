@@ -24,12 +24,6 @@
             "heading": "Your skin & hair notices <em>the water.</em>"
           }
         },
-        "text-3": {
-          "type": "text",
-          "settings": {
-            "text": "<p>DOUCE reduces chlorine and catches sediment before it reaches you. Two filters, one clear handle, two minutes to install.</p>"
-          }
-        },
         "buttons-4": {
           "type": "buttons",
           "settings": {
@@ -45,7 +39,6 @@
       "block_order": [
         "eyebrow-1",
         "heading-2",
-        "text-3",
         "buttons-4"
       ],
       "settings": {

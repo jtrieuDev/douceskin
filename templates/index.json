@@ -44,25 +44,13 @@
         "check-5": {
           "type": "check",
           "settings": {
-            "text": "Free US delivery"
+            "text": "Free shipping worldwide"
           }
         },
         "check-6": {
           "type": "check",
           "settings": {
             "text": "60-day guarantee"
-          }
-        },
-        "check-7": {
-          "type": "check",
-          "settings": {
-            "text": "Fits any \u00bd\" hose"
-          }
-        },
-        "check-8": {
-          "type": "check",
-          "settings": {
-            "text": "No tools"
           }
         }
       },
@@ -72,9 +60,7 @@
         "text-3",
         "buttons-4",
         "check-5",
-        "check-6",
-        "check-7",
-        "check-8"
+        "check-6"
       ],
       "settings": {
         "image": "shopify://shop_images/spray-crop.png",

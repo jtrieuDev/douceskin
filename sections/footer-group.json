@@ -24,14 +24,21 @@
             "url_2": "/blogs/news"
           }
         },
-        "help": {
+        "about": {
           "type": "links",
           "settings": {
-            "heading": "Support",
-            "label_1": "Contact us",
-            "url_1": "/pages/contact",
+            "heading": "About",
+            "label_1": "Our Story",
+            "url_1": "/pages/our-story",
             "label_2": "FAQ",
             "url_2": "/#faq"
+          }
+        },
+        "help": {
+          "type": "text",
+          "settings": {
+            "heading": "Support",
+            "text": "<p>Any questions about our products or an update on your order? Feel free to reach out to our 24/7 customer support team at <a href=\"mailto:support@douceskin.com\">support@douceskin.com</a>.</p>"
           }
         },
         "legal": {
@@ -44,6 +51,7 @@
       },
       "block_order": [
         "shop",
+        "about",
         "help",
         "legal"
       ],

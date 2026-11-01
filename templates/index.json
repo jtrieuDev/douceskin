@@ -44,7 +44,7 @@
         "check-5": {
           "type": "check",
           "settings": {
-            "text": "Free Shipping Worldwide"
+            "text": "Free Shipping to US"
           }
         },
         "check-6": {

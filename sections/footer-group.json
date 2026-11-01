@@ -14,11 +14,40 @@
     "footer": {
       "type": "douce-footer",
       "blocks": {
-        "shop": { "type": "menu", "settings": { "heading": "Shop", "menu": "footer" } },
-        "learn": { "type": "menu", "settings": { "heading": "Learn", "menu": "" } },
-        "help": { "type": "menu", "settings": { "heading": "Help", "menu": "" } }
+        "shop": {
+          "type": "links",
+          "settings": {
+            "heading": "Shop",
+            "label_1": "Shop all",
+            "url_1": "/collections/all",
+            "label_2": "Journal",
+            "url_2": "/blogs/news"
+          }
+        },
+        "help": {
+          "type": "links",
+          "settings": {
+            "heading": "Help",
+            "label_1": "Contact us",
+            "url_1": "/pages/contact",
+            "label_2": "Shipping",
+            "url_2": "/policies/shipping-policy",
+            "label_3": "Returns & refunds",
+            "url_3": "/policies/refund-policy"
+          }
+        },
+        "legal": {
+          "type": "policies",
+          "settings": {
+            "heading": "Legal"
+          }
+        }
       },
-      "block_order": ["shop", "learn", "help"],
+      "block_order": [
+        "shop",
+        "help",
+        "legal"
+      ],
       "settings": {
         "show_newsletter": true,
         "newsletter_heading": "Notes on <em>softer water.</em>",
@@ -29,8 +58,8 @@
         "newsletter_success": "Thanks for subscribing. Check your inbox for your code.",
         "show_wordmark": true,
         "wordmark": "DOUCE",
-        "copyright": "© [year] DOUCE",
-        "show_policies": true,
+        "copyright": "\u00a9 [year] DOUCE",
+        "show_policies": false,
         "show_social": true,
         "show_payment": false,
         "color_scheme": "scheme-3",
@@ -38,5 +67,7 @@
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }

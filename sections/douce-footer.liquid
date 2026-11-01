@@ -83,6 +83,45 @@
               </ul>
             {%- endif -%}
           </nav>
+        {%- when 'links' -%}
+          <nav class="dc-footer__col" aria-label="{{ block.settings.heading | escape }}" {{ block.shopify_attributes }}>
+            {%- if block.settings.heading != blank -%}
+              <h2 class="dc-footer__col-title">{{ block.settings.heading | escape }}</h2>
+            {%- endif -%}
+            <ul role="list">
+              {%- if block.settings.label_1 != blank and block.settings.url_1 != blank -%}
+                <li><a href="{{ block.settings.url_1 }}">{{ block.settings.label_1 | escape }}</a></li>
+              {%- endif -%}
+              {%- if block.settings.label_2 != blank and block.settings.url_2 != blank -%}
+                <li><a href="{{ block.settings.url_2 }}">{{ block.settings.label_2 | escape }}</a></li>
+              {%- endif -%}
+              {%- if block.settings.label_3 != blank and block.settings.url_3 != blank -%}
+                <li><a href="{{ block.settings.url_3 }}">{{ block.settings.label_3 | escape }}</a></li>
+              {%- endif -%}
+              {%- if block.settings.label_4 != blank and block.settings.url_4 != blank -%}
+                <li><a href="{{ block.settings.url_4 }}">{{ block.settings.label_4 | escape }}</a></li>
+              {%- endif -%}
+              {%- if block.settings.label_5 != blank and block.settings.url_5 != blank -%}
+                <li><a href="{{ block.settings.url_5 }}">{{ block.settings.label_5 | escape }}</a></li>
+              {%- endif -%}
+              {%- if block.settings.label_6 != blank and block.settings.url_6 != blank -%}
+                <li><a href="{{ block.settings.url_6 }}">{{ block.settings.label_6 | escape }}</a></li>
+              {%- endif -%}
+            </ul>
+          </nav>
+        {%- when 'policies' -%}
+          <nav class="dc-footer__col" aria-label="{{ block.settings.heading | escape }}" {{ block.shopify_attributes }}>
+            {%- if block.settings.heading != blank -%}
+              <h2 class="dc-footer__col-title">{{ block.settings.heading | escape }}</h2>
+            {%- endif -%}
+            <ul role="list">
+              {%- for policy in shop.policies -%}
+                {%- if policy != blank -%}
+                  <li><a href="{{ policy.url }}">{{ policy.title | escape }}</a></li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </nav>
         {%- when 'text' -%}
           <div class="dc-footer__col" {{ block.shopify_attributes }}>
             {%- if block.settings.heading != blank -%}
@@ -307,6 +346,33 @@
           "label": "Menu",
           "default": "footer"
         }
+      ]
+    },
+    {
+      "type": "links",
+      "name": "Link column",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Help" },
+        { "type": "text", "id": "label_1", "label": "Link 1 label" },
+        { "type": "url", "id": "url_1", "label": "Link 1 URL" },
+        { "type": "text", "id": "label_2", "label": "Link 2 label" },
+        { "type": "url", "id": "url_2", "label": "Link 2 URL" },
+        { "type": "text", "id": "label_3", "label": "Link 3 label" },
+        { "type": "url", "id": "url_3", "label": "Link 3 URL" },
+        { "type": "text", "id": "label_4", "label": "Link 4 label" },
+        { "type": "url", "id": "url_4", "label": "Link 4 URL" },
+        { "type": "text", "id": "label_5", "label": "Link 5 label" },
+        { "type": "url", "id": "url_5", "label": "Link 5 URL" },
+        { "type": "text", "id": "label_6", "label": "Link 6 label" },
+        { "type": "url", "id": "url_6", "label": "Link 6 URL" }
+      ]
+    },
+    {
+      "type": "policies",
+      "name": "Policies column",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Policies", "info": "Lists every policy set up in Shopify (Settings > Policies)." }
       ]
     },
     {

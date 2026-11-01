@@ -2222,7 +2222,7 @@ h3,
 }
 
 .dc-collage__tall {
-  aspect-ratio: 4 / 5;
+  min-height: 420px;
   border-radius: var(--dc-radius-xl);
 }
 
@@ -2233,7 +2233,7 @@ h3,
 }
 
 .dc-collage__right .dc-media {
-  min-height: 280px;
+  aspect-ratio: 4 / 3;
   border-radius: var(--dc-radius-xl);
 }
 
@@ -2258,6 +2258,11 @@ h3,
   .dc-collage {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
+  }
+
+  .dc-collage__tall {
+    aspect-ratio: 4 / 5;
+    min-height: 0;
   }
 
   .dc-split-hero__content .dc-heading {

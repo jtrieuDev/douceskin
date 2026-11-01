@@ -50,7 +50,7 @@
         "check-6": {
           "type": "check",
           "settings": {
-            "text": "60-day return"
+            "text": "60-day Returns"
           }
         }
       },

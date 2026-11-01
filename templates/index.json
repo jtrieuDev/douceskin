@@ -42,11 +42,13 @@
         "buttons-4"
       ],
       "settings": {
-        "image": "shopify://shop_images/spray-crop.png",
+        "image": "shopify://shop_images/edit7.jpg",
         "overlay_opacity": 92,
-        "min_height": 600,
+        "min_height": 680,
         "color_scheme": "scheme-3",
-        "accent_italic": true
+        "accent_italic": true,
+        "focal_y": 20,
+        "focal_x": 70
       }
     },
     "before_after": {
@@ -326,6 +328,57 @@
         "padding_bottom": 0
       }
     },
+    "trust": {
+      "type": "douce-icon-columns",
+      "blocks": {
+        "col-1": {
+          "type": "column",
+          "settings": {
+            "icon": "truck",
+            "title": "Free Shipping to US",
+            "text": ""
+          }
+        },
+        "col-2": {
+          "type": "column",
+          "settings": {
+            "icon": "return",
+            "title": "60-day Returns",
+            "text": ""
+          }
+        },
+        "col-3": {
+          "type": "column",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure checkout",
+            "text": ""
+          }
+        },
+        "col-4": {
+          "type": "column",
+          "settings": {
+            "icon": "checkmark",
+            "title": "Easy install",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "col-1",
+        "col-2",
+        "col-3",
+        "col-4"
+      ],
+      "settings": {
+        "heading": "",
+        "compact": true,
+        "columns": 4,
+        "color_scheme": "scheme-2",
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
     "shop": {
       "type": "douce-product-grid",
       "blocks": {
@@ -445,57 +498,6 @@
         "accent_italic": false,
         "padding_top": 120,
         "padding_bottom": 120
-      }
-    },
-    "trust": {
-      "type": "douce-icon-columns",
-      "blocks": {
-        "col-1": {
-          "type": "column",
-          "settings": {
-            "icon": "truck",
-            "title": "Free Shipping to US",
-            "text": ""
-          }
-        },
-        "col-2": {
-          "type": "column",
-          "settings": {
-            "icon": "return",
-            "title": "60-day Returns",
-            "text": ""
-          }
-        },
-        "col-3": {
-          "type": "column",
-          "settings": {
-            "icon": "lock",
-            "title": "Secure checkout",
-            "text": ""
-          }
-        },
-        "col-4": {
-          "type": "column",
-          "settings": {
-            "icon": "checkmark",
-            "title": "Easy install",
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "col-1",
-        "col-2",
-        "col-3",
-        "col-4"
-      ],
-      "settings": {
-        "heading": "",
-        "columns": 4,
-        "color_scheme": "scheme-2",
-        "padding_top": 40,
-        "padding_bottom": 0,
-        "compact": true
       }
     }
   },

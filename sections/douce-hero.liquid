@@ -5,7 +5,7 @@
 -%}
 <section
   class="dc-section dc-hero color-{{ section.settings.color_scheme }}{% if section.settings.accent_italic %} dc-accent-italic{% endif %}"
-  style="--dc-pt: 0px; --dc-pb: 0px; --dc-hero-h: {{ section.settings.min_height }}px; --dc-overlay: {{ overlay }};"
+  style="--dc-pt: 0px; --dc-pb: 0px; --dc-hero-h: {{ section.settings.min_height }}px; --dc-overlay: {{ overlay }}; --dc-focal-x: {{ section.settings.focal_x }}%; --dc-focal-y: {{ section.settings.focal_y }}%;"
 >
   <div class="dc-hero__media">
     {%- render 'douce-image',
@@ -76,6 +76,28 @@
       "step": 2,
       "unit": "%",
       "default": 92
+    },
+    {
+      "type": "range",
+      "id": "focal_y",
+      "label": "Image focus: vertical",
+      "info": "0% shows the top of the photo, 100% the bottom. Use it to keep the subject in view.",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "focal_x",
+      "label": "Image focus: horizontal",
+      "info": "0% shows the left of the photo, 100% the right.",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 50
     },
     {
       "type": "range",

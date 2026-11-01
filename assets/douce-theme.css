@@ -934,6 +934,10 @@ h3,
   display: block;
 }
 
+.dc-hero__media img {
+  object-position: var(--dc-focal-x, 50%) var(--dc-focal-y, 50%);
+}
+
 .dc-hero__media .placeholder-svg {
   fill: rgba(255, 255, 255, 0.08);
 }

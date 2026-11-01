@@ -24,6 +24,18 @@
             "heading": "Your skin & hair notices <em>the water.</em>"
           }
         },
+        "check-5": {
+          "type": "check",
+          "settings": {
+            "text": "Free Shipping to the US"
+          }
+        },
+        "check-6": {
+          "type": "check",
+          "settings": {
+            "text": "60-Day Returns"
+          }
+        },
         "buttons-4": {
           "type": "buttons",
           "settings": {
@@ -39,7 +51,9 @@
       "block_order": [
         "eyebrow-1",
         "heading-2",
-        "buttons-4"
+        "buttons-4",
+        "check-5",
+        "check-6"
       ],
       "settings": {
         "image": "shopify://shop_images/edit7.jpg",

@@ -20,8 +20,8 @@
         "image_position": "right",
         "color_scheme": "scheme-3",
         "accent_italic": true,
-        "padding_top": 96,
-        "padding_bottom": 96
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "story": {
@@ -29,8 +29,8 @@
       "settings": {
         "heading": "Better skincare <em>started in the shower.</em>",
         "lead": "<p>Our founder had tried every cream for skin that felt tight after every shower. Nothing lasted past lunch.</p>",
-        "text": "<p>The change came from somewhere less obvious: the water. After moving to a hard-water city, a simple filter on the showerhead made more difference than the bathroom shelf of products.</p><p>Most filters on the market were bulky, hid the cartridge, or looked like hardware. So we designed one we'd want on display, with a clear handle that shows you the filter working.</p>",
-        "note": "",
+        "text": "<p>The change came from somewhere less obvious: the water. After moving to a hard-water city, a simple filter on the showerhead made more difference than the bathroom shelf of products.</p><p>It wasn't only skin. More hair in the brush, a ponytail that felt thinner, strands that snapped and never felt clean. We kept blaming the shampoo, until we looked at what was running over our heads every morning. Chlorine and hard-water minerals can leave hair dry, coated and brittle, so it is more prone to breakage.</p><p>Most filters on the market were bulky, hid the cartridge, or looked like hardware. So we designed one we'd want on display, with a clear handle that shows you the filter working.</p>",
+        "note": "DOUCE is a showerhead filter, not a medical treatment. If you are losing hair or have a skin condition, speak to a doctor.",
         "color_scheme": "scheme-1",
         "accent_italic": false,
         "padding_top": 112,

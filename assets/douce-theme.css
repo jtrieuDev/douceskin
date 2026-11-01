@@ -2165,7 +2165,7 @@ h3,
 }
 
 .dc-split-hero__content .dc-heading {
-  --dc-h-size: clamp(60px, 7vw, 104px);
+  --dc-h-size: clamp(48px, 5.4vw, 76px);
   line-height: 0.94;
   letter-spacing: -0.02em;
 }
@@ -2177,7 +2177,7 @@ h3,
 }
 
 .dc-split-hero__media {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 16 / 10;
   border-radius: var(--dc-radius-2xl);
   background: rgba(0, 0, 0, 0.2);
 }
@@ -2261,7 +2261,11 @@ h3,
   }
 
   .dc-split-hero__content .dc-heading {
-    --dc-h-size: 50px;
+    --dc-h-size: 42px;
+  }
+
+  .dc-split-hero__media {
+    aspect-ratio: 16 / 11;
   }
 
   .dc-split-hero--reverse .dc-split-hero__media {

@@ -2189,11 +2189,22 @@ h3,
   align-items: start;
 }
 
-.dc-story .dc-heading {
+.dc-story__side {
   position: sticky;
   top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.dc-story .dc-heading {
   --dc-h-size: 52px;
   line-height: 1.05;
+}
+
+.dc-story__image {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--dc-radius-xl);
 }
 
 .dc-story__body {
@@ -2275,6 +2286,11 @@ h3,
 
   .dc-split-hero--reverse .dc-split-hero__media {
     order: 0;
+  }
+
+  .dc-story__side {
+    position: static;
+    gap: 24px;
   }
 
   .dc-story .dc-heading {

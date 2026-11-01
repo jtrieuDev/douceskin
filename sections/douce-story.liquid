@@ -5,9 +5,20 @@
 >
   <div class="dc-container dc-container--narrow">
     <div class="dc-story">
-      {%- if section.settings.heading != blank -%}
-        <h2 class="dc-heading">{{ section.settings.heading }}</h2>
-      {%- endif -%}
+      <div class="dc-story__side">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="dc-heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.show_image -%}
+          <div class="dc-media dc-story__image">
+            {%- render 'douce-image',
+              image: section.settings.image,
+              sizes: '(min-width: 750px) 40vw, 100vw',
+              placeholder: 'lifestyle-1'
+            -%}
+          </div>
+        {%- endif -%}
+      </div>
       <div class="dc-story__body">
         {%- if section.settings.lead != blank -%}
           <div class="dc-story__lead">{{ section.settings.lead }}</div>
@@ -42,6 +53,8 @@
       "label": "Story",
       "default": "<p>The change came from somewhere less obvious: the water. After moving to a hard-water city, a simple filter on the showerhead made more difference than the bathroom shelf of products.</p><p>Most filters on the market were bulky, hid the cartridge, or looked like hardware. So we designed one we'd want on display, with a clear handle that shows you the filter working.</p>"
     },
+    { "type": "checkbox", "id": "show_image", "label": "Show image under the heading", "default": true },
+    { "type": "image_picker", "id": "image", "label": "Image", "info": "Shown under the heading on the left (4:5 portrait works best)." },
     { "type": "text", "id": "note", "label": "Small print", "info": "Optional." },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "checkbox", "id": "accent_italic", "label": "Accent colour on italic words", "default": false },

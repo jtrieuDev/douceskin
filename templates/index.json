@@ -69,8 +69,8 @@
         "zoom": 130,
         "color_scheme": "scheme-3",
         "accent_italic": true,
-        "focal_y": 30,
-        "focal_x": 100
+        "focal_y": 40,
+        "focal_x": 90
       }
     },
     "before_after": {

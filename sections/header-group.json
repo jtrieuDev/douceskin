@@ -17,7 +17,7 @@
         "msg-1": {
           "type": "announcement",
           "settings": {
-            "text": "Free Shipping",
+            "text": "Free Shipping to the US",
             "link": ""
           }
         },
@@ -51,7 +51,8 @@
         "menu_color_scheme": "scheme-1",
         "enable_country_selector": false,
         "enable_language_selector": false,
-        "douce_highlight_text": "Free delivery",
+        "douce_highlight_text": "",
+        "douce_show_search": false,
         "douce_highlight_link": "",
         "douce_highlight_dot": true,
         "douce_drawer_button_label": "Shop the showerhead",

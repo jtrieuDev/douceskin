@@ -175,7 +175,7 @@
         render 'header-drawer', show_country_selector: country_selector, show_language_selector: language_selector, show_social_links: social_links
       endif
 
-      if render_search_left
+      if render_search_left and section.settings.douce_show_search
         render 'header-search', input_id: 'Search-In-Modal-1'
       endif
     -%}
@@ -292,7 +292,9 @@
           {{- section.settings.douce_highlight_text | escape -}}
         </a>
       {%- endif -%}
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
+      {%- if section.settings.douce_show_search -%}
+        {% render 'header-search', input_id: 'Search-In-Modal' %}
+      {%- endif -%}
 
       {%- if shop.customer_accounts_enabled -%}
         <shopify-account
@@ -654,6 +656,12 @@
     {
       "type": "header",
       "content": "DOUCE"
+    },
+    {
+      "type": "checkbox",
+      "id": "douce_show_search",
+      "label": "Show search icon",
+      "default": true
     },
     {
       "type": "text",

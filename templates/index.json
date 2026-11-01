@@ -24,6 +24,23 @@
             "heading": "Your skin & hair notices <em>the water.</em>"
           }
         },
+        "text-7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Softer-feeling skin and healthier-looking hair start in the shower.</p>"
+          }
+        },
+        "buttons-4": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop now · from $69",
+            "button_link_1": "shopify://collections/all",
+            "button_style_1": "primary",
+            "button_label_2": "How it works",
+            "button_link_2": "#how",
+            "button_style_2": "light"
+          }
+        },
         "check-5": {
           "type": "check",
           "settings": {
@@ -34,23 +51,6 @@
           "type": "check",
           "settings": {
             "text": "60-Day Returns"
-          }
-        },
-        "text-7": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Softer-feeling skin and healthier-looking hair start in the shower.</p>"
-          }
-        },
-        "buttons-4": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop now \u00b7 from $69",
-            "button_link_1": "shopify://collections/all",
-            "button_style_1": "primary",
-            "button_label_2": "How it works",
-            "button_link_2": "#how",
-            "button_style_2": "light"
           }
         }
       },
@@ -65,12 +65,12 @@
       "settings": {
         "image": "shopify://shop_images/edit14.jpg",
         "overlay_opacity": 92,
-        "min_height": 600,
-        "zoom": 130,
-        "color_scheme": "scheme-3",
-        "accent_italic": true,
         "focal_y": 45,
-        "focal_x": 90
+        "focal_x": 90,
+        "zoom": 130,
+        "min_height": 600,
+        "color_scheme": "scheme-3",
+        "accent_italic": true
       }
     },
     "before_after": {
@@ -115,7 +115,7 @@
           "type": "step",
           "settings": {
             "number": "02",
-            "title": "5\u00b5m PP cotton filter",
+            "title": "5µm PP cotton filter",
             "text": "<p>Lines the clear handle and catches rust, sediment and fine particles.</p>"
           }
         },
@@ -138,10 +138,11 @@
         "eyebrow": "How it works",
         "heading": "Two stages. <em>One clear handle.</em>",
         "text": "",
-        "contain_image": false,
+        "image": "shopify://shop_images/allcolors_bd633b67-0474-4f7b-bf06-4de75b1012ce.jpg",
+        "contain_image": true,
         "video_autoplay": false,
         "video_label": "Play video",
-        "media_ratio": "landscape",
+        "media_ratio": "square",
         "layout": "plain",
         "image_position": "left",
         "number_style": "text",
@@ -301,7 +302,7 @@
           "settings": {
             "link": "",
             "caption": "Unboxing to first shower in two minutes",
-            "handle": "@creator \u00b7 Austin, TX"
+            "handle": "@creator · Austin, TX"
           }
         },
         "reel-2": {
@@ -309,7 +310,7 @@
           "settings": {
             "link": "",
             "caption": "My filter after six weeks",
-            "handle": "@creator \u00b7 Phoenix, AZ"
+            "handle": "@creator · Phoenix, AZ"
           }
         },
         "reel-3": {
@@ -317,7 +318,7 @@
           "settings": {
             "link": "",
             "caption": "Hard water hair, week two",
-            "handle": "@creator \u00b7 Chicago, IL"
+            "handle": "@creator · Chicago, IL"
           }
         },
         "reel-4": {
@@ -325,7 +326,7 @@
           "settings": {
             "link": "",
             "caption": "Swapping the filter, start to finish",
-            "handle": "@creator \u00b7 Brooklyn, NY"
+            "handle": "@creator · Brooklyn, NY"
           }
         }
       },
@@ -408,7 +409,7 @@
           "type": "product",
           "settings": {
             "product": "",
-            "title": "Filtered Showerhead \u2014 Chrome",
+            "title": "Filtered Showerhead — Chrome",
             "subtitle": "From $69 with Subscribe & Save",
             "badge": "Bestseller"
           }
@@ -417,7 +418,7 @@
           "type": "product",
           "settings": {
             "product": "",
-            "title": "Filtered Showerhead \u2014 Smoke",
+            "title": "Filtered Showerhead — Smoke",
             "subtitle": "From $69 with Subscribe & Save",
             "badge": "New finish"
           }
@@ -475,7 +476,7 @@
           "type": "question",
           "settings": {
             "question": "Will it fit my shower?",
-            "answer": "<p>DOUCE fits any standard \u00bd\" shower hose. No tools or plumber needed. No hose? Add ours for $24.</p>"
+            "answer": "<p>DOUCE fits any standard ½\" shower hose. No tools or plumber needed. No hose? Add ours for $24.</p>"
           }
         },
         "question-4": {

@@ -36,6 +36,12 @@
             "text": "60-Day Returns"
           }
         },
+        "text-7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Chlorine and hard water can leave skin feeling tight and hair dry and brittle. DOUCE filters them out at the showerhead, so every shower is gentler.</p>"
+          }
+        },
         "buttons-4": {
           "type": "buttons",
           "settings": {
@@ -51,6 +57,7 @@
       "block_order": [
         "eyebrow-1",
         "heading-2",
+        "text-7",
         "buttons-4",
         "check-5",
         "check-6"

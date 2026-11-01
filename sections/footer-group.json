@@ -37,7 +37,8 @@
         "legal": {
           "type": "policies",
           "settings": {
-            "heading": "Policies"
+            "heading": "Policies",
+            "refund_label": "Return & Refund Policy"
           }
         }
       },

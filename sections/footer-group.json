@@ -58,7 +58,7 @@
       "settings": {
         "show_newsletter": true,
         "newsletter_heading": "Notes on <em>softer water.</em>",
-        "newsletter_text": "<p>Filter reminders, care guides and 10% off your first order.</p>",
+        "newsletter_text": "",
         "newsletter_placeholder": "Email address",
         "newsletter_button": "Subscribe",
         "newsletter_button_style": "lime",

@@ -68,8 +68,8 @@
         "min_height": 680,
         "color_scheme": "scheme-3",
         "accent_italic": true,
-        "focal_y": 20,
-        "focal_x": 70
+        "focal_y": 50,
+        "focal_x": 100
       }
     },
     "before_after": {

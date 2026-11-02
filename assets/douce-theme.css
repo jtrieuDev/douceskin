@@ -1818,6 +1818,25 @@ h3,
   white-space: nowrap;
 }
 
+/* Price shown as a pill button, like "Shop now". */
+.dc-pcard__price > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 20px;
+  border-radius: 100px;
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  transition: transform 0.15s ease;
+}
+
+.dc-pcard:hover .dc-pcard__price > span:first-child {
+  transform: translateY(-1px);
+}
+
 .dc-pcard__compare {
   font-size: 13px;
   font-weight: 500;

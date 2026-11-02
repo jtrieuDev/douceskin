@@ -48,6 +48,7 @@
               title: block.settings.title,
               subtitle: block.settings.subtitle,
               badge: block.settings.badge,
+              price_badge: block.settings.price_badge,
               sizes: card_sizes,
               show_secondary: section.settings.show_secondary
             -%}
@@ -116,7 +117,8 @@
         { "type": "product", "id": "product", "label": "Product" },
         { "type": "text", "id": "title", "label": "Title override" },
         { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "From $69 with Subscribe & Save" },
-        { "type": "text", "id": "badge", "label": "Badge", "default": "Bestseller" }
+        { "type": "text", "id": "badge", "label": "Badge", "default": "Bestseller" },
+        { "type": "text", "id": "price_badge", "label": "Badge under the price", "info": "Small pill under the price, e.g. Free US shipping." }
       ]
     }
   ],

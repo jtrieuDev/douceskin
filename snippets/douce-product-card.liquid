@@ -5,6 +5,7 @@
   @param {string} [title] - Title override.
   @param {string} [subtitle] - Line under the title.
   @param {string} [badge] - Badge text over the image.
+  @param {string} [price_badge] - Small pill under the price.
   @param {string} [sizes] - The sizes attribute for the image.
   @param {boolean} [show_secondary] - Swap to the second image on hover.
 
@@ -77,6 +78,9 @@
         {%- endif -%}
       {%- else -%}
         <span>{{ 7900 | money }}</span>
+      {%- endif -%}
+      {%- if price_badge != blank -%}
+        <span class="dc-pcard__tag">{{ price_badge | escape }}</span>
       {%- endif -%}
     </div>
   </div>

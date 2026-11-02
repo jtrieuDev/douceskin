@@ -42,7 +42,7 @@
         "intro": {
           "type": "text",
           "settings": {
-            "text": "Two-stage filtration in a clear handle, so you can see what stays out of your shower. Kinder to dry, sensitive skin and hair.",
+            "text": "Two-stage filtration in a clear handle, so you can see the filter at work. Designed for a gentler shower.",
             "text_style": "body"
           }
         },
@@ -52,8 +52,8 @@
             "icon": "checkmark",
             "columns": "2",
             "item_1": "Helps reduce chlorine",
-            "item_2": "Catches sediment & rust",
-            "item_3": "Fits any ½\" hose",
+            "item_2": "Catches sediment & particles",
+            "item_3": "Standard ½\" connection",
             "item_4": "Steady pressure",
             "item_5": "",
             "item_6": ""
@@ -297,16 +297,16 @@
           "type": "column",
           "settings": {
             "icon": "leaf",
-            "title": "Kinder to skin",
-            "text": "<p>Less chlorine means less dryness and tightness after you shower.</p>"
+            "title": "A gentler shower",
+            "text": "<p>Filters chlorine at the showerhead for a more comfortable shower.</p>"
           }
         },
         "b1": {
           "type": "column",
           "settings": {
             "icon": "plant",
-            "title": "Softer-feeling hair",
-            "text": "<p>Hair keeps more of its natural oils and rinses cleaner.</p>"
+            "title": "A cleaner rinse",
+            "text": "<p>A filter you can see working, with sediment caught before it reaches you.</p>"
           }
         },
         "b2": {

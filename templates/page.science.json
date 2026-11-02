@@ -31,13 +31,13 @@
             "heading": "Why there's chlorine in your shower",
             "toc_label": "Chlorine",
             "anchor": "chlorine",
-            "text": "<p>US water utilities add chlorine or chloramine to treat tap water. In a hot shower, that chlorine meets warm skin, your scalp and steam, and it strips the natural oils that keep skin and hair comfortable.</p><p>If your skin feels tight after showering, or your hair feels rough when it dries, chlorine is a likely part of it.</p>"
+            "text": "<p>US water utilities add chlorine or chloramine to keep tap water safe to drink. In a hot shower, that chlorine reaches your skin, your scalp and the steam you breathe.</p><p>A showerhead filter helps reduce free chlorine right where you use the water, for a more comfortable shower.</p>"
           }
         },
         "b1": {
           "type": "quote",
           "settings": {
-            "quote": "\"If your skin flares or your hair sheds, start with the water it meets every day: your shower.\""
+            "quote": "Chlorine keeps tap water safe. In the shower, a filter can help reduce it right where you use it."
           }
         },
         "b2": {
@@ -66,7 +66,7 @@
             "heading": "How the two stages work",
             "toc_label": "How it works",
             "anchor": "how",
-            "text": "<p>Water passes through a mineral-stone cartridge in the head, which reduces chlorine, then through a 5µm PP cotton filter in the handle, which catches rust, sediment and fine particles.</p>"
+            "text": "<p>Water passes through a mineral-stone cartridge in the head, which helps reduce free chlorine, then through a 5µm PP cotton filter in the handle, which catches sediment and fine particles.</p>"
           }
         },
         "b5": {
@@ -89,8 +89,8 @@
           "settings": {
             "heading": "",
             "columns": "Contaminant | Stage | Result",
-            "rows": "Free chlorine | Stone cartridge | Reduced\nRust | PP filter | Reduced\nSediment & sand | PP filter | Reduced\nParticles over 5µm | PP filter | Captured\nCalcium & magnesium | Stone cartridge | Partly reduced",
-            "note": "Replace with your independent lab results and link the full report."
+            "rows": "Free chlorine | Stone cartridge | Helps reduce\nSediment & sand | PP filter | Captured\nParticles over 5µm | PP filter | Captured",
+            "note": "Results depend on your water, temperature and flow rate."
           }
         },
         "b8": {
@@ -99,14 +99,14 @@
             "heading": "What it doesn't do",
             "toc_label": "What it doesn't do",
             "anchor": "limits",
-            "text": "<p>DOUCE is not a whole-home water softener and it isn't a medical device. It won't cure eczema or stop hair loss. What it does is make the water you shower in kinder to skin and hair, which many people with dry or sensitive skin notice within a couple of weeks.</p>"
+            "text": "<p>DOUCE is not a water softener and it isn't a medical device. It isn't designed to treat any skin or hair condition. It helps reduce free chlorine and catches sediment at the showerhead for a more comfortable shower. It is not designed to reduce chloramine, and results depend on your water.</p>"
           }
         },
         "b9": {
           "type": "banner",
           "settings": {
             "heading": "Try DOUCE for 60 days.",
-            "text": "<p>Free shipping to the US. Full refund if you don't feel the difference.</p>",
+            "text": "<p>Free shipping to the US. 60-day money-back guarantee.</p>",
             "button_label": "Shop now · from $69",
             "button_link": "shopify://collections/all",
             "color_scheme": "scheme-3"

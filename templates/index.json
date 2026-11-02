@@ -208,7 +208,8 @@
         "accent_italic": false,
         "padding_top": 120,
         "padding_bottom": 0
-      }
+      },
+      "disabled": true
     },
     "people": {
       "type": "douce-photo-strip",

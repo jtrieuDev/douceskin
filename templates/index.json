@@ -116,7 +116,7 @@
           "settings": {
             "number": "02",
             "title": "5µm PP cotton filter",
-            "text": "<p>Lines the clear handle and catches sediment and fine particles.</p>"
+            "text": "<p>Sits in the handle and catches sediment and fine particles.</p>"
           }
         },
         "step-3": {
@@ -136,7 +136,7 @@
       "settings": {
         "anchor": "how",
         "eyebrow": "How it works",
-        "heading": "Two stages. <em>One clear handle.</em>",
+        "heading": "Two stages. <em>One handle.</em>",
         "text": "",
         "image": "shopify://shop_images/allcolors_bd633b67-0474-4f7b-bf06-4de75b1012ce.jpg",
         "contain_image": true,
@@ -167,16 +167,16 @@
           "type": "card",
           "settings": {
             "label": "Day 3",
-            "title": "See it work",
-            "text": "<p>The clear handle lets you see the filter at work.</p>"
+            "title": "Nothing to do",
+            "text": "<p>Run it for a few showers. The filter works quietly in the handle.</p>"
           }
         },
         "card-3": {
           "type": "card",
           "settings": {
             "label": "Week 2",
-            "title": "Watch the filter",
-            "text": "<p>Depending on your water, the PP filter may start to darken. That is sediment it caught.</p>"
+            "title": "Filter at work",
+            "text": "<p>Depending on your water, the PP filter collects sediment over time.</p>"
           }
         },
         "card-4": {

@@ -42,7 +42,7 @@
         "intro": {
           "type": "text",
           "settings": {
-            "text": "Two-stage filtration in a clear handle, so you can see the filter at work. Designed for a gentler shower.",
+            "text": "Two-stage filtration in the handle: a cartridge plus a PP cotton filter. Designed for a gentler shower.",
             "text_style": "body"
           }
         },
@@ -313,8 +313,8 @@
           "type": "column",
           "settings": {
             "icon": "recycle",
-            "title": "See when to swap",
-            "text": "<p>The clear handle shows the filter darken as it works.</p>"
+            "title": "Easy to maintain",
+            "text": "<p>Change the PP cotton filter every 4–6 weeks. Replacements are always available.</p>"
           }
         },
         "b3": {

@@ -108,8 +108,8 @@
       "type": "douce-cta-banner",
       "settings": {
         "layout": "split",
-        "heading": "Feel the difference <em>in 60 days.</em>",
-        "text": "<p>Free shipping to the US and a full refund if it's not for you.</p>",
+        "heading": "Try it <em>for 60 days.</em>",
+        "text": "<p>Free shipping to the US and 60-day returns.</p>",
         "button_label": "Shop the showerhead",
         "button_link": "shopify://collections/all",
         "button_style": "dark",

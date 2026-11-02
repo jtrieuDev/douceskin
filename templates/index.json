@@ -501,9 +501,9 @@
       "type": "douce-cta-banner",
       "settings": {
         "layout": "split",
-        "heading": "Try it for 60 days. <em>Feel the difference or it's free.</em>",
-        "text": "<p>If your skin and hair don't feel better within 60 days, send it back for a full refund.</p>",
-        "button_label": "Start your 60 days",
+        "heading": "Try it for 60 days. <em>Not for you? Send it back.</em>",
+        "text": "<p>If it's not right for you, request a return within 60 days of delivery. See our Return & Refund Policy for details.</p>",
+        "button_label": "Shop now",
         "button_link": "shopify://collections/all",
         "button_style": "dark",
         "product": "",

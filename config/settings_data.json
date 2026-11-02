@@ -201,18 +201,6 @@
           "accent": "#0E6B35",
           "shadow": "#10291B"
         }
-      },
-      "scheme-6": {
-        "settings": {
-          "background": "#B9D4A0",
-          "background_gradient": "",
-          "text": "#10291B",
-          "button": "#D4F01E",
-          "button_label": "#10291B",
-          "secondary_button_label": "#0E6B35",
-          "accent": "#0E6B35",
-          "shadow": "#10291B"
-        }
       }
     }
   },

@@ -54,7 +54,7 @@
             "item_1": "Helps reduce chlorine",
             "item_2": "Catches sediment & particles",
             "item_3": "Standard ½\" connection",
-            "item_4": "Steady pressure",
+            "item_4": "No tools needed",
             "item_5": "",
             "item_6": ""
           }
@@ -127,7 +127,7 @@
             "icon_1": "truck",
             "link_1": "shipping_policy",
             "url_1": "",
-            "text_2": "60-day money-back guarantee",
+            "text_2": "60-day returns",
             "icon_2": "return",
             "link_2": "refund_policy",
             "url_2": "",
@@ -299,15 +299,15 @@
           "settings": {
             "icon": "leaf",
             "title": "A gentler shower",
-            "text": "<p>Filters chlorine at the showerhead for a more comfortable shower.</p>"
+            "text": "<p>Designed to help reduce chlorine at the showerhead for a more comfortable shower.</p>"
           }
         },
         "b1": {
           "type": "column",
           "settings": {
             "icon": "plant",
-            "title": "A cleaner rinse",
-            "text": "<p>A filter you can see working, with sediment caught before it reaches you.</p>"
+            "title": "Catches sediment",
+            "text": "<p>A PP cotton filter in the handle catches sediment and fine particles.</p>"
           }
         },
         "b2": {
@@ -315,7 +315,7 @@
           "settings": {
             "icon": "recycle",
             "title": "Easy to maintain",
-            "text": "<p>Change the PP cotton filter every 4–6 weeks. Replacements are always available.</p>"
+            "text": "<p>Change the PP cotton filter every 4–6 weeks. Replacement filters are sold separately.</p>"
           }
         },
         "b3": {
@@ -323,7 +323,7 @@
           "settings": {
             "icon": "checkmark",
             "title": "Two-minute install",
-            "text": "<p>Twist on to any standard ½\" hose. No tools, no plumber.</p>"
+            "text": "<p>Twist onto a standard ½\" connection. No tools, no plumber.</p>"
           }
         }
       },

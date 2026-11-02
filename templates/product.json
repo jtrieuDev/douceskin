@@ -187,6 +187,12 @@
             "icon": "truck",
             "content": "<p>Free shipping to the US. Delivery takes 6–10 business days. Return within 60 days for a full refund.</p>"
           }
+        },
+        "hose_help": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.handle == 'showerhead-kit' or product.handle == 'showerhead-kit-6-filters' -%}\n<p class=\"dc-hose-help\">No hose on your shower? <a href=\"{{ all_products['showerhead-kit-with-hose'].url }}\">Choose the Complete Kit with hose &rarr;</a></p>\n{%- endif -%}"
+          }
         }
       },
       "block_order": [
@@ -197,6 +203,7 @@
         "checklist",
         "variant_picker",
         "kits",
+        "hose_help",
         "purchase_options",
         "quantity_selector",
         "buy_buttons",

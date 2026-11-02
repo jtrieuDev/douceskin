@@ -3873,3 +3873,16 @@ douce-video.is-playing .dc-video-toggle {
   font-size: 14px;
   color: rgba(var(--color-foreground), 0.7);
 }
+
+.dc-hose-help {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.dc-hose-help a {
+  color: rgb(var(--color-foreground));
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

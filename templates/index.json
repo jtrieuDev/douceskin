@@ -107,8 +107,8 @@
           "type": "step",
           "settings": {
             "number": "01",
-            "title": "Mineral-stone cartridge",
-            "text": "<p>Sits in the head and reduces chlorine as water passes through.</p>"
+            "title": "Calcium sulfite cartridge",
+            "text": "<p>Calcium sulfite balls sit in the head and help reduce chlorine as water passes through.</p>"
           }
         },
         "step-2": {

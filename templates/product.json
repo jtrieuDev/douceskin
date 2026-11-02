@@ -149,7 +149,8 @@
             "icon": "leaf",
             "content": "{{ product.metafields.douce.why | metafield_tag }}",
             "page": ""
-          }
+          },
+          "disabled": true
         },
         "filter_tab": {
           "type": "collapsible_tab",
@@ -210,7 +211,6 @@
         },
         "benefits_tab": {
           "type": "collapsible_tab",
-          "disabled": true,
           "settings": {
             "douce_under_gallery": true,
             "heading": "Key Benefits",
@@ -233,14 +233,14 @@
         "quantity_selector",
         "buy_buttons",
         "trust_badges",
+        "benefits_tab",
         "why",
         "filter_tab",
         "box_tab",
         "shipping_tab",
         "price",
         "reassurance",
-        "description",
-        "benefits_tab"
+        "description"
       ],
       "settings": {
         "enable_sticky_info": true,

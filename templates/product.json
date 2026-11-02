@@ -32,7 +32,7 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button",
+            "picker_type": "swatch",
             "swatch_shape": "circle",
             "swatch_colors": "Crystal White: #F2F4F5\nSmoky Black: #2B2B2B\nAqua Blue: #8FD3E8\nSoft Green: #B7D9B0"
           }
@@ -128,7 +128,7 @@
         "trust_badges": {
           "type": "douce_trust_badges",
           "settings": {
-            "text_1": "Free delivery",
+            "text_1": "Free shipping to the US",
             "icon_1": "truck",
             "link_1": "shipping_policy",
             "url_1": "",
@@ -151,7 +151,7 @@
           "settings": {
             "icon": "checkmark",
             "columns": "2",
-            "item_1": "Reduces chlorine",
+            "item_1": "Helps reduce chlorine",
             "item_2": "Catches sediment & rust",
             "item_3": "Fits any ½\" hose",
             "item_4": "Steady pressure"
@@ -354,6 +354,7 @@
     },
     "quotes": {
       "type": "douce-quotes",
+      "disabled": true,
       "blocks": {
         "q0": {
           "type": "quote",
@@ -495,7 +496,7 @@
       "settings": {
         "button_label": "Add to cart",
         "button_style": "primary",
-        "subtitle": "Free US delivery",
+        "subtitle": "Free shipping to the US",
         "show_on_mobile": true,
         "color_scheme": "scheme-1"
       }

@@ -14,7 +14,7 @@
 {%- if image != blank -%}
   {%- liquid
     assign img_sizes = sizes | default: '100vw'
-    assign img_alt = alt | default: image.alt | escape
+    assign img_alt = alt | default: image.alt | default: shop.name | escape
     if eager
       assign img_loading = 'eager'
     else

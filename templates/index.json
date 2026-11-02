@@ -408,35 +408,45 @@
         "product-1": {
           "type": "product",
           "settings": {
-            "product": "",
-            "title": "Filtered Showerhead — Chrome",
-            "subtitle": "From $69 with Subscribe & Save",
-            "badge": "Bestseller"
+            "product": "showerhead-kit",
+            "title": "Standard Kit",
+            "subtitle": "Showerhead, no hose",
+            "badge": ""
           }
         },
         "product-2": {
           "type": "product",
           "settings": {
-            "product": "",
-            "title": "Filtered Showerhead — Smoke",
-            "subtitle": "From $69 with Subscribe & Save",
-            "badge": "New finish"
+            "product": "showerhead-kit-with-hose",
+            "title": "Complete Kit",
+            "subtitle": "Showerhead + hose",
+            "badge": ""
           }
         },
         "product-3": {
           "type": "product",
           "settings": {
-            "product": "",
-            "title": "Starter Kit",
-            "subtitle": "Showerhead + 3 replacement filters",
-            "badge": "Save $14"
+            "product": "showerhead-kit-6-filters",
+            "title": "Standard Kit + 2 filter packs",
+            "subtitle": "2 packs of 3 cotton filters",
+            "badge": "Save $30"
+          }
+        },
+        "product-4": {
+          "type": "product",
+          "settings": {
+            "product": "complete-kit-6-filters",
+            "title": "Complete Kit + 2 filter packs",
+            "subtitle": "2 packs of 3 cotton filters",
+            "badge": "Save $30"
           }
         }
       },
       "block_order": [
         "product-1",
         "product-2",
-        "product-3"
+        "product-3",
+        "product-4"
       ],
       "settings": {
         "heading": "Shop DOUCE",
@@ -445,7 +455,7 @@
         "link": "shopify://collections/all",
         "collection": "",
         "products_to_show": 3,
-        "columns": 3,
+        "columns": 4,
         "image_ratio": "square",
         "show_secondary": true,
         "mobile_rail": true,
@@ -469,14 +479,14 @@
           "type": "question",
           "settings": {
             "question": "How often do I change the filters?",
-            "answer": "<p>Roughly every two months, or sooner if the PP filter darkens noticeably. A 3-pack lasts about six months.</p>"
+            "answer": "<p>Replace the PP cotton filter when it visibly darkens. How often depends on your water. A 3-pack gives you three replacements.</p>"
           }
         },
         "question-3": {
           "type": "question",
           "settings": {
             "question": "Will it fit my shower?",
-            "answer": "<p>DOUCE fits any standard ½\" shower hose. No tools or plumber needed. No hose? Add ours for $24.</p>"
+            "answer": "<p>DOUCE fits any standard ½\" shower hose. No tools or plumber needed. No hose? Choose the kit with hose.</p>"
           }
         },
         "question-4": {

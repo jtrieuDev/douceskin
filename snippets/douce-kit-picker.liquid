@@ -107,11 +107,37 @@
           <span class="dc-kit__sub">{{ self_sub | escape }}</span>
         {%- endif -%}
       </span>
+      {%- liquid
+        assign self_sep_mf = product.metafields.douce.price_separated
+        if self_sep_mf == blank
+          assign self_sep_mf = product.metafields.custom.price_separated
+        endif
+        assign self_sep_cents = 0
+        if self_sep_mf.value != blank
+          if self_sep_mf.type == 'money'
+            assign self_sep_cents = self_sep_mf.value | append: '' | plus: 0
+          else
+            assign self_sep_num = self_sep_mf.value | append: '' | strip | plus: 0
+            if self_sep_num > 0
+              assign self_sep_cents = self_sep_num | times: 100 | round
+            endif
+          endif
+        endif
+        assign self_save_cents = self_sep_cents | minus: cur.price
+      -%}
       <span class="dc-kit__price">
-        {%- if cur.compare_at_price > cur.price -%}
+        {%- if self_sep_cents > 0 and self_save_cents > 0 -%}
+          <span class="dc-kit__sep">
+            {{- block.settings.separate_label | default: 'Bought separately' | escape }}
+            <s>{{ self_sep_cents | money }}</s>
+          </span>
+        {%- elsif cur.compare_at_price > cur.price -%}
           <s>{{ cur.compare_at_price | money }}</s>
         {%- endif -%}
         <span class="dc-kit__now">{{ cur.price | money }}</span>
+        {%- if self_sep_cents > 0 and self_save_cents > 0 -%}
+          <span class="dc-kit__save">{{ block.settings.save_label | default: 'Save' | escape }} {{ self_save_cents | money }}</span>
+        {%- endif -%}
       </span>
       {%- if self_tag != blank -%}
         <span class="dc-kit__tag">{{ self_tag | escape }}</span>

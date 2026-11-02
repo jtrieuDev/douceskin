@@ -994,17 +994,30 @@ h3,
     min-height: 0;
   }
 
+  /* Mobile: photo on top, text below on solid background so the face is never covered */
+  .dc-hero {
+    flex-direction: column;
+  }
+
+  .dc-hero__media {
+    position: relative;
+    inset: auto;
+    flex: none;
+    height: 340px;
+  }
+
   .dc-hero__overlay {
+    bottom: auto;
+    height: 340px;
     background: linear-gradient(
-      0deg,
-      rgba(var(--color-background), var(--dc-overlay, 0.92)) 0%,
-      rgba(var(--color-background), calc(var(--dc-overlay, 0.92) * 0.7)) 60%,
-      rgba(var(--color-background), 0.2) 100%
+      180deg,
+      rgba(var(--color-background), 0) 55%,
+      rgba(var(--color-background), 1) 100%
     );
   }
 
   .dc-hero__content {
-    padding-top: 220px;
+    padding-top: 12px;
     padding-bottom: 40px;
   }
 

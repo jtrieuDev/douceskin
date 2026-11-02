@@ -106,8 +106,8 @@
           "type": "banner",
           "settings": {
             "heading": "Try DOUCE for 60 days.",
-            "text": "<p>Free delivery. Full refund if you don't feel the difference.</p>",
-            "button_label": "Shop now · $79",
+            "text": "<p>Free shipping to the US. Full refund if you don't feel the difference.</p>",
+            "button_label": "Shop now · from $69",
             "button_link": "shopify://collections/all",
             "color_scheme": "scheme-3"
           }

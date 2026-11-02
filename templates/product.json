@@ -304,6 +304,7 @@
     },
     "install": {
       "type": "douce-steps",
+      "disabled": true,
       "blocks": {
         "s0": {
           "type": "step",
@@ -390,68 +391,93 @@
         "padding_bottom": 0
       }
     },
-    "reels": {
-      "type": "douce-video-reels",
+    "people": {
+      "type": "douce-photo-strip",
       "blocks": {
-        "r0": {
-          "type": "reel",
+        "photo_7dakqd": {
+          "type": "photo",
           "settings": {
-            "caption": "",
-            "handle": ""
+            "image": "shopify://shop_images/1.jpg",
+            "alt": ""
           }
         },
-        "r1": {
-          "type": "reel",
+        "photo-1": {
+          "type": "photo",
           "settings": {
-            "caption": "",
-            "handle": ""
+            "image": "shopify://shop_images/2.jpg",
+            "alt": ""
           }
         },
-        "r2": {
-          "type": "reel",
+        "photo-2": {
+          "type": "photo",
           "settings": {
-            "caption": "",
-            "handle": ""
+            "image": "shopify://shop_images/3.jpg",
+            "alt": ""
           }
         },
-        "r3": {
-          "type": "reel",
+        "photo-3": {
+          "type": "photo",
           "settings": {
-            "caption": "",
-            "handle": ""
+            "image": "shopify://shop_images/4.jpg",
+            "alt": ""
           }
         },
-        "r4": {
-          "type": "reel",
+        "photo-4": {
+          "type": "photo",
           "settings": {
-            "caption": "",
-            "handle": ""
+            "image": "shopify://shop_images/5.jpg",
+            "alt": ""
+          }
+        },
+        "photo-5": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/6.jpg",
+            "alt": ""
+          }
+        },
+        "photo-6": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/7.jpg",
+            "alt": ""
+          }
+        },
+        "photo-7": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/8.jpg",
+            "alt": ""
           }
         }
       },
       "block_order": [
-        "r0",
-        "r1",
-        "r2",
-        "r3",
-        "r4"
+        "photo_7dakqd",
+        "photo-1",
+        "photo-2",
+        "photo-3",
+        "photo-4",
+        "photo-5",
+        "photo-6",
+        "photo-7"
       ],
       "settings": {
         "eyebrow": "",
-        "heading": "Early showers",
-        "text": "<p>Reviews open after our first orders ship. Until then, here's DOUCE in our testers' bathrooms.</p>",
-        "columns": 5,
-        "show_play_icon": true,
-        "play_label": "Play video",
-        "mobile_rail": true,
+        "heading": "People like you who <em>ditched their old showerhead.</em>",
+        "text": "",
+        "note": "",
+        "speed": 5,
+        "ratio": "4 / 5",
+        "pause_on_hover": true,
         "color_scheme": "scheme-1",
         "accent_italic": false,
-        "padding_top": 120,
-        "padding_bottom": 0
+        "padding_top": 72,
+        "padding_bottom": 48
       }
     },
     "ba_pairs": {
       "type": "douce-before-after-pairs",
+      "disabled": true,
       "blocks": {
         "p0": {
           "type": "pair",
@@ -521,7 +547,7 @@
     "benefits",
     "install",
     "quotes",
-    "reels",
+    "people",
     "ba_pairs",
     "sticky_atc"
   ]

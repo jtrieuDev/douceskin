@@ -1818,19 +1818,6 @@ h3,
   white-space: nowrap;
 }
 
-.dc-pcard__tag {
-  margin-top: 6px;
-  padding: 4px 10px;
-  border-radius: 100px;
-  background: rgb(var(--color-button));
-  color: rgb(var(--color-button-text));
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  line-height: 1.2;
-}
-
 .dc-pcard__compare {
   font-size: 13px;
   font-weight: 500;

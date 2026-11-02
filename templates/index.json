@@ -412,8 +412,7 @@
             "product": "showerhead-kit",
             "title": "Standard Kit",
             "subtitle": "Yes, I have a hose. Showerhead only.",
-            "badge": "",
-            "price_badge": "Free US Shipping"
+            "badge": ""
           }
         },
         "product-2": {
@@ -422,8 +421,7 @@
             "product": "showerhead-kit-with-hose",
             "title": "Complete Kit",
             "subtitle": "No, I need one. Showerhead + hose.",
-            "badge": "",
-            "price_badge": "Free US Shipping"
+            "badge": ""
           }
         }
       },

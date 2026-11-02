@@ -437,7 +437,7 @@
         "collection": "",
         "products_to_show": 3,
         "columns": 2,
-        "image_ratio": "landscape",
+        "image_ratio": "square",
         "show_secondary": true,
         "mobile_rail": false,
         "color_scheme": "scheme-1",

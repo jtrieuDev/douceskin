@@ -470,20 +470,12 @@
             "question": "Will it fit my shower?",
             "answer": "<p>DOUCE has a standard ½\" connection that fits most US shower hoses and arms. No tools or plumber needed, and a little PTFE tape on the threads is recommended. No hose? Choose the kit with hose.</p>"
           }
-        },
-        "question-4": {
-          "type": "question",
-          "settings": {
-            "question": "Does it soften water?",
-            "answer": "<p>It helps reduce chlorine and catches sediment. It is not a water softener and does not change water hardness.</p>"
-          }
         }
       },
       "block_order": [
         "question-1",
         "question-2",
-        "question-3",
-        "question-4"
+        "question-3"
       ],
       "settings": {
         "eyebrow": "FAQ",

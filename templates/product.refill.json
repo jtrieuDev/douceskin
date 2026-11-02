@@ -172,6 +172,24 @@
             "icon": "truck",
             "content": "<p>Free shipping to the US. Delivery takes 6–12 business days. Return within 60 days for a full refund.</p>"
           }
+        },
+        "fit_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "douce_under_gallery": true,
+            "heading": "Will it fit my shower head?",
+            "icon": "check_mark",
+            "content": "<p>Made for the DOUCE filtered shower head, in every color, with or without hose.</p>"
+          }
+        },
+        "replace_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "douce_under_gallery": true,
+            "heading": "How to replace it",
+            "icon": "recycle",
+            "content": "<p>Unscrew the head from the hose, swap the used filter for the new one, then screw the head back on and hand-tighten. No tools needed.</p><p>Change it every 4–6 weeks, or when it turns brown.</p>"
+          }
         }
       },
       "block_order": [
@@ -188,6 +206,8 @@
         "why",
         "filter_tab",
         "box_tab",
+        "fit_tab",
+        "replace_tab",
         "shipping_tab",
         "price",
         "reassurance",

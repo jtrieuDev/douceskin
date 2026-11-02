@@ -1,0 +1,29 @@
+{% doc %}
+  Product card used inside the desktop mega menu: photo, name and price.
+
+  @param {product} product - Product to show.
+  @param {string} [title] - Label from the menu (defaults to the product title).
+  @param {string} [badge] - Optional small badge.
+{% enddoc %}
+<a class="dc-mm-card link" href="{{ product.url }}">
+  <span class="dc-mm-card__media">
+    {%- if product.featured_media != blank -%}
+      {{
+        product.featured_media
+        | image_url: width: 400
+        | image_tag: widths: '200, 300, 400', sizes: '200px', loading: 'lazy', alt: ''
+      }}
+    {%- endif -%}
+    {%- if badge != blank -%}
+      <span class="dc-mm-card__badge">{{ badge | escape }}</span>
+    {%- endif -%}
+  </span>
+  <span class="dc-mm-card__title">{{ title | default: product.title | escape }}</span>
+  <span class="dc-mm-card__price">
+    {%- if product.price_varies -%}
+      {{ 'products.product.price.from_price_html' | t: price: product.price_min | money }}
+    {%- else -%}
+      {{ product.price | money }}
+    {%- endif -%}
+  </span>
+</a>

@@ -8,8 +8,10 @@
   style="--dc-pt: 0px; --dc-pb: 0px; --dc-hero-h: {{ section.settings.min_height }}px; --dc-overlay: {{ overlay }}; --dc-focal-x: {{ section.settings.focal_x }}%; --dc-focal-y: {{ section.settings.focal_y }}%; --dc-zoom: {{ section.settings.zoom | divided_by: 100.0 }};"
 >
   <div class="dc-hero__media">
+    {%- assign hero_sizes = '(min-width: 750px) ' | append: section.settings.zoom | append: 'vw, 100vw' -%}
     {%- render 'douce-image',
       image: section.settings.image,
+      sizes: hero_sizes,
       eager: true,
       placeholder: 'hero-apparel-1'
     -%}

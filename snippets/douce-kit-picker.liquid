@@ -54,6 +54,13 @@
   assign c2 = cur.option2 | downcase
   assign c3 = cur.option3 | downcase
 -%}
+{%- liquid
+  assign has_kits = use_meta
+  if has_kits == false and block.settings.product_1 != blank
+    assign has_kits = true
+  endif
+-%}
+{%- if has_kits or request.design_mode -%}
 <div class="dc-kits" id="DouceKits-{{ block.id }}" {{ block.shopify_attributes }}>
   {%- if block.settings.heading != blank or block.settings.note != blank -%}
     <div class="dc-kits__head">
@@ -66,7 +73,9 @@
   <div class="dc-kits" role="radiogroup" aria-labelledby="KitLabel-{{ block.id }}">
     {%- comment -%} Card 1: the current product on its own. {%- endcomment -%}
     {%- liquid
-      assign self_title = block.settings.title_1 | default: product.title
+      assign self_title = block.settings.title_1 | default: product.metafields.custom.kit_title.value | default: product.metafields.douce.kit_title.value | default: product.title
+      assign self_sub = block.settings.subtitle_1 | default: product.metafields.custom.kit_subtitle.value | default: product.metafields.douce.kit_subtitle.value
+      assign self_tag = block.settings.tag_1 | default: product.metafields.custom.kit_tag.value | default: product.metafields.douce.kit_tag.value
       assign self_media = cur.featured_media | default: product.featured_media
     -%}
     <label class="dc-kit" data-kit-card>
@@ -94,8 +103,8 @@
       </span>
       <span>
         <span class="dc-kit__title">{{ self_title | escape }}</span>
-        {%- if block.settings.subtitle_1 != blank -%}
-          <span class="dc-kit__sub">{{ block.settings.subtitle_1 | escape }}</span>
+        {%- if self_sub != blank -%}
+          <span class="dc-kit__sub">{{ self_sub | escape }}</span>
         {%- endif -%}
       </span>
       <span class="dc-kit__price">
@@ -104,8 +113,8 @@
         {%- endif -%}
         <span class="dc-kit__now">{{ cur.price | money }}</span>
       </span>
-      {%- if block.settings.tag_1 != blank -%}
-        <span class="dc-kit__tag">{{ block.settings.tag_1 | escape }}</span>
+      {%- if self_tag != blank -%}
+        <span class="dc-kit__tag">{{ self_tag | escape }}</span>
       {%- endif -%}
     </label>
 
@@ -264,3 +273,4 @@
     {%- endfor -%}
   </div>
 </div>
+{%- endif -%}

@@ -162,11 +162,11 @@
           "settings": {
             "heading": "Choose your kit",
             "note": "Bundle and save",
-            "title_1": "Showerhead",
-            "subtitle_1": "Filters installed · 2 months",
+            "title_1": "",
+            "subtitle_1": "",
             "title_2": "Starter Kit",
             "subtitle_2": "Showerhead + 3 replacement filters",
-            "tag_2": "Most popular",
+            "tag_2": "",
             "title_3": "Complete Kit",
             "subtitle_3": "Starter Kit + stainless hose",
             "tag_3": "Best value"

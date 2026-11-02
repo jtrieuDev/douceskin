@@ -9,25 +9,55 @@
  */
 {
   "sections": {
+    "breadcrumbs": {
+      "type": "douce-breadcrumbs",
+      "settings": {
+        "home_label": "Home",
+        "shop_label": "Shop",
+        "shop_link": "",
+        "current_label": "",
+        "aria_label": "Breadcrumb",
+        "color_scheme": "scheme-1",
+        "padding_top": 20
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
-        "rating": {
-          "type": "rating",
-          "settings": {}
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "text": "Filtered showerhead",
+            "text_style": "uppercase"
+          }
         },
         "title": {
           "type": "title",
           "settings": {}
         },
-        "price": {
-          "type": "price",
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "intro": {
+          "type": "text",
           "settings": {
-            "douce_card": true,
-            "douce_card_title": "One-time purchase",
-            "douce_card_includes": ""
-          },
-          "disabled": true
+            "text": "Two-stage filtration in a clear handle, so you can see what stays out of your shower. Kinder to dry, sensitive skin and hair.",
+            "text_style": "body"
+          }
+        },
+        "checklist": {
+          "type": "douce_checklist",
+          "settings": {
+            "icon": "checkmark",
+            "columns": "2",
+            "item_1": "Helps reduce chlorine",
+            "item_2": "Catches sediment & rust",
+            "item_3": "Fits any ½\" hose",
+            "item_4": "Steady pressure",
+            "item_5": "",
+            "item_6": ""
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -37,77 +67,31 @@
             "swatch_colors": "Crystal White: #F2F4F5\nSmoky Black: #2B2B2B\nAqua Blue: #8FD3E8\nSoft Green: #B7D9B0"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
+        "kits": {
+          "type": "douce_kit_picker",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "heading": "Choose your kit",
+            "note": "Bundle and save",
+            "separate_label": "Bought separately",
+            "save_label": "Save",
+            "product_1": "",
+            "title_1": "",
+            "subtitle_1": "",
+            "tag_1": "",
+            "product_2": "",
+            "title_2": "Starter Kit",
+            "subtitle_2": "Showerhead + 3 replacement filters",
+            "tag_2": "",
+            "product_3": "",
+            "title_3": "Complete Kit",
+            "subtitle_3": "Starter Kit + stainless hose",
+            "tag_3": "Best value"
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {},
-          "disabled": true
-        },
-        "subtitle": {
-          "type": "text",
+        "hose_help": {
+          "type": "custom_liquid",
           "settings": {
-            "text": "Filtered showerhead",
-            "text_style": "uppercase"
-          }
-        },
-        "reassurance": {
-          "type": "icon-with-text",
-          "settings": {
-            "layout": "horizontal",
-            "icon_1": "lock",
-            "heading_1": "Secure checkout",
-            "icon_2": "truck",
-            "heading_2": "Shipping to the US",
-            "icon_3": "none",
-            "heading_3": ""
-          },
-          "disabled": true
-        },
-        "why": {
-          "type": "collapsible_tab",
-          "settings": {
-            "douce_under_gallery": true,
-            "heading": "Why DOUCE",
-            "icon": "leaf",
-            "content": "{{ product.metafields.douce.why | metafield_tag }}"
-          }
-        },
-        "benefits_tab": {
-          "type": "collapsible_tab",
-          "settings": {
-            "douce_under_gallery": true,
-            "heading": "Key Benefits",
-            "icon": "check_mark",
-            "content": "{{ product.metafields.douce.benefits | metafield_tag }}"
-          },
-          "disabled": true
-        },
-        "filter_tab": {
-          "type": "collapsible_tab",
-          "settings": {
-            "douce_under_gallery": true,
-            "heading": "Filter Replacement",
-            "icon": "recycle",
-            "content": "{{ product.metafields.douce.filter_replacement | metafield_tag }}"
-          }
-        },
-        "box_tab": {
-          "type": "collapsible_tab",
-          "settings": {
-            "douce_under_gallery": true,
-            "heading": "What's Included in the Box",
-            "icon": "box",
-            "content": "{{ product.metafields.douce.box_contents | metafield_tag }}"
+            "custom_liquid": "{%- if product.handle == 'showerhead-kit' -%}\n<p class=\"dc-hose-help\">No hose on your shower? <a href=\"{{ all_products['showerhead-kit-with-hose'].url }}\">Choose the Complete Kit with hose &rarr;</a></p>\n{%- elsif product.handle == 'showerhead-kit-6-filters' -%}\n<p class=\"dc-hose-help\">No hose on your shower? <a href=\"{{ all_products['complete-kit-6-filters'].url }}\">Choose the Complete Kit with hose &rarr;</a></p>\n{%- elsif product.handle == 'showerhead-kit-with-hose' -%}\n<p class=\"dc-hose-help\">Already have a hose? <a href=\"{{ all_products['showerhead-kit'].url }}\">Choose the Standard Kit without hose &rarr;</a></p>\n{%- elsif product.handle == 'complete-kit-6-filters' -%}\n<p class=\"dc-hose-help\">Already have a hose? <a href=\"{{ all_products['showerhead-kit-6-filters'].url }}\">Choose the kit without hose &rarr;</a></p>\n{%- endif -%}"
           }
         },
         "purchase_options": {
@@ -123,6 +107,17 @@
             "savings_format": "amount",
             "one_time_title": "One-time purchase",
             "one_time_description": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
           }
         },
         "trust_badges": {
@@ -146,37 +141,34 @@
             "url_4": ""
           }
         },
-        "checklist": {
-          "type": "douce_checklist",
+        "why": {
+          "type": "collapsible_tab",
           "settings": {
-            "icon": "checkmark",
-            "columns": "2",
-            "item_1": "Helps reduce chlorine",
-            "item_2": "Catches sediment & rust",
-            "item_3": "Fits any ½\" hose",
-            "item_4": "Steady pressure"
+            "douce_under_gallery": true,
+            "heading": "Why DOUCE",
+            "icon": "leaf",
+            "content": "{{ product.metafields.douce.why | metafield_tag }}",
+            "page": ""
           }
         },
-        "kits": {
-          "type": "douce_kit_picker",
+        "filter_tab": {
+          "type": "collapsible_tab",
           "settings": {
-            "heading": "Choose your kit",
-            "note": "Bundle and save",
-            "title_1": "",
-            "subtitle_1": "",
-            "title_2": "Starter Kit",
-            "subtitle_2": "Showerhead + 3 replacement filters",
-            "tag_2": "",
-            "title_3": "Complete Kit",
-            "subtitle_3": "Starter Kit + stainless hose",
-            "tag_3": "Best value"
+            "douce_under_gallery": true,
+            "heading": "Filter Replacement",
+            "icon": "recycle",
+            "content": "{{ product.metafields.douce.filter_replacement | metafield_tag }}",
+            "page": ""
           }
         },
-        "intro": {
-          "type": "text",
+        "box_tab": {
+          "type": "collapsible_tab",
           "settings": {
-            "text": "Two-stage filtration in a clear handle, so you can see what stays out of your shower. Kinder to dry, sensitive skin and hair.",
-            "text_style": "body"
+            "douce_under_gallery": true,
+            "heading": "What's Included in the Box",
+            "icon": "box",
+            "content": "{{ product.metafields.douce.box_contents | metafield_tag }}",
+            "page": ""
           }
         },
         "shipping_tab": {
@@ -185,13 +177,46 @@
             "douce_under_gallery": true,
             "heading": "Shipping & Returns",
             "icon": "truck",
-            "content": "<p>Free shipping to the US. Delivery takes 6–10 business days. Return within 60 days for a full refund.</p>"
+            "content": "<p>Free shipping to the US. Delivery takes 6–10 business days. Return within 60 days for a full refund.</p>",
+            "page": ""
           }
         },
-        "hose_help": {
-          "type": "custom_liquid",
+        "price": {
+          "type": "price",
+          "disabled": true,
           "settings": {
-            "custom_liquid": "{%- if product.handle == 'showerhead-kit' or product.handle == 'showerhead-kit-6-filters' -%}\n<p class=\"dc-hose-help\">No hose on your shower? <a href=\"{{ all_products['showerhead-kit-with-hose'].url }}\">Choose the Complete Kit with hose &rarr;</a></p>\n{%- endif -%}"
+            "douce_card": true,
+            "douce_card_title": "One-time purchase",
+            "douce_card_includes": ""
+          }
+        },
+        "reassurance": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "lock",
+            "heading_1": "Secure checkout",
+            "icon_2": "truck",
+            "heading_2": "Shipping to the US",
+            "icon_3": "none",
+            "heading_3": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "benefits_tab": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "douce_under_gallery": true,
+            "heading": "Key Benefits",
+            "icon": "check_mark",
+            "content": "{{ product.metafields.douce.benefits | metafield_tag }}",
+            "page": ""
           }
         }
       },
@@ -220,6 +245,7 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
+        "douce_media_badge": "",
         "media_size": "medium",
         "constrain_to_viewport": false,
         "media_fit": "cover",
@@ -235,14 +261,19 @@
     },
     "disclosures": {
       "type": "disclosures",
+      "disabled": true,
       "settings": {
+        "heading": "Disclosures",
+        "heading_size": "h2",
+        "open_by_default": false,
+        "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 0
-      },
-      "disabled": true
+      }
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -257,8 +288,7 @@
         "show_rating": false,
         "padding_top": 36,
         "padding_bottom": 28
-      },
-      "disabled": true
+      }
     },
     "benefits": {
       "type": "douce-icon-columns",
@@ -303,6 +333,8 @@
         "b3"
       ],
       "settings": {
+        "heading": "",
+        "compact": false,
         "columns": 4,
         "color_scheme": "scheme-2",
         "padding_top": 96,
@@ -311,7 +343,6 @@
     },
     "install": {
       "type": "douce-steps",
-      "disabled": true,
       "blocks": {
         "s0": {
           "type": "step",
@@ -343,10 +374,12 @@
         "s1",
         "s2"
       ],
+      "disabled": true,
       "settings": {
         "anchor": "install",
         "eyebrow": "Install",
         "heading": "On in two minutes. <em>No tools.</em>",
+        "text": "",
         "contain_image": false,
         "video_autoplay": false,
         "video_label": "Play install video",
@@ -362,7 +395,6 @@
     },
     "quotes": {
       "type": "douce-quotes",
-      "disabled": true,
       "blocks": {
         "q0": {
           "type": "quote",
@@ -391,7 +423,9 @@
         "q1",
         "q2"
       ],
+      "disabled": true,
       "settings": {
+        "heading": "",
         "columns": 3,
         "color_scheme": "scheme-1",
         "padding_top": 120,
@@ -484,7 +518,6 @@
     },
     "ba_pairs": {
       "type": "douce-before-after-pairs",
-      "disabled": true,
       "blocks": {
         "p0": {
           "type": "pair",
@@ -513,6 +546,7 @@
         "p1",
         "p2"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Before &amp; after",
         "label_before": "Before",
@@ -532,17 +566,6 @@
         "subtitle": "Free shipping to the US",
         "show_on_mobile": true,
         "color_scheme": "scheme-1"
-      }
-    },
-    "breadcrumbs": {
-      "type": "douce-breadcrumbs",
-      "settings": {
-        "home_label": "Home",
-        "shop_label": "Shop",
-        "current_label": "",
-        "aria_label": "Breadcrumb",
-        "color_scheme": "scheme-1",
-        "padding_top": 20
       }
     }
   },

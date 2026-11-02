@@ -13,6 +13,13 @@
         | image_url: width: 400
         | image_tag: widths: '200, 300, 400', sizes: '200px', loading: 'lazy', alt: ''
       }}
+      {%- if product.media[1] != blank -%}
+        {{
+          product.media[1]
+          | image_url: width: 400
+          | image_tag: widths: '200, 300, 400', sizes: '200px', loading: 'lazy', alt: ''
+        }}
+      {%- endif -%}
     {%- endif -%}
     {%- if badge != blank -%}
       <span class="dc-mm-card__badge">{{ badge | escape }}</span>

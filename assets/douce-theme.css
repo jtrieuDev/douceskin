@@ -3865,8 +3865,19 @@ douce-video.is-playing .dc-video-toggle {
   transition: transform 0.4s ease;
 }
 
+.dc-mm-card__media img + img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.35s ease;
+}
+
 .dc-mm-card:hover .dc-mm-card__media img {
   transform: scale(1.04);
+}
+
+.dc-mm-card:hover .dc-mm-card__media img + img {
+  opacity: 1;
 }
 
 .dc-mm-card__badge {

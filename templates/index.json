@@ -98,7 +98,8 @@
         "accent_italic": false,
         "padding_top": 120,
         "padding_bottom": 0
-      }
+      },
+      "disabled": true
     },
     "how": {
       "type": "douce-steps",
@@ -115,7 +116,7 @@
           "type": "step",
           "settings": {
             "number": "02",
-            "title": "5µm PP cotton filter",
+            "title": "PP cotton filter",
             "text": "<p>Sits in the handle and catches sediment and fine particles.</p>"
           }
         },
@@ -124,7 +125,7 @@
           "settings": {
             "number": "03",
             "title": "Fine-mist spray",
-            "text": "<p>Micro-nozzles keep pressure steady, even with the filters in.</p>"
+            "text": "<p>Micro-nozzles spread the water into a fine, even spray.</p>"
           }
         }
       },
@@ -137,7 +138,7 @@
         "anchor": "how",
         "eyebrow": "How it works",
         "heading": "Two stages. <em>One handle.</em>",
-        "text": "",
+        "text": "<p>Most US tap water is treated with chlorine, and it can also carry sediment and fine particles. Both reach your shower every day. DOUCE filters in two stages, right at the showerhead.</p>",
         "image": "shopify://shop_images/allcolors_bd633b67-0474-4f7b-bf06-4de75b1012ce.jpg",
         "contain_image": true,
         "video_autoplay": false,
@@ -148,7 +149,7 @@
         "number_style": "text",
         "color_scheme": "scheme-1",
         "accent_italic": true,
-        "padding_top": 72,
+        "padding_top": 96,
         "padding_bottom": 0
       }
     },

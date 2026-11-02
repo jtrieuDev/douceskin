@@ -3916,3 +3916,21 @@ douce-video.is-playing .dc-video-toggle {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* =========================================================
+   Policy pages: keep bullets on the same line as their text.
+   The policy HTML wraps each list item in a <p>, which pushed
+   the bullet onto its own line with list-style: inside.
+   ========================================================= */
+.shopify-policy__body ul,
+.shopify-policy__body ol {
+  padding-left: 24px;
+}
+
+.shopify-policy__body li {
+  list-style-position: outside;
+}
+
+.shopify-policy__body li > p {
+  margin: 0 0 8px;
+}

@@ -20,11 +20,17 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    {%- if request.page_type == 'blog' or request.page_type == 'article' or collection.handle == 'frontpage' -%}
+      <meta name="robots" content="noindex, follow">
+    {%- endif -%}
+
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- assign title_lc = page_title | downcase -%}
+      {%- assign shop_lc = shop.name | downcase -%}
+      {%- unless title_lc contains shop_lc %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
     {%- liquid

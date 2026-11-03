@@ -225,6 +225,12 @@
             "content": "{{ product.metafields.douce.benefits | metafield_tag }}",
             "page": ""
           }
+        },
+        "payment_icons": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'douce-payment-icons' %}"
+          }
         }
       },
       "block_order": [
@@ -241,6 +247,7 @@
         "quantity_selector",
         "buy_buttons",
         "trust_badges",
+        "payment_icons",
         "benefits_tab",
         "why",
         "filter_tab",

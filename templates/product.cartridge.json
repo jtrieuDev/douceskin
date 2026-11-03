@@ -197,6 +197,12 @@
             "icon": "recycle",
             "content": "<p>Open the shower head, swap the used cartridge for the new one, then close it again. No tools needed.</p>"
           }
+        },
+        "payment_icons": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'douce-payment-icons' %}"
+          }
         }
       },
       "block_order": [
@@ -211,6 +217,7 @@
         "quantity_selector",
         "buy_buttons",
         "trust_badges",
+        "payment_icons",
         "why",
         "filter_tab",
         "box_tab",

@@ -197,6 +197,12 @@
             "icon": "recycle",
             "content": "<p>Unscrew the head from the hose, swap the used filter for the new one, then screw the head back on and hand-tighten. No tools needed.</p><p>Change it every 4–6 weeks, or when it turns brown.</p>"
           }
+        },
+        "payment_icons": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'douce-payment-icons' %}"
+          }
         }
       },
       "block_order": [
@@ -211,6 +217,7 @@
         "quantity_selector",
         "buy_buttons",
         "trust_badges",
+        "payment_icons",
         "why",
         "filter_tab",
         "box_tab",

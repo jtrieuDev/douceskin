@@ -1,6 +1,6 @@
 {%- comment -%}
   "Order today, ships by <next business day>" line shown above the add-to-cart button.
-  The date is computed in US Eastern time, skipping Saturdays and Sundays (holidays are not handled).
+  The date is the next calendar day (weekends included), computed in US Eastern time.
   Keep it consistent with the Shipping policy (orders are processed within 1-2 business days).
 {%- endcomment -%}
 <p class="douce-ship-by" data-douce-ship-by hidden>Order today, ships by <strong></strong></p>
@@ -16,7 +16,7 @@
       var v = {};
       p.forEach(function (x) { v[x.type] = parseInt(x.value, 10); });
       var d = new Date(Date.UTC(v.year, v.month - 1, v.day, 12));
-      do { d.setUTCDate(d.getUTCDate() + 1); } while (d.getUTCDay() === 0 || d.getUTCDay() === 6);
+      d.setUTCDate(d.getUTCDate() + 1);
       var label = new Intl.DateTimeFormat('en-US', { timeZone: 'UTC', weekday: 'short', month: 'short', day: 'numeric' }).format(d);
       document.querySelectorAll('[data-douce-ship-by]').forEach(function (el) {
         el.querySelector('strong').textContent = label;

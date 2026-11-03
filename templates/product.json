@@ -231,8 +231,7 @@
           "type": "custom_liquid",
           "settings": {
             "custom_liquid": "{% render 'douce-payment-icons' %}"
-          },
-          "disabled": true
+          }
         }
       },
       "block_order": [

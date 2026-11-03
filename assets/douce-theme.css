@@ -3665,9 +3665,26 @@ h3,
 }
 
 @media screen and (max-width: 749px) {
-  .dc-sticky-atc .dc-media,
-  .dc-sticky-atc__price {
+  .dc-sticky-atc .dc-media {
     display: none;
+  }
+
+  .dc-sticky-atc__inner {
+    gap: 12px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .dc-sticky-atc__title {
+    font-size: 14px;
+  }
+
+  .dc-sticky-atc__sub {
+    font-size: 12px;
+  }
+
+  .dc-sticky-atc__price {
+    flex: none;
+    font-size: 17px;
   }
 }
 

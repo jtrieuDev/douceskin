@@ -44,13 +44,13 @@
         "check-5": {
           "type": "check",
           "settings": {
-            "text": "Free Shipping to the US"
+            "text": "Free shipping to the US"
           }
         },
         "check-6": {
           "type": "check",
           "settings": {
-            "text": "60-Day Returns"
+            "text": "60-day returns"
           }
         }
       },
@@ -360,7 +360,7 @@
           "type": "column",
           "settings": {
             "icon": "truck",
-            "title": "Free Shipping to US",
+            "title": "Free shipping to the US",
             "text": ""
           }
         },
@@ -368,7 +368,7 @@
           "type": "column",
           "settings": {
             "icon": "return",
-            "title": "60-day Returns",
+            "title": "60-day returns",
             "text": ""
           }
         },

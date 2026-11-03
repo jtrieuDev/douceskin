@@ -27,11 +27,35 @@
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
+    {%- liquid
+      assign meta_description = page_description
+      if meta_description == blank
+        if request.page_type == 'cart'
+          assign meta_description = 'Review the items in your DOUCE cart. Free shipping to the US and 60-day returns.'
+        elsif request.page_type == 'collection'
+          assign meta_description = 'Shop DOUCE filtered showerhead kits and replacement filters. Free shipping to the US.'
+        elsif request.path == '/pages/contact'
+          assign meta_description = 'Contact DOUCE customer support by email for questions about your order, shipping or returns.'
+        elsif request.page_type == 'policy'
+          if request.path contains 'refund-policy'
+            assign meta_description = 'Read the DOUCE Return & Refund Policy: return window, conditions and how to request a return.'
+          elsif request.path contains 'shipping-policy'
+            assign meta_description = 'Read the DOUCE Shipping Policy: processing times, delivery times and shipping costs for US orders.'
+          elsif request.path contains 'privacy-policy'
+            assign meta_description = 'Read how DOUCE collects, uses and protects your personal information.'
+          elsif request.path contains 'terms-of-service'
+            assign meta_description = 'Read the terms that apply when you shop at DOUCE.'
+          elsif request.path contains 'contact-information'
+            assign meta_description = 'DOUCE contact information: customer support email and business details.'
+          endif
+        endif
+      endif
+    -%}
+    {% if meta_description != blank %}
+      <meta name="description" content="{{ meta_description | escape }}">
     {% endif %}
 
-    {% render 'meta-tags' %}
+    {% render 'meta-tags', meta_description: meta_description %}
 
     <script type="module">
       import * as StandardEvents from 'https://cdn.shopify.com/storefront/standard-events.js';

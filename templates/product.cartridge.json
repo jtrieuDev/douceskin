@@ -39,7 +39,8 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {}
+          "settings": {},
+          "disabled": true
         },
         "ship_by": {
           "type": "custom_liquid",

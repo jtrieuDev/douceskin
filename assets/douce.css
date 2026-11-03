@@ -219,6 +219,11 @@ product-info[id^='MainProduct-'] .product__info-container > div:has(> product-fo
   grid-column: 2;
 }
 
+/* No quantity selector: the buy buttons take the full width. */
+product-info[id^='MainProduct-'] .product__info-container:not(:has(> .product-form__quantity)) > div:has(> product-form) {
+  grid-column: 1 / -1;
+}
+
 /* Headline + subtitle */
 product-info[id^='MainProduct-'] .product__title {
   margin-bottom: 0;

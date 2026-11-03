@@ -8,10 +8,17 @@
     <ul class="douce-pay__list" role="list">
       {%- for type in shop.enabled_payment_types -%}
         {%- if type == 'klarna' -%}{%- continue -%}{%- endif -%}
-        {%- capture douce_pay_icon -%}{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}{%- endcapture -%}
-        {%- comment -%} The American Express artwork is drawn off-centre in Shopify's icon: shift it back into the middle. {%- endcomment -%}
         {%- if type == 'american_express' -%}
-          {%- assign douce_pay_icon = douce_pay_icon | replace: 'd="M25.8662 6.33203', 'transform="translate(-7.5 0)" d="M25.8662 6.33203' -%}
+          {%- comment -%} Shopify's American Express artwork stacks the letters off-centre; use a clean one-line AMEX mark instead. {%- endcomment -%}
+          {%- capture douce_pay_icon -%}
+            <svg class="icon icon--full-color" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" fill="none" aria-labelledby="pi-american_express">
+              <title id="pi-american_express">American Express</title>
+              <rect width="38" height="24" rx="3" fill="#0071CE"></rect>
+              <text x="19" y="15.6" text-anchor="middle" textLength="28" lengthAdjust="spacingAndGlyphs" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="700" fill="#fff">AMEX</text>
+            </svg>
+          {%- endcapture -%}
+        {%- else -%}
+          {%- capture douce_pay_icon -%}{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}{%- endcapture -%}
         {%- endif -%}
         <li class="douce-pay__item">{{ douce_pay_icon }}</li>
       {%- endfor -%}

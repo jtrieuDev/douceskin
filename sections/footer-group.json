@@ -36,7 +36,7 @@
           "type": "text",
           "settings": {
             "heading": "Support",
-            "text": "<p>Any questions about our products or an update on your order? Feel free to reach out to our customer support team at <a href=\"mailto:support@douceskin.com\">support@douceskin.com</a>.</p>"
+            "text": "<p>Any questions about our products or an update on your order? Feel free to reach out to our customer support team at <a href=\"mailto:support@douceskin.com\">support@douceskin.com</a>.</p><p><a href=\"/apps/parcelpanel\">Track your order</a></p>"
           }
         },
         "legal": {

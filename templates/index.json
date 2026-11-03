@@ -63,7 +63,7 @@
         "check-6"
       ],
       "settings": {
-        "image": "shopify://shop_images/edit14.jpg",
+        "image": "shopify://shop_images/editorialfinal.jpg",
         "overlay_opacity": 92,
         "focal_y": 45,
         "focal_x": 90,
@@ -75,6 +75,7 @@
     },
     "before_after": {
       "type": "douce-before-after",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/finalbeforeafter.jpg",
         "image_before": "shopify://shop_images/finalbefore.jpg",
@@ -98,8 +99,7 @@
         "accent_italic": false,
         "padding_top": 120,
         "padding_bottom": 0
-      },
-      "disabled": true
+      }
     },
     "how": {
       "type": "douce-steps",
@@ -195,6 +195,7 @@
         "card-3",
         "card-4"
       ],
+      "disabled": true,
       "settings": {
         "eyebrow": "What to expect",
         "heading": "Your first weeks <em>with DOUCE.</em>",
@@ -209,8 +210,7 @@
         "accent_italic": false,
         "padding_top": 120,
         "padding_bottom": 0
-      },
-      "disabled": true
+      }
     },
     "people": {
       "type": "douce-photo-strip",
@@ -219,56 +219,56 @@
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/1.jpg",
-            "alt": ""
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
           }
         },
         "photo-1": {
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/2.jpg",
-            "alt": ""
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
           }
         },
         "photo-2": {
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/3.jpg",
-            "alt": ""
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
           }
         },
         "photo-3": {
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/4.jpg",
-            "alt": ""
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
           }
         },
         "photo-4": {
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/5.jpg",
-            "alt": ""
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
           }
         },
         "photo-5": {
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/6.jpg",
-            "alt": ""
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
           }
         },
         "photo-6": {
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/7.jpg",
-            "alt": ""
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
           }
         },
         "photo-7": {
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/8.jpg",
-            "alt": ""
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
           }
         }
       },
@@ -497,7 +497,7 @@
         "heading": "Try it for 60 days. <em>Not for you? Send it back.</em>",
         "text": "<p>If it's not right for you, request a return within 60 days of delivery. See our Return & Refund Policy for details.</p>",
         "button_label": "Shop now",
-        "button_link": "shopify://collections/all",
+        "button_link": "shopify://products/showerhead-kit",
         "button_style": "dark",
         "product": "",
         "width": "page",

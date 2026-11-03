@@ -41,6 +41,12 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "ship_by": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'douce-ship-by' %}"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -202,6 +208,7 @@
         "variant_picker",
         "purchase_options",
         "quantity_selector",
+        "ship_by",
         "buy_buttons",
         "trust_badges",
         "why",

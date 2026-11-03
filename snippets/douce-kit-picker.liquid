@@ -95,7 +95,7 @@
           {{
             self_media
             | image_url: width: 192
-            | image_tag: widths: '64, 128, 192', sizes: '64px', loading: 'lazy', alt: ''
+            | image_tag: widths: '64, 128, 192', sizes: '64px', loading: 'lazy', alt: self_title
           }}
         {%- else -%}
           {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -256,7 +256,7 @@
               {{
                 kit_media
                 | image_url: width: 192
-                | image_tag: widths: '64, 128, 192', sizes: '64px', loading: 'lazy', alt: ''
+                | image_tag: widths: '64, 128, 192', sizes: '64px', loading: 'lazy', alt: kit_title | default: kit.title
               }}
             {%- else -%}
               {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}

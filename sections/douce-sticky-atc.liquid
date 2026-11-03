@@ -22,7 +22,7 @@
           {{
             product.featured_media
             | image_url: width: 156
-            | image_tag: widths: '52, 104, 156', sizes: '52px', loading: 'lazy', alt: ''
+            | image_tag: widths: '52, 104, 156', sizes: '52px', loading: 'lazy', alt: product.title
           }}
         {%- else -%}
           {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}

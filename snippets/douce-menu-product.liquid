@@ -11,13 +11,13 @@
       {{
         product.featured_media
         | image_url: width: 960
-        | image_tag: widths: '240, 360, 480, 720, 960', sizes: '240px', loading: 'lazy', alt: ''
+        | image_tag: widths: '240, 360, 480, 720, 960', sizes: '240px', loading: 'lazy', alt: title | default: product.title
       }}
       {%- if product.media[1] != blank -%}
         {{
           product.media[1]
           | image_url: width: 960
-          | image_tag: widths: '240, 360, 480, 720, 960', sizes: '240px', loading: 'lazy', alt: ''
+          | image_tag: widths: '240, 360, 480, 720, 960', sizes: '240px', loading: 'lazy', alt: title | default: product.title
         }}
       {%- endif -%}
     {%- endif -%}

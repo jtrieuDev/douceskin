@@ -9,6 +9,11 @@
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- else -%}
+      <link rel="icon" type="image/png" sizes="32x32" href="{{ 'douce-favicon-32.png' | asset_url }}">
+      <link rel="icon" type="image/png" sizes="48x48" href="{{ 'douce-favicon-48.png' | asset_url }}">
+      <link rel="icon" type="image/png" sizes="512x512" href="{{ 'douce-favicon-512.png' | asset_url }}">
+      <link rel="apple-touch-icon" href="{{ 'douce-apple-touch-icon.png' | asset_url }}">
     {%- endif -%}
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}

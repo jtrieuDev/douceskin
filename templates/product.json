@@ -180,7 +180,8 @@
             "icon": "truck",
             "content": "<p>Free shipping to the US. Orders ship within 1–2 business days, then delivery takes 6–10 business days. Return within 60 days for a full refund. Return shipping is at your cost, unless the item is defective or damaged. See our Return &amp; Refund Policy.</p>",
             "page": ""
-          }
+          },
+          "disabled": true
         },
         "price": {
           "type": "price",

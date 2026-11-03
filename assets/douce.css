@@ -219,6 +219,11 @@ product-info[id^='MainProduct-'] .product__info-container > div:has(> product-fo
   grid-column: 2;
 }
 
+/* Hide Shopify's "More payment options" link under the Shop Pay button. */
+product-info[id^='MainProduct-'] .shopify-payment-button__more-options {
+  display: none;
+}
+
 /* No quantity selector: the buy buttons take the full width. */
 product-info[id^='MainProduct-'] .product__info-container:not(:has(> .product-form__quantity)) > div:has(> product-form) {
   grid-column: 1 / -1;
@@ -664,6 +669,7 @@ product-info[id^='MainProduct-'] .product-form__quantity .quantity__input:focus 
 
 product-info[id^='MainProduct-'] .product__info-container .product-form {
   margin-top: 0;
+  margin-bottom: 0.4rem;
 }
 
 product-info[id^='MainProduct-'] .product-form__buttons {

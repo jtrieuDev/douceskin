@@ -460,22 +460,30 @@
         "question-2": {
           "type": "question",
           "settings": {
-            "question": "How often do I change the filters?",
-            "answer": "<p>Change the filter every 4–6 weeks, or when it turns brown. A 3-pack gives you three replacements.</p>"
+            "question": "Will it fit my shower?",
+            "answer": "<p>Yes, our showerheads are designed to fit any shower. The complete kit includes the shower hose.</p>"
           }
         },
         "question-3": {
           "type": "question",
           "settings": {
-            "question": "Will it fit my shower?",
-            "answer": "<p>DOUCE has a standard ½\" connection that fits most US shower hoses and arms. No tools or plumber needed. PTFE seal tape is included with the hose kits; if you use your own hose, a little PTFE tape on the threads is recommended. No hose? Choose the kit with hose.</p>"
+            "question": "How often do I change the filters?",
+            "answer": "<p>Change the filter every 4–6 weeks, or when it turns brown. A 3-pack gives you three replacements.</p>"
+          }
+        },
+        "question-5": {
+          "type": "question",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>If it's not right for you, request a return within 60 days of delivery. See our Return &amp; Refund Policy for details.</p>"
           }
         }
       },
       "block_order": [
         "question-1",
         "question-2",
-        "question-3"
+        "question-3",
+        "question-5"
       ],
       "settings": {
         "eyebrow": "FAQ",

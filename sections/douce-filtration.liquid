@@ -51,17 +51,17 @@
       </ol>
     {%- endif -%}
 
-    <div class="dc-filt__stages">
-      {%- for block in section.blocks -%}
-        <article class="dc-filt__stage" {{ block.shopify_attributes }}>
-          <div class="dc-media dc-filt__media" style="--dc-ratio: {{ ratio }};">
-            {%- render 'douce-image',
-              image: block.settings.image,
-              sizes: '(min-width: 750px) 50vw, 100vw',
-              placeholder: 'lifestyle-1'
-            -%}
-          </div>
-          <div class="dc-filt__body">
+    <div class="dc-filt__layout">
+      <div class="dc-media dc-filt__media" style="--dc-ratio: {{ ratio }};">
+        {%- render 'douce-image',
+          image: section.settings.image,
+          sizes: '(min-width: 990px) 50vw, 100vw',
+          placeholder: 'lifestyle-1'
+        -%}
+      </div>
+      <div class="dc-filt__stages">
+        {%- for block in section.blocks -%}
+          <article class="dc-filt__stage" {{ block.shopify_attributes }}>
             {%- if block.settings.label != blank -%}
               <span class="dc-pill dc-filt__label">{{ block.settings.label | escape }}</span>
             {%- endif -%}
@@ -83,9 +83,9 @@
                 {%- endif -%}
               {%- endfor -%}
             </ul>
-          </div>
-        </article>
-      {%- endfor -%}
+          </article>
+        {%- endfor -%}
+      </div>
     </div>
 
     {%- if section.settings.note != blank -%}
@@ -151,29 +151,31 @@
     line-height: 1.4;
     opacity: 0.8;
   }
-  .dc-filt__stages {
-    display: flex;
-    flex-direction: column;
-    gap: 56px;
-    margin-top: 36px;
-  }
-  .dc-filt__stage {
+  .dc-filt__layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 64px;
     align-items: center;
-  }
-  .dc-filt__stage:nth-child(even) .dc-filt__media {
-    order: 2;
+    margin-top: 36px;
   }
   .dc-filt__media {
-    aspect-ratio: var(--dc-ratio, 4 / 3);
+    aspect-ratio: var(--dc-ratio, 1 / 1);
   }
-  .dc-filt__body {
+  .dc-filt__stages {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
+  }
+  .dc-filt__stage {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     align-items: flex-start;
+  }
+  .dc-filt__stage + .dc-filt__stage {
+    padding-top: 40px;
+    border-top: 1px solid rgba(var(--color-foreground), 0.12);
+    width: 100%;
   }
   .dc-filt__label {
     background: var(--douce-mint);
@@ -182,7 +184,7 @@
     margin: 0;
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: 40px;
+    font-size: 34px;
     line-height: 1.05;
     letter-spacing: -0.01em;
   }
@@ -229,20 +231,21 @@
     .dc-filt__node + .dc-filt__node::before {
       display: none;
     }
-    .dc-filt__stage {
-      gap: 32px;
+    .dc-filt__layout {
+      gap: 40px;
     }
   }
   @media screen and (max-width: 749px) {
-    .dc-filt__stages {
-      gap: 40px;
+    .dc-filt__layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
       margin-top: 28px;
     }
-    .dc-filt__stage {
-      grid-template-columns: minmax(0, 1fr);
+    .dc-filt__stages {
+      gap: 32px;
     }
-    .dc-filt__stage:nth-child(even) .dc-filt__media {
-      order: 0;
+    .dc-filt__stage + .dc-filt__stage {
+      padding-top: 32px;
     }
     .dc-filt__title {
       font-size: 32px;
@@ -273,6 +276,7 @@
     { "type": "text", "id": "flow_4_title", "label": "Step 4 title", "default": "Your shower" },
     { "type": "text", "id": "flow_4_text", "label": "Step 4 text", "default": "A more comfortable shower" },
     { "type": "header", "content": "Layout" },
+    { "type": "image_picker", "id": "image", "label": "Picture (e.g. exploded view)" },
     {
       "type": "select",
       "id": "media_ratio",
@@ -282,7 +286,7 @@
         { "value": "square", "label": "Square" },
         { "value": "portrait", "label": "Portrait" }
       ],
-      "default": "landscape"
+      "default": "square"
     },
     { "type": "text", "id": "note", "label": "Footnote", "default": "DOUCE is a showerhead filter, not a whole-home system. Results depend on your local water supply." },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
@@ -295,7 +299,6 @@
       "type": "stage",
       "name": "Stage",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Picture" },
         { "type": "text", "id": "label", "label": "Label", "default": "Stage 1 · In the handle" },
         { "type": "text", "id": "title", "label": "Title", "default": "PP cotton filter" },
         { "type": "text", "id": "what_label", "label": "First block label", "default": "What it is" },

@@ -583,6 +583,65 @@
         "show_on_mobile": true,
         "color_scheme": "scheme-1"
       }
+    },
+    "faq": {
+      "type": "douce-faq",
+      "blocks": {
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "question": "Will it lower my water pressure?",
+            "answer": "<p>DOUCE is designed to keep a comfortable spray. Actual water pressure depends on your home's plumbing and water supply.</p>"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "question": "Will it fit my shower?",
+            "answer": "<p>DOUCE has a standard ½\" connection that fits most US shower hoses and arms. No tools or plumber needed. PTFE seal tape is included with the hose kits; if you use your own hose, a little PTFE tape on the threads is recommended. No hose? Choose the kit with hose.</p>"
+          }
+        },
+        "question-3": {
+          "type": "question",
+          "settings": {
+            "question": "How often do I change the filters?",
+            "answer": "<p>Change the filter every 4–6 weeks, or when it turns brown. A 3-pack gives you three replacements.</p>"
+          }
+        },
+        "question-4": {
+          "type": "question",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": "<p>Shipping to the US is free. Orders ship within 1–2 business days, then delivery takes 6–10 business days.</p>"
+          }
+        },
+        "question-5": {
+          "type": "question",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>If it's not right for you, request a return within 60 days of delivery. See our Return &amp; Refund Policy for details.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question-1",
+        "question-2",
+        "question-3",
+        "question-4",
+        "question-5"
+      ],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Questions, <em>answered.</em>",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "open_first": false,
+        "color_scheme": "scheme-1",
+        "accent_italic": false,
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
     }
   },
   "order": [
@@ -595,6 +654,7 @@
     "quotes",
     "people",
     "ba_pairs",
+    "faq",
     "sticky_atc"
   ]
 }

@@ -1,0 +1,324 @@
+{%- comment -%}
+  DOUCE: technical explanation of the two filtration stages.
+  Intro, a "water path" strip, then one row per stage (picture + what it is + why it matters).
+{%- endcomment -%}
+{%- liquid
+  case section.settings.media_ratio
+    when 'square'
+      assign ratio = '1 / 1'
+    when 'portrait'
+      assign ratio = '4 / 5'
+    else
+      assign ratio = '4 / 3'
+  endcase
+-%}
+<section
+  id="{{ section.settings.anchor | default: section.id | handleize }}"
+  class="dc-section dc-filt color-{{ section.settings.color_scheme }}{% if section.settings.accent_italic %} dc-accent-italic{% endif %}"
+  style="--dc-pt: {{ section.settings.padding_top }}px; --dc-pb: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="dc-container">
+    <header class="dc-filt__intro">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="dc-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="dc-heading dc-heading--m">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="dc-text">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </header>
+
+    {%- if section.settings.show_flow -%}
+      <ol class="dc-filt__flow" role="list" aria-label="{{ section.settings.flow_label | escape }}">
+        {%- for i in (1..4) -%}
+          {%- liquid
+            assign t_key = 'flow_' | append: i | append: '_title'
+            assign d_key = 'flow_' | append: i | append: '_text'
+            assign f_title = section.settings[t_key]
+            assign f_text = section.settings[d_key]
+          -%}
+          {%- if f_title != blank -%}
+            <li class="dc-filt__node">
+              <span class="dc-filt__node-title">{{ f_title | escape }}</span>
+              {%- if f_text != blank -%}
+                <span class="dc-filt__node-text">{{ f_text | escape }}</span>
+              {%- endif -%}
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ol>
+    {%- endif -%}
+
+    <div class="dc-filt__stages">
+      {%- for block in section.blocks -%}
+        <article class="dc-filt__stage" {{ block.shopify_attributes }}>
+          <div class="dc-media dc-filt__media" style="--dc-ratio: {{ ratio }};">
+            {%- render 'douce-image',
+              image: block.settings.image,
+              sizes: '(min-width: 750px) 50vw, 100vw',
+              placeholder: 'lifestyle-1'
+            -%}
+          </div>
+          <div class="dc-filt__body">
+            {%- if block.settings.label != blank -%}
+              <span class="dc-pill dc-filt__label">{{ block.settings.label | escape }}</span>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <h3 class="dc-filt__title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.what != blank -%}
+              <div class="dc-filt__block">
+                <p class="dc-filt__kicker">{{ block.settings.what_label | escape }}</p>
+                <div class="dc-text">{{ block.settings.what }}</div>
+              </div>
+            {%- endif -%}
+            {%- if block.settings.why != blank -%}
+              <div class="dc-filt__block">
+                <p class="dc-filt__kicker">{{ block.settings.why_label | escape }}</p>
+                <div class="dc-text">{{ block.settings.why }}</div>
+              </div>
+            {%- endif -%}
+            <ul class="dc-filt__chips" role="list">
+              {%- for i in (1..3) -%}
+                {%- assign c_key = 'chip_' | append: i -%}
+                {%- assign chip = block.settings[c_key] -%}
+                {%- if chip != blank -%}
+                  <li>{{ chip | escape }}</li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.note != blank -%}
+      <p class="dc-filt__note">{{ section.settings.note | escape }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .dc-filt__intro {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .dc-filt__flow {
+    list-style: none;
+    margin: 48px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    counter-reset: node;
+  }
+  .dc-filt__node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 20px;
+    border-radius: var(--dc-radius-m, 20px);
+    background: var(--douce-mint);
+    color: var(--douce-pine);
+    text-align: center;
+  }
+  .dc-filt__node + .dc-filt__node::before {
+    content: '\2192';
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--douce-pine);
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    z-index: 1;
+  }
+  .dc-filt__node-title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .dc-filt__node-text {
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0.8;
+  }
+  .dc-filt__stages {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    margin-top: 72px;
+  }
+  .dc-filt__stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: center;
+  }
+  .dc-filt__stage:nth-child(even) .dc-filt__media {
+    order: 2;
+  }
+  .dc-filt__media {
+    aspect-ratio: var(--dc-ratio, 4 / 3);
+  }
+  .dc-filt__body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .dc-filt__label {
+    background: var(--douce-mint);
+  }
+  .dc-filt__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .dc-filt__block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dc-filt__kicker {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(var(--color-foreground), 0.55);
+  }
+  .dc-filt__chips {
+    list-style: none;
+    margin: 4px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .dc-filt__chips li {
+    padding: 7px 14px;
+    border-radius: 100px;
+    border: 1px solid rgba(var(--color-foreground), 0.18);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .dc-filt__note {
+    margin: 56px auto 0;
+    max-width: 640px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(var(--color-foreground), 0.6);
+  }
+  @media screen and (max-width: 989px) {
+    .dc-filt__flow {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .dc-filt__node + .dc-filt__node::before {
+      display: none;
+    }
+    .dc-filt__stage {
+      gap: 32px;
+    }
+  }
+  @media screen and (max-width: 749px) {
+    .dc-filt__stages {
+      gap: 56px;
+      margin-top: 48px;
+    }
+    .dc-filt__stage {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .dc-filt__stage:nth-child(even) .dc-filt__media {
+      order: 0;
+    }
+    .dc-filt__title {
+      font-size: 32px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "DOUCE filtration detail",
+  "tag": "div",
+  "class": "section-douce-filtration",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "filtration" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Inside the handle" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Two stages. <em>Each with a job.</em>" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Water passes through two filters before it reaches you. Here is what each one does, and why it matters.</p>" },
+    { "type": "header", "content": "Water path" },
+    { "type": "checkbox", "id": "show_flow", "label": "Show the water path", "default": true },
+    { "type": "text", "id": "flow_label", "label": "Accessible label", "default": "Water path through the showerhead" },
+    { "type": "text", "id": "flow_1_title", "label": "Step 1 title", "default": "Tap water" },
+    { "type": "text", "id": "flow_1_text", "label": "Step 1 text", "default": "Treated with chlorine, may carry sediment" },
+    { "type": "text", "id": "flow_2_title", "label": "Step 2 title", "default": "PP cotton filter" },
+    { "type": "text", "id": "flow_2_text", "label": "Step 2 text", "default": "Catches sediment and fine particles" },
+    { "type": "text", "id": "flow_3_title", "label": "Step 3 title", "default": "Calcium sulfite cartridge" },
+    { "type": "text", "id": "flow_3_text", "label": "Step 3 text", "default": "Helps reduce chlorine" },
+    { "type": "text", "id": "flow_4_title", "label": "Step 4 title", "default": "Your shower" },
+    { "type": "text", "id": "flow_4_text", "label": "Step 4 text", "default": "A more comfortable shower" },
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "media_ratio",
+      "label": "Picture shape",
+      "options": [
+        { "value": "landscape", "label": "Landscape" },
+        { "value": "square", "label": "Square" },
+        { "value": "portrait", "label": "Portrait" }
+      ],
+      "default": "landscape"
+    },
+    { "type": "text", "id": "note", "label": "Footnote", "default": "DOUCE is a showerhead filter, not a whole-home system. Results depend on your local water supply." },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "accent_italic", "label": "Accent colour on italic words", "default": false },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 120 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "blocks": [
+    {
+      "type": "stage",
+      "name": "Stage",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Picture" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Stage 1 · In the handle" },
+        { "type": "text", "id": "title", "label": "Title", "default": "PP cotton filter" },
+        { "type": "text", "id": "what_label", "label": "First block label", "default": "What it is" },
+        { "type": "richtext", "id": "what", "label": "What it is", "default": "<p>A layered polypropylene (PP) cotton filter sits in the handle. Water passes through it first.</p>" },
+        { "type": "text", "id": "why_label", "label": "Second block label", "default": "Why it matters" },
+        { "type": "richtext", "id": "why", "label": "Why it matters", "default": "<p>Tap water can carry sediment and fine particles. The PP cotton catches them before they reach the head and your shower.</p>" },
+        { "type": "text", "id": "chip_1", "label": "Tag 1", "default": "PP cotton" },
+        { "type": "text", "id": "chip_2", "label": "Tag 2", "default": "In the handle" },
+        { "type": "text", "id": "chip_3", "label": "Tag 3", "default": "Catches sediment" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DOUCE filtration detail",
+      "blocks": [{ "type": "stage" }, { "type": "stage" }]
+    }
+  ]
+}
+{% endschema %}

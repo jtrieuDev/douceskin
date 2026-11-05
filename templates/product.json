@@ -673,10 +673,10 @@
       ],
       "settings": {
         "anchor": "filtration",
-        "eyebrow": "Inside the handle",
+        "eyebrow": "Why choose DOUCE shower head?",
         "heading": "Two stages. <em>Each with a job.</em>",
         "text": "<p>Water passes through two filters before it reaches you. Here is what each one does, and why it matters.</p>",
-        "show_flow": true,
+        "show_flow": false,
         "flow_label": "Water path through the showerhead",
         "flow_1_title": "Tap water",
         "flow_1_text": "Treated with chlorine, may carry sediment",

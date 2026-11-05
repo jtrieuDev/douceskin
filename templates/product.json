@@ -598,7 +598,7 @@
           "type": "question",
           "settings": {
             "question": "Will it fit my shower?",
-            "answer": "<p>DOUCE has a standard ½\" connection that fits most US shower hoses and arms. No tools or plumber needed. PTFE seal tape is included with the hose kits; if you use your own hose, a little PTFE tape on the threads is recommended. No hose? Choose the kit with hose.</p>"
+            "answer": "<p>Yes, our showerheads are designed to fit any shower. The complete kit includes the shower hose.</p>"
           }
         },
         "question-3": {
@@ -606,13 +606,6 @@
           "settings": {
             "question": "How often do I change the filters?",
             "answer": "<p>Change the filter every 4–6 weeks, or when it turns brown. A 3-pack gives you three replacements.</p>"
-          }
-        },
-        "question-4": {
-          "type": "question",
-          "settings": {
-            "question": "How long does delivery take?",
-            "answer": "<p>Shipping to the US is free. Orders ship within 1–2 business days, then delivery takes 6–10 business days.</p>"
           }
         },
         "question-5": {
@@ -627,7 +620,6 @@
         "question-1",
         "question-2",
         "question-3",
-        "question-4",
         "question-5"
       ],
       "settings": {

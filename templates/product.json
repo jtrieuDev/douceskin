@@ -53,7 +53,7 @@
             "columns": "2",
             "item_1": "Helps reduce chlorine",
             "item_2": "Catches sediment & particles",
-            "item_3": "Standard ½\" connection",
+            "item_3": "Fits any US shower",
             "item_4": "No tools needed",
             "item_5": "",
             "item_6": ""
@@ -223,7 +223,7 @@
             "douce_under_gallery": true,
             "heading": "Key Benefits",
             "icon": "check_mark",
-            "content": "{{ product.metafields.douce.benefits | metafield_tag }}",
+            "content": "<p>1. Filtration at the source<br>Two stages at the showerhead: a calcium sulfite cartridge that helps reduce chlorine and a PP cotton filter that catches sediment and fine particles.<br><br>2. A more comfortable shower<br>Designed for a gentler shower, with less chlorine in the water you shower in.<br><br>3. Installs in minutes<br>No plumber, no tools. Fits any US shower.<br><br>4. Easy to maintain<br>Change the PP cotton filter every 4–6 weeks, or when it turns brown.</p>",
             "page": ""
           }
         },

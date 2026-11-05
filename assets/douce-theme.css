@@ -685,7 +685,8 @@ h3,
 
 @media screen and (max-width: 989px) {
   .dc-header-highlight {
-    display: none;
+    margin-right: 4px;
+    font-size: 13px;
   }
 
   .section-header .header__heading-link .h2 {

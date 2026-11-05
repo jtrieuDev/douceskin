@@ -68,16 +68,10 @@
             {%- if block.settings.title != blank -%}
               <h3 class="dc-filt__title">{{ block.settings.title | escape }}</h3>
             {%- endif -%}
-            {%- if block.settings.what != blank -%}
-              <div class="dc-filt__block">
-                <p class="dc-filt__kicker">{{ block.settings.what_label | escape }}</p>
-                <div class="dc-text">{{ block.settings.what }}</div>
-              </div>
-            {%- endif -%}
-            {%- if block.settings.why != blank -%}
-              <div class="dc-filt__block">
-                <p class="dc-filt__kicker">{{ block.settings.why_label | escape }}</p>
-                <div class="dc-text">{{ block.settings.why }}</div>
+            {%- if block.settings.what != blank or block.settings.why != blank -%}
+              <div class="dc-filt__block dc-text">
+                {{ block.settings.what }}
+                {{ block.settings.why }}
               </div>
             {%- endif -%}
             <ul class="dc-filt__chips" role="list">

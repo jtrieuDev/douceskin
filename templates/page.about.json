@@ -41,56 +41,6 @@
         "padding_bottom": 0
       }
     },
-    "values": {
-      "type": "douce-card-grid",
-      "blocks": {
-        "b0": {
-          "type": "card",
-          "settings": {
-            "label": "01",
-            "title": "One product, any shower",
-            "text": "<p>One showerhead, designed to fit any shower. No tools, no plumber.</p>"
-          }
-        },
-        "b1": {
-          "type": "card",
-          "settings": {
-            "label": "02",
-            "title": "Made to be kept",
-            "text": "<p>Built to last for years. Only the filters need replacing, so the showerhead stays and you simply swap the filters.</p>"
-          }
-        },
-        "b2": {
-          "type": "card",
-          "settings": {
-            "label": "03",
-            "title": "Better hair and skin",
-            "text": "<p>Thanks to the two-stage filtration, a gentler shower for better hair and healthier skin.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "b0",
-        "b1",
-        "b2"
-      ],
-      "settings": {
-        "eyebrow": "What we believe",
-        "heading": "Three <em>promises.</em>",
-        "text": "",
-        "heading_alignment": "center",
-        "columns": 3,
-        "card_style": "mint",
-        "card_size": "large",
-        "label_style": "number",
-        "mobile_rail": false,
-        "color_scheme": "scheme-1",
-        "accent_italic": false,
-        "padding_top": 120,
-        "padding_bottom": 0,
-        "align_top": true
-      }
-    },
     "collage": {
       "type": "douce-collage",
       "settings": {
@@ -190,7 +140,7 @@
         "mobile_rail": false,
         "color_scheme": "scheme-1",
         "accent_italic": false,
-        "padding_top": 96,
+        "padding_top": 112,
         "padding_bottom": 0
       }
     }
@@ -198,9 +148,8 @@
   "order": [
     "main",
     "story",
-    "values",
-    "tagline",
     "audience",
+    "tagline",
     "collage",
     "cta"
   ]

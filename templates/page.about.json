@@ -58,8 +58,8 @@
       "type": "douce-cta-banner",
       "settings": {
         "layout": "split",
-        "heading": "Join us in making <em>showers softer.</em>",
-        "text": "<p>We read every message and keep improving DOUCE with what you tell us. Free shipping to the US and 60-day returns.</p>",
+        "heading": "Try it <em>for 60 days.</em>",
+        "text": "<p>Free shipping to the US and 60-day returns.</p>",
         "button_label": "Shop the showerhead",
         "button_link": "shopify://collections/all",
         "button_style": "dark",

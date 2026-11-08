@@ -12,9 +12,9 @@
     "main": {
       "type": "douce-split-hero",
       "settings": {
-        "eyebrow": "Our story",
+        "eyebrow": "Our story · Designed in France",
         "heading": "Douce, <em>adj.</em> soft, gentle.",
-        "text": "<p>A showerhead filter built around one idea: the water you start your day with should feel as good as the rest of your routine.</p>",
+        "text": "<p>A showerhead filter for skin and hair that deserve better water.</p>",
         "button_label": "",
         "button_link": "",
         "button_style": "primary",
@@ -29,12 +29,12 @@
     "story": {
       "type": "douce-story",
       "settings": {
-        "heading": "We started <em>with the water.</em>",
-        "lead": "<p>You choose your soap, your shampoo, your towels with care. The water running over all of it rarely gets a thought.</p>",
-        "text": "<p>Then you start to notice it. The smell of chlorine on a hot morning shower. The film of sediment that builds up on the glass. It is added to keep tap water safe to drink, and it is still there when you step into the shower.</p><p>We looked for a filter that fixed that, and found mostly bulky plastic that hid its cartridge and looked like hardware. So we designed one we would want on display: a clear handle that lets you see the filter at work, a chrome head, and nothing you have to hide.</p><p>Inside, water passes through two stages. A PP cotton filter catches sediment and fine particles. Then a calcium sulfite cartridge helps reduce chlorine. Both are replaceable in minutes, with no tools and no plumber.</p><p>The result is a simple ritual, made a little more comfortable.</p>",
+        "heading": "Better skin and hair <em>start in the shower.</em>",
+        "lead": "<p>I spent years trying every cream, mask and shampoo for skin that felt tight and hair that felt dull. Nothing lasted past lunch.</p>",
+        "text": "<p>The change came from somewhere less obvious: the water. Chlorine is added to keep tap water safe to drink, but in the shower it can strip skin and hair of their natural oils, leaving them dry, tight and dull. A simple filter on the showerhead made more difference than the whole shelf of products in my bathroom.</p><p>Most filters I found were bulky, hid the cartridge, or looked like hardware. So I designed one in France that I would want to keep on display: a clear handle that shows you the filter at work, a chrome head, and a shape that feels at home in a beautiful bathroom.</p><p>Inside, water passes through two stages. A PP cotton filter catches sediment and fine particles. Then a calcium sulfite cartridge helps reduce chlorine. Both are replaceable in minutes, with no tools and no plumber.</p><p>I made DOUCE for anyone whose skin and hair feel better when the water is gentler. I hope it makes your mornings feel a little softer too.</p><p><em>The founder of DOUCE, Paris</em></p>",
         "show_image": true,
         "image": "shopify://shop_images/allcolors_a13ca63a-5e7e-4e56-be99-5ff60d960d2d.jpg",
-        "note": "DOUCE is a showerhead filter. Results depend on your local water supply.",
+        "note": "DOUCE is a showerhead filter, not a medical treatment. If you have a skin condition or hair loss, speak to a doctor.",
         "color_scheme": "scheme-1",
         "accent_italic": false,
         "padding_top": 112,
@@ -65,7 +65,7 @@
           "settings": {
             "label": "03",
             "title": "Honest claims",
-            "text": "<p>We say \"helps reduce\" because that is what filtration does. No miracle promises, just a more comfortable shower.</p>"
+            "text": "<p>We say \"helps reduce\" because that is what filtration does. No miracle promises, just gentler water at the showerhead.</p>"
           }
         }
       },
@@ -96,7 +96,7 @@
         "image_1": "shopify://shop_images/editorial1.jpg",
         "image_2": "shopify://shop_images/edit5.jpg",
         "card_eyebrow": "What it does",
-        "card_heading": "Two stages at the showerhead. Less sediment, less chlorine, a more comfortable shower.",
+        "card_heading": "Two stages at the showerhead help reduce chlorine and catch sediment, so your shower feels gentler on your skin and hair.",
         "card_color_scheme": "scheme-3",
         "color_scheme": "scheme-1",
         "padding_top": 120,

@@ -27,7 +27,7 @@
     {%- endif -%}
 
     <ul
-      class="dc-cards dc-cards--{{ section.settings.card_style }}{% if section.settings.card_size == 'large' %} dc-cards--large{% endif %}{% if section.settings.mobile_rail %} dc-rail{% endif %}"
+      class="dc-cards dc-cards--{{ section.settings.card_style }}{% if section.settings.card_size == 'large' %} dc-cards--large{% endif %}{% if section.settings.mobile_rail %} dc-rail{% endif %}{% if section.settings.align_top %} dc-cards--top{% endif %}"
       role="list"
       style="--dc-cols: {{ section.settings.columns }};"
     >
@@ -104,6 +104,7 @@
       ],
       "default": "pill"
     },
+    { "type": "checkbox", "id": "align_top", "label": "Align titles at the top of the cards", "default": false },
     { "type": "checkbox", "id": "mobile_rail", "label": "Swipe cards on mobile", "default": true },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "checkbox", "id": "accent_italic", "label": "Accent colour on italic words", "default": false },

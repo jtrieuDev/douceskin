@@ -87,7 +87,8 @@
         "color_scheme": "scheme-1",
         "accent_italic": false,
         "padding_top": 120,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "align_top": true
       }
     },
     "collage": {
@@ -107,8 +108,8 @@
       "type": "douce-cta-banner",
       "settings": {
         "layout": "split",
-        "heading": "Try it <em>for 60 days.</em>",
-        "text": "<p>Free shipping to the US and 60-day returns.</p>",
+        "heading": "Join us in making <em>showers softer.</em>",
+        "text": "<p>We read every message and keep improving DOUCE with what you tell us. Free shipping to the US and 60-day returns.</p>",
         "button_label": "Shop the showerhead",
         "button_link": "shopify://collections/all",
         "button_style": "dark",
@@ -142,6 +143,56 @@
         "padding_top": 96,
         "padding_bottom": 0
       }
+    },
+    "audience": {
+      "type": "douce-card-grid",
+      "blocks": {
+        "a0": {
+          "type": "card",
+          "settings": {
+            "label": "",
+            "title": "You want better hair and healthier skin",
+            "text": "<p>You already take care of them. Now the water you shower in can do its part too.</p>"
+          }
+        },
+        "a1": {
+          "type": "card",
+          "settings": {
+            "label": "",
+            "title": "You notice the chlorine",
+            "text": "<p>The smell, the dryness after a hot shower. A two-stage filter helps reduce chlorine and catches sediment.</p>"
+          }
+        },
+        "a2": {
+          "type": "card",
+          "settings": {
+            "label": "",
+            "title": "You want it simple",
+            "text": "<p>No plumber, no tools. It installs in minutes and you only replace the filters.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "a0",
+        "a1",
+        "a2"
+      ],
+      "settings": {
+        "eyebrow": "Who it's for",
+        "heading": "DOUCE is for <em>you</em> if…",
+        "text": "",
+        "heading_alignment": "center",
+        "columns": 3,
+        "card_style": "outline",
+        "card_size": "regular",
+        "label_style": "pill",
+        "align_top": true,
+        "mobile_rail": false,
+        "color_scheme": "scheme-1",
+        "accent_italic": false,
+        "padding_top": 96,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -149,6 +200,7 @@
     "story",
     "values",
     "tagline",
+    "audience",
     "collage",
     "cta"
   ]

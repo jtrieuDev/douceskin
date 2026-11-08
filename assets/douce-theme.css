@@ -1545,6 +1545,18 @@ h3,
   --dc-t-size: 32px;
 }
 
+.dc-cards--top .dc-card {
+  justify-content: flex-start;
+}
+
+.dc-cards--top .dc-card .dc-title {
+  margin-top: 0;
+}
+
+.dc-cards--top .dc-card__num {
+  margin-bottom: 28px;
+}
+
 .dc-card .dc-text {
   --dc-text-size: 14px;
   color: rgba(var(--douce-pine-rgb), 0.75);

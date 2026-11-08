@@ -14,7 +14,7 @@
       "settings": {
         "eyebrow": "Our story · Designed in France",
         "heading": "Douce, <em>adj.</em> soft, gentle.",
-        "text": "<p>Your hair and skin deserve better. Our filtered showerheads are designed to give you a softer shower.</p>",
+        "text": "<p>Water touches you every single day. We designed a showerhead worthy of it.</p>",
         "button_label": "",
         "button_link": "",
         "button_style": "primary",
@@ -29,9 +29,9 @@
     "story": {
       "type": "douce-story",
       "settings": {
-        "heading": "Better skin and hair <em>start in the shower.</em>",
-        "lead": "<p>The founder spent years trying every cream, mask and shampoo for skin that felt tight and hair that felt dull. Nothing lasted past lunch.</p>",
-        "text": "<p>The change came from somewhere less obvious: the water. Chlorine is in the water you shower in, and it can strip skin and hair of their natural oils, leaving them dry, tight and dull. A simple filter on the showerhead made more difference than the whole shelf of products in the bathroom.</p><p>Most filters on the market were bulky, hid the cartridge, or looked like hardware. So the founder designed one in France, made to stay on display and to feel at home in a beautiful bathroom.</p><p>Inside, water passes through two stages. A PP cotton filter catches sediment and fine particles. Then a calcium sulfite cartridge helps reduce chlorine. Both are replaceable in minutes, with no tools and no plumber.</p><p>DOUCE is made for people who want better hair and healthier skin, starting with the water they shower in.</p>",
+        "heading": "It started <em>in the shower.</em>",
+        "lead": "<p>The founder had tried every cream, every mask, every shampoo. Skin that felt tight by noon. Hair that never felt quite right.</p>",
+        "text": "<p>The answer was not on the bathroom shelf. It was in the water. Chlorine is part of every shower, and it can leave skin and hair feeling dry and stripped. One filter on the showerhead did more than everything else combined.</p><p>But every filter looked like plumbing. So the founder designed DOUCE in France: a showerhead made to be seen, finished in polished chrome and built to last.</p><p>Two stages, one ritual. A PP cotton filter catches sediment. A calcium sulfite cartridge helps reduce chlorine. Change them in minutes, no tools, no plumber.</p><p>Softer water. A softer start to every day.</p>",
         "show_image": true,
         "image": "shopify://shop_images/allcolors_a13ca63a-5e7e-4e56-be99-5ff60d960d2d.jpg",
         "note": "",
@@ -47,7 +47,7 @@
         "image_1": "shopify://shop_images/editorial1.jpg",
         "image_2": "shopify://shop_images/edit5.jpg",
         "card_eyebrow": "What it does",
-        "card_heading": "Two stages at the showerhead help reduce chlorine and catch sediment, so your shower feels gentler on your skin and hair.",
+        "card_heading": "Two stages. One softer shower.",
         "card_color_scheme": "scheme-3",
         "color_scheme": "scheme-1",
         "padding_top": 120,
@@ -101,7 +101,7 @@
           "type": "card",
           "settings": {
             "label": "",
-            "title": "You want better hair and healthier skin",
+            "title": "You want hair and skin that feel their best",
             "text": "<p>You already take care of them. Now the water you shower in can do its part too.</p>"
           }
         },
@@ -109,7 +109,7 @@
           "type": "card",
           "settings": {
             "label": "",
-            "title": "You notice the chlorine",
+            "title": "You can smell the chlorine",
             "text": "<p>The smell, the dryness after a hot shower. A two-stage filter helps reduce chlorine and catches sediment.</p>"
           }
         },
@@ -117,7 +117,7 @@
           "type": "card",
           "settings": {
             "label": "",
-            "title": "You want it simple",
+            "title": "You want it effortless",
             "text": "<p>No plumber, no tools. It installs in minutes and you only replace the filters.</p>"
           }
         }
@@ -143,14 +143,93 @@
         "padding_top": 112,
         "padding_bottom": 0
       }
+    },
+    "story_cta": {
+      "type": "rich-text",
+      "blocks": {
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the showerhead",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        },
+        "note": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Free US shipping · 60-day returns · Designed in France</p>"
+          }
+        }
+      },
+      "block_order": [
+        "button",
+        "note"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "kit": {
+      "type": "douce-product-grid",
+      "blocks": {
+        "product-1": {
+          "type": "product",
+          "settings": {
+            "product": "showerhead-kit",
+            "title": "Standard Kit",
+            "subtitle": "Yes, I have a hose. Showerhead only.",
+            "badge": ""
+          }
+        },
+        "product-2": {
+          "type": "product",
+          "settings": {
+            "product": "showerhead-kit-with-hose",
+            "title": "Complete Kit",
+            "subtitle": "No, I need one. Showerhead + hose.",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "product-1",
+        "product-2"
+      ],
+      "settings": {
+        "heading": "Choose your <em>kit.</em>",
+        "text": "<p>Pick the kit that matches your shower. Free shipping to the US.</p>",
+        "link_label": "View all",
+        "link": "shopify://collections/all",
+        "collection": "",
+        "products_to_show": 3,
+        "columns": 2,
+        "image_ratio": "square",
+        "show_secondary": true,
+        "mobile_rail": false,
+        "color_scheme": "scheme-1",
+        "accent_italic": false,
+        "padding_top": 96,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "main",
     "story",
+    "story_cta",
     "audience",
     "tagline",
     "collage",
+    "kit",
     "cta"
   ]
 }

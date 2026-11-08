@@ -33,7 +33,7 @@
         "lead": "<p>The founder had tried every cream, every mask, every shampoo. Skin that felt tight by noon. Hair that never felt quite right.</p>",
         "text": "<p>The answer was not on the bathroom shelf. It was in the water. Chlorine is part of every shower, and it can leave skin and hair feeling dry and stripped. One filter on the showerhead did more than everything else combined.</p><p>But every filter looked like plumbing. So the founder designed DOUCE in France: a showerhead made to be seen, finished in polished chrome and built to last.</p><p>Two stages, one ritual. A PP cotton filter catches sediment. A calcium sulfite cartridge helps reduce chlorine. Change them in minutes, no tools, no plumber.</p><p>Softer water. A softer start to every day.</p>",
         "show_image": true,
-        "image": "shopify://shop_images/allcolors_a13ca63a-5e7e-4e56-be99-5ff60d960d2d.jpg",
+        "image": "shopify://shop_images/edit13_366a163e-271d-4fd9-8c5a-52038a4a007d.jpg",
         "note": "",
         "color_scheme": "scheme-1",
         "accent_italic": false,
@@ -41,56 +41,37 @@
         "padding_bottom": 0
       }
     },
-    "collage": {
-      "type": "douce-collage",
-      "settings": {
-        "image_1": "shopify://shop_images/editorial1.jpg",
-        "image_2": "shopify://shop_images/edit5.jpg",
-        "card_eyebrow": "What it does",
-        "card_heading": "Two stages of filtration at the showerhead. One catches sediment, the other helps reduce chlorine, for a softer, more comfortable shower on your skin and hair.",
-        "card_color_scheme": "scheme-3",
-        "color_scheme": "scheme-1",
-        "padding_top": 120,
-        "padding_bottom": 0
-      }
-    },
-    "cta": {
-      "type": "douce-cta-banner",
-      "settings": {
-        "layout": "split",
-        "heading": "Try it <em>for 60 days.</em>",
-        "text": "<p>Free shipping to the US and 60-day returns.</p>",
-        "button_label": "Shop the showerhead",
-        "button_link": "shopify://collections/all",
-        "button_style": "dark",
-        "product": "",
-        "width": "page",
-        "color_scheme": "scheme-4",
-        "accent_italic": false,
-        "padding_top": 120,
-        "padding_bottom": 120
-      }
-    },
-    "tagline": {
+    "story_cta": {
       "type": "rich-text",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "button": {
+          "type": "button",
           "settings": {
-            "heading": "It's amazing what clean, purified water can do for <em>skin &amp; hair.</em>",
-            "heading_size": "h1"
+            "button_label": "Shop the showerhead",
+            "button_link": "shopify://products/showerhead-kit",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        },
+        "note": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Free US shipping · 60-day returns · Designed in France</p>"
           }
         }
       },
       "block_order": [
-        "heading"
+        "button",
+        "note"
       ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "scheme-1",
         "full_width": false,
-        "padding_top": 96,
+        "padding_top": 48,
         "padding_bottom": 0
       }
     },
@@ -144,37 +125,39 @@
         "padding_bottom": 0
       }
     },
-    "story_cta": {
+    "tagline": {
       "type": "rich-text",
       "blocks": {
-        "button": {
-          "type": "button",
+        "heading": {
+          "type": "heading",
           "settings": {
-            "button_label": "Shop the showerhead",
-            "button_link": "shopify://collections/all",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": true
-          }
-        },
-        "note": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Free US shipping · 60-day returns · Designed in France</p>"
+            "heading": "It's amazing what clean, purified water can do for <em>skin &amp; hair.</em>",
+            "heading_size": "h1"
           }
         }
       },
       "block_order": [
-        "button",
-        "note"
+        "heading"
       ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "scheme-1",
         "full_width": false,
-        "padding_top": 48,
+        "padding_top": 96,
+        "padding_bottom": 0
+      }
+    },
+    "collage": {
+      "type": "douce-collage",
+      "settings": {
+        "image_1": "shopify://shop_images/editorial1.jpg",
+        "image_2": "shopify://shop_images/edit5.jpg",
+        "card_eyebrow": "What it does",
+        "card_heading": "Two stages of filtration at the showerhead. One catches sediment, the other helps reduce chlorine, for a softer, more comfortable shower on your skin and hair.",
+        "card_color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
+        "padding_top": 120,
         "padding_bottom": 0
       }
     },
@@ -219,6 +202,23 @@
         "accent_italic": false,
         "padding_top": 96,
         "padding_bottom": 0
+      }
+    },
+    "cta": {
+      "type": "douce-cta-banner",
+      "settings": {
+        "layout": "split",
+        "heading": "Try it <em>for 60 days.</em>",
+        "text": "<p>Free shipping to the US and 60-day returns.</p>",
+        "button_label": "Shop the showerhead",
+        "button_link": "shopify://products/showerhead-kit",
+        "button_style": "dark",
+        "product": "",
+        "width": "page",
+        "color_scheme": "scheme-4",
+        "accent_italic": false,
+        "padding_top": 120,
+        "padding_bottom": 120
       }
     }
   },

@@ -48,24 +48,24 @@
           "type": "card",
           "settings": {
             "label": "01",
-            "title": "One product, done well",
-            "text": "<p>We would rather make one showerhead excellent than ten that are fine.</p>"
+            "title": "One product, any shower",
+            "text": "<p>One showerhead, designed to fit any shower. No tools, no plumber.</p>"
           }
         },
         "b1": {
           "type": "card",
           "settings": {
             "label": "02",
-            "title": "Made to be maintained",
-            "text": "<p>The filters are replaceable by design. Swap them yourself in minutes, so the showerhead lasts and only the filters change.</p>"
+            "title": "Made to be kept",
+            "text": "<p>Built to last for years. Only the filters need replacing, so the showerhead stays and you simply swap the filters.</p>"
           }
         },
         "b2": {
           "type": "card",
           "settings": {
             "label": "03",
-            "title": "Honest claims",
-            "text": "<p>We say \"helps reduce\" because that is what filtration does. No miracle promises, just gentler water at the showerhead.</p>"
+            "title": "Better hair and skin",
+            "text": "<p>Thanks to the two-stage filtration, a gentler shower for better hair and healthier skin.</p>"
           }
         }
       },

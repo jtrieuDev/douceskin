@@ -29,12 +29,12 @@
     "story": {
       "type": "douce-story",
       "settings": {
-        "heading": "Better skincare <em>started in the shower.</em>",
-        "lead": "<p>Our founder had tried every cream for skin that felt tight after every shower. Nothing lasted past lunch.</p>",
-        "text": "<p>The change came from somewhere less obvious: the water. After moving to a hard-water city, a simple filter on the showerhead made more difference than the bathroom shelf of products.</p><p>It wasn't only skin. More hair in the brush, a ponytail that felt thinner, strands that snapped and never felt clean. We kept blaming the shampoo, until we looked at what was running over our heads every morning. Chlorine and hard-water minerals can leave hair dry, coated and brittle, so it is more prone to breakage.</p><p>Most filters on the market were bulky, hid the cartridge, or looked like hardware. So we designed one we'd want on display, with a clear handle that shows you the filter working.</p>",
+        "heading": "A better shower <em>starts with the water.</em>",
+        "lead": "<p>DOUCE started with a simple idea: the shower is a daily ritual, and the water running through it deserves as much attention as anything else in your routine.</p>",
+        "text": "<p>Most showerhead filters we found were bulky, hid the cartridge, or looked like hardware. So we designed one we would want on display, with a clear handle that lets you see the filter at work.</p><p>Inside are two stages: a PP cotton filter that catches sediment and a calcium sulfite cartridge that helps reduce chlorine. Both are replaceable in minutes, with no tools and no plumber.</p><p>We keep our claims simple, because that is what filtration does: it helps reduce chlorine and catches sediment, for a more comfortable shower.</p>",
         "show_image": true,
         "image": "shopify://shop_images/allcolors_a13ca63a-5e7e-4e56-be99-5ff60d960d2d.jpg",
-        "note": "DOUCE is a showerhead filter, not a medical treatment. If you are losing hair or have a skin condition, speak to a doctor.",
+        "note": "DOUCE is a showerhead filter. Results depend on your local water supply.",
         "color_scheme": "scheme-1",
         "accent_italic": false,
         "padding_top": 112,
@@ -96,8 +96,8 @@
       "settings": {
         "image_1": "shopify://shop_images/editorial1.jpg",
         "image_2": "shopify://shop_images/edit5.jpg",
-        "card_eyebrow": "What we won't say",
-        "card_heading": "DOUCE won't cure eczema or stop hair loss. It makes the water you shower in kinder, and that's often enough to feel.",
+        "card_eyebrow": "What it does",
+        "card_heading": "DOUCE is a showerhead filter. It helps reduce chlorine and catches sediment, for a more comfortable shower.",
         "card_color_scheme": "scheme-3",
         "color_scheme": "scheme-1",
         "padding_top": 120,

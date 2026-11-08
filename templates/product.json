@@ -14,7 +14,7 @@
       "settings": {
         "home_label": "Home",
         "shop_label": "Shop",
-        "shop_link": "",
+        "shop_link": "shopify://products/showerhead-kit",
         "current_label": "",
         "aria_label": "Breadcrumb",
         "color_scheme": "scheme-1",
@@ -109,22 +109,28 @@
             "one_time_description": ""
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {},
-          "disabled": true
-        },
         "ship_by": {
           "type": "custom_liquid",
           "settings": {
             "custom_liquid": "{% render 'douce-ship-by' %}"
           }
         },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
+          }
+        },
+        "payment_icons": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'douce-payment-icons' %}"
           }
         },
         "trust_badges": {
@@ -148,16 +154,26 @@
             "url_4": ""
           }
         },
+        "benefits_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "douce_under_gallery": true,
+            "heading": "Key Benefits",
+            "icon": "check_mark",
+            "content": "<p>1. Filtration at the source<br>Two stages at the showerhead: a calcium sulfite cartridge that helps reduce chlorine and a PP cotton filter that catches sediment and fine particles.<br><br>2. A more comfortable shower<br>Designed for a gentler shower, with less chlorine in the water you shower in.<br><br>3. Installs in minutes<br>No plumber, no tools. Fits any US shower.<br><br>4. Easy to maintain<br>Change the PP cotton filter every 4–6 weeks, or when it turns brown.</p>",
+            "page": ""
+          }
+        },
         "why": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "douce_under_gallery": true,
             "heading": "Why DOUCE",
             "icon": "leaf",
             "content": "{{ product.metafields.douce.why | metafield_tag }}",
             "page": ""
-          },
-          "disabled": true
+          }
         },
         "filter_tab": {
           "type": "collapsible_tab",
@@ -181,14 +197,14 @@
         },
         "shipping_tab": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "douce_under_gallery": true,
             "heading": "Shipping & Returns",
             "icon": "truck",
             "content": "<p>Free shipping to the US. Orders ship within 1–2 business days, then delivery takes 6–10 business days. Return within 60 days for a full refund. Return shipping is at your cost, unless the item is defective or damaged. See our Return &amp; Refund Policy.</p>",
             "page": ""
-          },
-          "disabled": true
+          }
         },
         "price": {
           "type": "price",
@@ -216,22 +232,6 @@
           "type": "description",
           "disabled": true,
           "settings": {}
-        },
-        "benefits_tab": {
-          "type": "collapsible_tab",
-          "settings": {
-            "douce_under_gallery": true,
-            "heading": "Key Benefits",
-            "icon": "check_mark",
-            "content": "<p>1. Filtration at the source<br>Two stages at the showerhead: a calcium sulfite cartridge that helps reduce chlorine and a PP cotton filter that catches sediment and fine particles.<br><br>2. A more comfortable shower<br>Designed for a gentler shower, with less chlorine in the water you shower in.<br><br>3. Installs in minutes<br>No plumber, no tools. Fits any US shower.<br><br>4. Easy to maintain<br>Change the PP cotton filter every 4–6 weeks, or when it turns brown.</p>",
-            "page": ""
-          }
-        },
-        "payment_icons": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'douce-payment-icons' %}"
-          }
         }
       },
       "block_order": [
@@ -304,6 +304,66 @@
         "show_rating": false,
         "padding_top": 36,
         "padding_bottom": 28
+      }
+    },
+    "filtration": {
+      "type": "douce-filtration",
+      "blocks": {
+        "stage-1": {
+          "type": "stage",
+          "settings": {
+            "label": "Stage 1 · In the handle",
+            "title": "PP cotton filter",
+            "what_label": "What it is",
+            "what": "<p>A layered polypropylene (PP) cotton filter sits in the handle. Water passes through it first.</p>",
+            "why_label": "Why it matters",
+            "why": "<p>Tap water can carry sediment and fine particles. The PP cotton catches them before they reach the head and your shower. Change it every 4–6 weeks, or when it turns brown.</p>",
+            "chip_1": "PP cotton",
+            "chip_2": "In the handle",
+            "chip_3": "Catches sediment"
+          }
+        },
+        "stage-2": {
+          "type": "stage",
+          "settings": {
+            "label": "Stage 2 · In the head",
+            "title": "Calcium sulfite cartridge",
+            "what_label": "What it is",
+            "what": "<p>Calcium sulfite beads sit in the cartridge in the head of the showerhead. As water flows through them, they react with chlorine.</p>",
+            "why_label": "Why it matters",
+            "why": "<p>Chlorine is what you smell in many showers. The cartridge helps reduce it, for a more comfortable shower.</p>",
+            "chip_1": "Calcium sulfite beads",
+            "chip_2": "In the head",
+            "chip_3": "Helps reduce chlorine"
+          }
+        }
+      },
+      "block_order": [
+        "stage-1",
+        "stage-2"
+      ],
+      "settings": {
+        "anchor": "filtration",
+        "eyebrow": "Why choose DOUCE shower head?",
+        "heading": "Two stages. <em>Each with a job.</em>",
+        "text": "<p>Water passes through two filters before it reaches you. Here is what each one does, and why it matters.</p>",
+        "show_flow": false,
+        "flow_label": "Water path through the showerhead",
+        "flow_1_title": "Tap water",
+        "flow_1_text": "Treated with chlorine, may carry sediment",
+        "flow_2_title": "PP cotton filter",
+        "flow_2_text": "Catches sediment and fine particles",
+        "flow_3_title": "Calcium sulfite cartridge",
+        "flow_3_text": "Helps reduce chlorine",
+        "flow_4_title": "Your shower",
+        "flow_4_text": "A more comfortable shower",
+        "image": "shopify://shop_images/stages4.jpg",
+        "media_ratio": "square",
+        "note": "",
+        "color_scheme": "scheme-1",
+        "accent_italic": false,
+        "padding_top": 64,
+        "padding_bottom": 0
       }
     },
     "benefits": {
@@ -574,16 +634,6 @@
         "padding_bottom": 120
       }
     },
-    "sticky_atc": {
-      "type": "douce-sticky-atc",
-      "settings": {
-        "button_label": "Add to cart",
-        "button_style": "primary",
-        "subtitle": "Free shipping to the US",
-        "show_on_mobile": true,
-        "color_scheme": "scheme-1"
-      }
-    },
     "faq": {
       "type": "douce-faq",
       "blocks": {
@@ -635,64 +685,14 @@
         "padding_bottom": 120
       }
     },
-    "filtration": {
-      "type": "douce-filtration",
-      "blocks": {
-        "stage-1": {
-          "type": "stage",
-          "settings": {
-            "label": "Stage 1 · In the handle",
-            "title": "PP cotton filter",
-            "what_label": "What it is",
-            "what": "<p>A layered polypropylene (PP) cotton filter sits in the handle. Water passes through it first.</p>",
-            "why_label": "Why it matters",
-            "why": "<p>Tap water can carry sediment and fine particles. The PP cotton catches them before they reach the head and your shower. Change it every 4–6 weeks, or when it turns brown.</p>",
-            "chip_1": "PP cotton",
-            "chip_2": "In the handle",
-            "chip_3": "Catches sediment"
-          }
-        },
-        "stage-2": {
-          "type": "stage",
-          "settings": {
-            "label": "Stage 2 · In the head",
-            "title": "Calcium sulfite cartridge",
-            "what_label": "What it is",
-            "what": "<p>Calcium sulfite beads sit in the cartridge in the head of the showerhead. As water flows through them, they react with chlorine.</p>",
-            "why_label": "Why it matters",
-            "why": "<p>Chlorine is what you smell in many showers. The cartridge helps reduce it, for a more comfortable shower.</p>",
-            "chip_1": "Calcium sulfite beads",
-            "chip_2": "In the head",
-            "chip_3": "Helps reduce chlorine"
-          }
-        }
-      },
-      "block_order": [
-        "stage-1",
-        "stage-2"
-      ],
+    "sticky_atc": {
+      "type": "douce-sticky-atc",
       "settings": {
-        "anchor": "filtration",
-        "eyebrow": "Why choose DOUCE shower head?",
-        "heading": "Two stages. <em>Each with a job.</em>",
-        "text": "<p>Water passes through two filters before it reaches you. Here is what each one does, and why it matters.</p>",
-        "show_flow": false,
-        "flow_label": "Water path through the showerhead",
-        "flow_1_title": "Tap water",
-        "flow_1_text": "Treated with chlorine, may carry sediment",
-        "flow_2_title": "PP cotton filter",
-        "flow_2_text": "Catches sediment and fine particles",
-        "flow_3_title": "Calcium sulfite cartridge",
-        "flow_3_text": "Helps reduce chlorine",
-        "flow_4_title": "Your shower",
-        "flow_4_text": "A more comfortable shower",
-        "media_ratio": "square",
-        "note": "",
-        "color_scheme": "scheme-1",
-        "accent_italic": false,
-        "padding_top": 64,
-        "padding_bottom": 0,
-        "image": "shopify://shop_images/stages4.jpg"
+        "button_label": "Add to cart",
+        "button_style": "primary",
+        "subtitle": "Free shipping to the US",
+        "show_on_mobile": true,
+        "color_scheme": "scheme-1"
       }
     }
   },

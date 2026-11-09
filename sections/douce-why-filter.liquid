@@ -37,6 +37,9 @@
       </ul>
     {%- endif -%}
 
+    {%- if section.settings.footer_text != blank -%}
+      <div class="dc-why__foot">{{ section.settings.footer_text }}</div>
+    {%- endif -%}
   </div>
 </section>
 

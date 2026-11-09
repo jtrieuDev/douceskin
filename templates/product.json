@@ -702,28 +702,28 @@
           "type": "point",
           "settings": {
             "title": "Dry, tight skin",
-            "text": "Chlorine can strip natural oils, leaving skin feeling dry and tight after a shower."
+            "text": "Chlorine exposure can strip natural oils from your skin, leaving it feeling dry and tight."
           }
         },
         "p2": {
           "type": "point",
           "settings": {
             "title": "Dull, dry hair",
-            "text": "Chlorine can dry out hair, leaving it dull, rough and harder to manage."
+            "text": "Chlorine can dry out your hair, leaving it dull, rough and harder to manage."
           }
         },
         "p3": {
           "type": "point",
           "settings": {
-            "title": "Brittle ends",
-            "text": "Over time, repeated dryness can leave hair feeling brittle and more prone to breakage."
+            "title": "Brittle, tired ends",
+            "text": "Over time, dryness can remove your hair's natural moisture, leaving it brittle and prone to breakage."
           }
         },
         "p4": {
           "type": "point",
           "settings": {
             "title": "Sediment in the water",
-            "text": "Fine particles can travel through your pipes. The PP cotton filter catches them before the water reaches you."
+            "text": "Fine particles travel through your pipes and into your shower. The PP cotton filter catches them first."
           }
         }
       },
@@ -735,7 +735,7 @@
       ],
       "settings": {
         "eyebrow": "",
-        "heading": "<em>Unfiltered</em> water can leave you with:",
+        "heading": "<em>Unfiltered</em> water can cause:",
         "text": "",
         "padding_top": 80,
         "padding_bottom": 0

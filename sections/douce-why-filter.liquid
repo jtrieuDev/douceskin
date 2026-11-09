@@ -78,7 +78,17 @@
 .dc-why__card-body { text-align: left; }
 .dc-why__title { margin: 0 0 8px; font-size: 21px; line-height: 1.25; }
 .dc-why__card p { margin: 0; font-size: 16px; line-height: 1.6; color: rgba(var(--color-foreground), 0.75); }
+.dc-why__foot {
+  max-width: 760px;
+  margin: 48px auto 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(var(--color-foreground), 0.75);
+}
+.dc-why__foot p { margin: 0; }
 @media (max-width: 989px) {
+  .dc-why__foot { margin-top: 32px; font-size: 16px; }
   .dc-why__head { margin-bottom: 28px; }
   .dc-why__cards, .dc-why__cards--3, .dc-why__cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 14px; max-width: none; }
   .dc-why__title { font-size: 18px; }
@@ -95,6 +105,7 @@
     { "type": "text", "id": "eyebrow", "label": "Label (pill)", "info": "Optional." },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "<em>Unfiltered</em> water can leave you with:" },
     { "type": "richtext", "id": "text", "label": "Intro", "default": "<p>You use water on your skin and hair every day. A filter at the showerhead helps make that water gentler.</p>" },
+    { "type": "richtext", "id": "footer_text", "label": "Text below the cards", "info": "Optional." },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "checkbox", "id": "accent_italic", "label": "Accent colour on italic words", "default": false },
     { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 80 },

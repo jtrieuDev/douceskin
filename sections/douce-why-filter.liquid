@@ -5,6 +5,17 @@
   style="--dc-pt: {{ section.settings.padding_top }}px; --dc-pb: {{ section.settings.padding_bottom }}px;"
 >
   <div class="dc-container">
+    <div class="dc-why__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="dc-why__pill">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="dc-heading dc-heading--l">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="dc-why__intro">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
     <div class="dc-why">
       <div class="dc-media dc-why__image">
         {%- render 'douce-image',
@@ -13,33 +24,22 @@
           placeholder: 'lifestyle-1'
         -%}
       </div>
-      <div class="dc-why__body">
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="dc-why__pill">{{ section.settings.eyebrow | escape }}</p>
-        {%- endif -%}
-        {%- if section.settings.heading != blank -%}
-          <h2 class="dc-heading dc-heading--l">{{ section.settings.heading }}</h2>
-        {%- endif -%}
-        {%- if section.settings.text != blank -%}
-          <div class="dc-why__intro">{{ section.settings.text }}</div>
-        {%- endif -%}
-        <ul class="dc-why__points">
-          {%- for block in section.blocks -%}
-            <li class="dc-why__point" {{ block.shopify_attributes }}>
-              <span class="dc-why__bar" aria-hidden="true"></span>
-              <div class="dc-why__point-text">
-                <h3 class="dc-why__title">{{ block.settings.title }}</h3>
-                <p>{{ block.settings.text }}</p>
+      <ul class="dc-why__points">
+        {%- for block in section.blocks -%}
+          <li class="dc-why__point" {{ block.shopify_attributes }}>
+            <span class="dc-why__bar" aria-hidden="true"></span>
+            <div class="dc-why__point-text">
+              <h3 class="dc-why__title">{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+            {%- if block.settings.image != blank -%}
+              <div class="dc-why__thumb">
+                {%- render 'douce-image', image: block.settings.image, sizes: '240px' -%}
               </div>
-              {%- if block.settings.image != blank -%}
-                <div class="dc-why__thumb">
-                  {%- render 'douce-image', image: block.settings.image, sizes: '240px' -%}
-                </div>
-              {%- endif -%}
-            </li>
-          {%- endfor -%}
-        </ul>
-      </div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
     </div>
   </div>
 </section>
@@ -52,8 +52,8 @@
   align-items: center;
 }
 .dc-why__image { aspect-ratio: 1 / 1; max-height: 520px; width: 100%; border-radius: var(--dc-radius-xl); }
-.dc-why__body { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 22px; }
-.dc-why__body .dc-heading { margin: 0; line-height: 1.05; }
+.dc-why__head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; max-width: 720px; margin: 0 auto 48px; }
+.dc-why__head .dc-heading { margin: 0; line-height: 1.05; }
 .dc-why__pill {
   margin: 0;
   padding: 6px 16px;
@@ -65,7 +65,7 @@
 }
 .dc-why__intro { font-size: 18px; line-height: 1.7; color: rgba(var(--color-foreground), 0.75); }
 .dc-why__intro p { margin: 0; }
-.dc-why__points { list-style: none; margin: 6px 0 0; padding: 0; width: 100%; display: flex; flex-direction: column; gap: 14px; }
+.dc-why__points { list-style: none; margin: 0; padding: 0; width: 100%; display: flex; flex-direction: column; gap: 14px; }
 .dc-why__point {
   display: flex;
   align-items: center;
@@ -83,6 +83,7 @@
 .dc-why__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 989px) {
   .dc-why { grid-template-columns: 1fr; gap: 32px; }
+  .dc-why__head { margin-bottom: 28px; }
   .dc-why__image { max-height: none; aspect-ratio: 4 / 3; }
   .dc-why__thumb { flex-basis: 80px; width: 80px; height: 80px; }
 }

@@ -708,8 +708,8 @@
         "p2": {
           "type": "point",
           "settings": {
-            "title": "Weak, brittle hair",
-            "text": "Chlorine buildup can remove your hair's natural moisture, leading to a brittle texture, breakage and dullness."
+            "title": "Hair Damage",
+            "text": "Contaminants like chlorine can dry out your hair, leaving it frizzy, brittle and dull."
           }
         }
       },

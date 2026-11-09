@@ -1,101 +1,131 @@
-{%- comment -%} DOUCE: "Why filter your shower water?" image left, intro + accent-bar points right. {%- endcomment -%}
+{%- comment -%} DOUCE: "Why filter your shower water?" centered header, image cards (skin / hair), fact tiles. {%- endcomment -%}
+{%- liquid
+  assign cards = section.blocks | where: 'type', 'point'
+  assign stats = section.blocks | where: 'type', 'stat'
+-%}
 <section
   class="dc-section color-{{ section.settings.color_scheme }}{% if section.settings.accent_italic %} dc-accent-italic{% endif %}"
   style="--dc-pt: {{ section.settings.padding_top }}px; --dc-pb: {{ section.settings.padding_bottom }}px;"
 >
   <div class="dc-container">
-    <div class="dc-why">
-      <div class="dc-media dc-why__image">
-        {%- render 'douce-image',
-          image: section.settings.image,
-          sizes: '(min-width: 990px) 40vw, 100vw',
-          placeholder: 'lifestyle-1'
-        -%}
-      </div>
-      <div class="dc-why__body">
-        {%- if section.settings.heading != blank -%}
-          <h2 class="dc-heading">{{ section.settings.heading }}</h2>
-        {%- endif -%}
-        {%- if section.settings.text != blank -%}
-          <div class="dc-why__intro">{{ section.settings.text }}</div>
-        {%- endif -%}
-        <div class="dc-why__points">
-          {%- for block in section.blocks -%}
-            <div class="dc-why__point" {{ block.shopify_attributes }}>
-              <span class="dc-why__bar" aria-hidden="true"></span>
-              <div class="dc-why__point-text">
-                <h3 class="dc-why__title">{{ block.settings.title }}</h3>
-                <p>{{ block.settings.text }}</p>
-              </div>
-              {%- if block.settings.image != blank -%}
-                <div class="dc-why__thumb">
-                  {%- render 'douce-image', image: block.settings.image, sizes: '240px' -%}
-                </div>
-              {%- endif -%}
-            </div>
-          {%- endfor -%}
-        </div>
-      </div>
+    <div class="dc-why__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="dc-why__pill">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="dc-heading dc-heading--l">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="dc-why__intro">{{ section.settings.text }}</div>
+      {%- endif -%}
     </div>
+
+    {%- if cards.size > 0 -%}
+      <ul class="dc-why__cards dc-why__cards--{{ cards.size }}">
+        {%- for block in cards -%}
+          <li class="dc-why__card" {{ block.shopify_attributes }}>
+            <div class="dc-media dc-why__img">
+              {%- render 'douce-image',
+                image: block.settings.image,
+                sizes: '(min-width: 990px) 40vw, 100vw',
+                placeholder: 'lifestyle-1'
+              -%}
+            </div>
+            <div class="dc-why__card-body">
+              <h3 class="dc-why__title">{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if stats.size > 0 -%}
+      <ul class="dc-why__stats">
+        {%- for block in stats -%}
+          <li class="dc-why__stat" {{ block.shopify_attributes }}>
+            <span class="dc-why__stat-value">{{ block.settings.value | escape }}</span>
+            <span class="dc-why__stat-label">{{ block.settings.label | escape }}</span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
   </div>
 </section>
 
 {% stylesheet %}
-.dc-why {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 64px;
-  align-items: stretch;
-}
-.dc-why__image {
-  min-height: 420px;
-  border-radius: var(--dc-radius-xl);
-}
-.dc-why__body {
+.dc-why__head {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 24px;
-}
-.dc-why .dc-heading { line-height: 1.05; margin: 0; }
-.dc-why__intro {
-  font-size: 18px;
-  line-height: 1.7;
-  color: rgba(var(--color-foreground), 0.75);
-}
-.dc-why__intro p { margin: 0; }
-.dc-why__points { display: flex; flex-direction: column; gap: 14px; }
-.dc-why__point {
-  display: flex;
   align-items: center;
+  text-align: center;
   gap: 18px;
-  padding: 14px 14px 14px 0;
-  background: rgba(var(--color-foreground), 0.04);
-  border-radius: 16px;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+.dc-why__head .dc-heading { margin: 0; line-height: 1.05; }
+.dc-why__pill {
+  margin: 0;
+  padding: 6px 16px;
+  border: 1px solid rgba(var(--color-foreground), 0.35);
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.dc-why__intro { font-size: 18px; line-height: 1.7; color: rgba(var(--color-foreground), 0.75); }
+.dc-why__intro p { margin: 0; }
+.dc-why__cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.dc-why__cards--1 { grid-template-columns: minmax(0, 520px); justify-content: center; }
+.dc-why__cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 880px; margin-inline: auto; }
+.dc-why__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(var(--color-accent), 0.5);
+  border-radius: var(--dc-radius-xl);
   overflow: hidden;
+  background: rgb(var(--color-background));
 }
-.dc-why__bar {
-  align-self: stretch;
-  width: 5px;
-  flex: 0 0 5px;
-  background: rgb(var(--color-accent));
-  border-radius: 0 4px 4px 0;
+.dc-why__img { aspect-ratio: 1 / 1; border-radius: 0; }
+.dc-why__card-body { padding: 24px 24px 28px; text-align: center; }
+.dc-why__title { margin: 0 0 8px; font-size: 24px; line-height: 1.2; }
+.dc-why__card p { margin: 0; font-size: 16px; line-height: 1.6; color: rgba(var(--color-foreground), 0.75); }
+.dc-why__stats {
+  list-style: none;
+  margin: 20px auto 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
-.dc-why__point-text { flex: 1 1 auto; min-width: 0; }
-.dc-why__title { margin: 0 0 6px; font-size: 20px; line-height: 1.2; }
-.dc-why__point p { margin: 0; font-size: 16px; line-height: 1.6; color: rgba(var(--color-foreground), 0.75); }
-.dc-why__thumb {
-  flex: 0 0 120px;
-  width: 120px;
-  height: 120px;
-  border-radius: 14px;
-  overflow: hidden;
+.dc-why__cards--2 + .dc-why__stats { max-width: 880px; }
+.dc-why__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px 28px;
+  background: rgba(var(--color-foreground), 0.05);
+  border-radius: var(--dc-radius-l);
 }
-.dc-why__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.dc-why__stat-value {
+  font-size: 38px;
+  line-height: 1.1;
+  font-family: var(--font-heading-family);
+  color: rgb(var(--color-accent));
+}
+.dc-why__stat-label { font-size: 16px; line-height: 1.5; color: rgba(var(--color-foreground), 0.75); }
 @media (max-width: 989px) {
-  .dc-why { grid-template-columns: 1fr; gap: 32px; }
-  .dc-why__image { min-height: 0; aspect-ratio: 4 / 3; }
-  .dc-why__thumb { flex-basis: 84px; width: 84px; height: 84px; }
+  .dc-why__head { margin-bottom: 32px; }
+  .dc-why__cards, .dc-why__cards--2 { grid-template-columns: 1fr; max-width: 520px; }
+  .dc-why__stats { grid-template-columns: 1fr; max-width: 520px; }
+  .dc-why__stat { padding: 18px 22px; }
 }
 {% endstylesheet %}
 
@@ -105,9 +135,9 @@
   "tag": "div",
   "class": "section-douce-why-filter",
   "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Label (pill)", "default": "A softer shower" },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Why filter your <em>shower water?</em>" },
     { "type": "richtext", "id": "text", "label": "Intro", "default": "<p>You use water on your skin and hair every day. A filter at the showerhead helps make that water gentler.</p>" },
-    { "type": "image_picker", "id": "image", "label": "Image", "info": "Large image on the left (4:5 portrait works best). Use your own photo." },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "checkbox", "id": "accent_italic", "label": "Accent colour on italic words", "default": false },
     { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 80 },
@@ -116,19 +146,28 @@
   "blocks": [
     {
       "type": "point",
-      "name": "Point",
+      "name": "Image card",
+      "limit": 3,
       "settings": [
-        { "type": "text", "id": "title", "label": "Title", "default": "Dry, tight skin" },
-        { "type": "textarea", "id": "text", "label": "Text", "default": "Chlorine can strip natural oils, leaving skin feeling tight after a shower." },
-        { "type": "image_picker", "id": "image", "label": "Small image", "info": "Optional." }
+        { "type": "image_picker", "id": "image", "label": "Image", "info": "Square works best. Use your own photo." },
+        { "type": "text", "id": "title", "label": "Title", "default": "Softer skin" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Helps reduce chlorine, which can leave skin feeling dry and tight." }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Fact tile",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "value", "label": "Big text", "default": "2 stages" },
+        { "type": "text", "id": "label", "label": "Label", "default": "of filtration in one showerhead" }
       ]
     }
   ],
-  "max_blocks": 6,
   "presets": [
     {
       "name": "DOUCE why filter",
-      "blocks": [ { "type": "point" }, { "type": "point" }, { "type": "point" } ]
+      "blocks": [ { "type": "point" }, { "type": "point" }, { "type": "stat" }, { "type": "stat" }, { "type": "stat" } ]
     }
   ]
 }

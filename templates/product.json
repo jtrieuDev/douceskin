@@ -701,34 +701,50 @@
         "p1": {
           "type": "point",
           "settings": {
-            "title": "Dry, tight skin",
-            "text": "Chlorine can strip skin's natural oils, leaving it feeling tight and dry after a shower."
+            "title": "Softer skin",
+            "text": "Helps reduce chlorine, which can strip skin's natural oils and leave it feeling tight and dry after a shower."
           }
         },
         "p2": {
           "type": "point",
           "settings": {
-            "title": "Dull, dry hair",
-            "text": "Chlorine can leave hair feeling rough and stripped, and harder to manage."
+            "title": "Softer, more manageable hair",
+            "text": "Helps reduce chlorine, which can leave hair feeling rough and dry, and harder to manage."
           }
         },
-        "p3": {
-          "type": "point",
+        "s1": {
+          "type": "stat",
           "settings": {
-            "title": "Sediment in the water",
-            "text": "Fine particles can travel through your pipes. The PP cotton filter catches them before the water reaches you."
+            "value": "2 stages",
+            "label": "of filtration in one showerhead"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "4–6 weeks",
+            "label": "between cartridge changes"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "60 days",
+            "label": "to try it, risk-free"
           }
         }
       },
       "block_order": [
         "p1",
         "p2",
-        "p3"
+        "s1",
+        "s2",
+        "s3"
       ],
       "settings": {
+        "eyebrow": "A softer shower",
         "heading": "Why filter your <em>shower water?</em>",
         "text": "<p>You use water on your skin and hair every day. A filter at the showerhead helps make that water gentler.</p>",
-        "image": "shopify://shop_images/editorialfinal.jpg",
         "padding_top": 80,
         "padding_bottom": 0
       }

@@ -5,55 +5,55 @@
   style="--dc-pt: {{ section.settings.padding_top }}px; --dc-pb: {{ section.settings.padding_bottom }}px;"
 >
   <div class="dc-container">
-    <div class="dc-why__head">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="dc-why__pill">{{ section.settings.eyebrow | escape }}</p>
-      {%- endif -%}
-      {%- if section.settings.heading != blank -%}
-        <h2 class="dc-heading dc-heading--l">{{ section.settings.heading }}</h2>
-      {%- endif -%}
-      {%- if section.settings.text != blank -%}
-        <div class="dc-why__intro">{{ section.settings.text }}</div>
-      {%- endif -%}
+    <div class="dc-why">
+      <div class="dc-media dc-why__image">
+        {%- render 'douce-image',
+          image: section.settings.image,
+          sizes: '(min-width: 990px) 40vw, 100vw',
+          placeholder: 'lifestyle-1'
+        -%}
+      </div>
+      <div class="dc-why__body">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="dc-why__pill">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="dc-heading dc-heading--l">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="dc-why__intro">{{ section.settings.text }}</div>
+        {%- endif -%}
+        <ul class="dc-why__points">
+          {%- for block in section.blocks -%}
+            <li class="dc-why__point" {{ block.shopify_attributes }}>
+              <span class="dc-why__bar" aria-hidden="true"></span>
+              <div class="dc-why__point-text">
+                <h3 class="dc-why__title">{{ block.settings.title }}</h3>
+                <p>{{ block.settings.text }}</p>
+              </div>
+              {%- if block.settings.image != blank -%}
+                <div class="dc-why__thumb">
+                  {%- render 'douce-image', image: block.settings.image, sizes: '240px' -%}
+                </div>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
     </div>
-
-    {%- if cards.size > 0 -%}
-      <ul class="dc-why__cards dc-why__cards--{{ cards.size }}">
-        {%- for block in cards -%}
-          <li class="dc-why__card" {{ block.shopify_attributes }}>
-            <div class="dc-media dc-why__img">
-              {%- render 'douce-image',
-                image: block.settings.image,
-                sizes: '(min-width: 990px) 25vw, 50vw',
-                placeholder: 'lifestyle-1'
-              -%}
-            </div>
-            <div class="dc-why__card-body">
-              <h3 class="dc-why__title">{{ block.settings.title }}</h3>
-              <p>{{ block.settings.text }}</p>
-            </div>
-          </li>
-        {%- endfor -%}
-      </ul>
-    {%- endif -%}
-
-    {%- if section.settings.footer_text != blank -%}
-      <div class="dc-why__foot">{{ section.settings.footer_text }}</div>
-    {%- endif -%}
   </div>
 </section>
 
 {% stylesheet %}
-.dc-why__head {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 18px;
-  max-width: 720px;
-  margin: 0 auto 44px;
+.dc-why {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 64px;
+  align-items: stretch;
 }
-.dc-why__head .dc-heading { margin: 0; line-height: 1.05; }
+.dc-why__image { min-height: 480px; border-radius: var(--dc-radius-xl); }
+.dc-why__body { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 22px; }
+.dc-why__body .dc-heading { margin: 0; line-height: 1.05; }
 .dc-why__pill {
   margin: 0;
   padding: 6px 16px;
@@ -65,37 +65,26 @@
 }
 .dc-why__intro { font-size: 18px; line-height: 1.7; color: rgba(var(--color-foreground), 0.75); }
 .dc-why__intro p { margin: 0; }
-.dc-why__cards {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+.dc-why__points { list-style: none; margin: 6px 0 0; padding: 0; width: 100%; display: flex; flex-direction: column; gap: 14px; }
+.dc-why__point {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 16px 16px 0;
+  background: rgba(var(--color-foreground), 0.04);
+  border-radius: 16px;
+  overflow: hidden;
 }
-.dc-why__cards--1 { grid-template-columns: minmax(0, 320px); justify-content: center; }
-.dc-why__cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 680px; margin-inline: auto; }
-.dc-why__cards--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.dc-why__card { display: flex; flex-direction: column; gap: 18px; }
-.dc-why__img { aspect-ratio: 1 / 1; border-radius: var(--dc-radius-xl); }
-.dc-why__card-body { text-align: left; }
-.dc-why__title { margin: 0 0 8px; font-size: 21px; line-height: 1.25; }
-.dc-why__card p { margin: 0; font-size: 16px; line-height: 1.6; color: rgba(var(--color-foreground), 0.75); }
-.dc-why__foot {
-  max-width: 760px;
-  margin: 48px auto 0;
-  text-align: center;
-  font-size: 18px;
-  line-height: 1.7;
-  color: rgba(var(--color-foreground), 0.75);
-}
-.dc-why__foot p { margin: 0; }
+.dc-why__bar { align-self: stretch; width: 5px; flex: 0 0 5px; background: rgb(var(--color-accent)); border-radius: 0 4px 4px 0; }
+.dc-why__point-text { flex: 1 1 auto; min-width: 0; }
+.dc-why__title { margin: 0 0 6px; font-size: 20px; line-height: 1.2; }
+.dc-why__point p { margin: 0; font-size: 16px; line-height: 1.6; color: rgba(var(--color-foreground), 0.75); }
+.dc-why__thumb { flex: 0 0 112px; width: 112px; height: 112px; border-radius: 14px; overflow: hidden; }
+.dc-why__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 989px) {
-  .dc-why__foot { margin-top: 32px; font-size: 16px; }
-  .dc-why__head { margin-bottom: 28px; }
-  .dc-why__cards, .dc-why__cards--3, .dc-why__cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 14px; max-width: none; }
-  .dc-why__title { font-size: 18px; }
-  .dc-why__card p { font-size: 15px; }
+  .dc-why { grid-template-columns: 1fr; gap: 32px; }
+  .dc-why__image { min-height: 0; aspect-ratio: 4 / 3; }
+  .dc-why__thumb { flex-basis: 80px; width: 80px; height: 80px; }
 }
 {% endstylesheet %}
 
@@ -108,7 +97,7 @@
     { "type": "text", "id": "eyebrow", "label": "Label (pill)", "info": "Optional." },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "<em>Unfiltered</em> water can leave you with:" },
     { "type": "richtext", "id": "text", "label": "Intro", "default": "<p>You use water on your skin and hair every day. A filter at the showerhead helps make that water gentler.</p>" },
-    { "type": "richtext", "id": "footer_text", "label": "Text below the cards", "info": "Optional." },
+    { "type": "image_picker", "id": "image", "label": "Large image", "info": "Big photo on the left (4:5 portrait works best). Use your own photo." },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "checkbox", "id": "accent_italic", "label": "Accent colour on italic words", "default": false },
     { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 80 },
@@ -117,10 +106,10 @@
   "blocks": [
     {
       "type": "point",
-      "name": "Image card",
+      "name": "Card",
       "limit": 4,
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image", "info": "Square works best. Use your own photo." },
+        { "type": "image_picker", "id": "image", "label": "Small image", "info": "Optional. Square works best." },
         { "type": "text", "id": "title", "label": "Title", "default": "Dry, tight skin" },
         { "type": "textarea", "id": "text", "label": "Text", "default": "Chlorine can strip natural oils, leaving skin feeling dry and tight." }
       ]

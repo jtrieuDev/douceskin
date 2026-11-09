@@ -712,13 +712,6 @@
             "text": "Chlorine can dry out your hair, leaving it dull, rough and harder to manage."
           }
         },
-        "p3": {
-          "type": "point",
-          "settings": {
-            "title": "Brittle, tired ends",
-            "text": "Over time, dryness can remove your hair's natural moisture, leaving it brittle and prone to breakage."
-          }
-        },
         "p4": {
           "type": "point",
           "settings": {
@@ -730,16 +723,15 @@
       "block_order": [
         "p1",
         "p2",
-        "p3",
         "p4"
       ],
       "settings": {
         "eyebrow": "The problem",
-        "heading": "<em>Unfiltered</em> water can cause:",
+        "heading": "Why filter your <em>shower water?</em>",
         "text": "<p>Did you know hard water is found in homes across the US? Together with chlorine and fine sediment, it can leave your skin and hair feeling dry and dull.</p>",
         "padding_top": 80,
         "padding_bottom": 0,
-        "footer_text": ""
+        "image": "shopify://shop_images/editorialfinal.jpg"
       }
     }
   },

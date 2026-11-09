@@ -711,19 +711,11 @@
             "title": "Dull, dry hair",
             "text": "Chlorine can dry out your hair, leaving it dull, rough and harder to manage."
           }
-        },
-        "p4": {
-          "type": "point",
-          "settings": {
-            "title": "Sediment in the water",
-            "text": "Fine particles travel through your pipes and into your shower. The PP cotton filter catches them first."
-          }
         }
       },
       "block_order": [
         "p1",
-        "p2",
-        "p4"
+        "p2"
       ],
       "settings": {
         "eyebrow": "The problem",

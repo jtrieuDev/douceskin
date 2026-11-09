@@ -12,9 +12,6 @@
       {%- if section.settings.heading != blank -%}
         <h2 class="dc-heading dc-heading--l">{{ section.settings.heading }}</h2>
       {%- endif -%}
-      {%- if section.settings.text != blank -%}
-        <div class="dc-why__intro">{{ section.settings.text }}</div>
-      {%- endif -%}
     </div>
     <div class="dc-why">
       <div class="dc-media dc-why__image">
@@ -24,6 +21,10 @@
           placeholder: 'lifestyle-1'
         -%}
       </div>
+      <div class="dc-why__side">
+        {%- if section.settings.text != blank -%}
+          <div class="dc-why__intro">{{ section.settings.text }}</div>
+        {%- endif -%}
       <ul class="dc-why__points">
         {%- for block in section.blocks -%}
           <li class="dc-why__point" {{ block.shopify_attributes }}>
@@ -40,6 +41,7 @@
           </li>
         {%- endfor -%}
       </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -63,6 +65,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+.dc-why__side { display: flex; flex-direction: column; justify-content: center; gap: 20px; }
 .dc-why__intro { font-size: 18px; line-height: 1.7; color: rgba(var(--color-foreground), 0.75); }
 .dc-why__intro p { margin: 0; }
 .dc-why__points { list-style: none; margin: 0; padding: 0; width: 100%; display: flex; flex-direction: column; gap: 14px; }

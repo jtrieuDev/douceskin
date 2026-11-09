@@ -736,10 +736,10 @@
       "settings": {
         "eyebrow": "The problem",
         "heading": "<em>Unfiltered</em> water can cause:",
-        "text": "",
+        "text": "<p>Did you know your shower water can carry chlorine and fine sediment? Over time, they can leave your skin and hair feeling dry and dull.</p>",
         "padding_top": 80,
         "padding_bottom": 0,
-        "footer_text": "<p>Chlorine and fine sediment can end up in the water you shower in every day. DOUCE's two-stage filter is designed to catch sediment and help reduce chlorine, for a softer shower on your skin and hair.</p>"
+        "footer_text": ""
       }
     }
   },

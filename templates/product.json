@@ -306,6 +306,41 @@
         "padding_bottom": 28
       }
     },
+    "why_filter": {
+      "type": "douce-why-filter",
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "image": "shopify://shop_images/skin.jpg",
+            "title": "Dry, tight skin",
+            "text": "Chlorine exposure can strip natural oils from your skin, leaving it feeling dry and tight."
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "image": "shopify://shop_images/hair.jpg",
+            "title": "Hair Damage",
+            "text": "Contaminants like chlorine can dry out your hair, leaving it frizzy, brittle and dull."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2"
+      ],
+      "settings": {
+        "eyebrow": "The problem",
+        "heading": "Why filter your <em>shower water?</em>",
+        "text": "<p>Did you know hard water is found in homes across the US? Together with chlorine and fine sediment, it can leave your skin and hair feeling dry and dull.</p>",
+        "image": "shopify://shop_images/edit.jpg",
+        "color_scheme": "",
+        "accent_italic": false,
+        "padding_top": 80,
+        "padding_bottom": 0
+      }
+    },
     "filtration": {
       "type": "douce-filtration",
       "blocks": {
@@ -695,35 +730,14 @@
         "color_scheme": "scheme-1"
       }
     },
-    "why_filter": {
-      "type": "douce-why-filter",
-      "blocks": {
-        "p1": {
-          "type": "point",
-          "settings": {
-            "title": "Dry, tight skin",
-            "text": "Chlorine exposure can strip natural oils from your skin, leaving it feeling dry and tight."
-          }
-        },
-        "p2": {
-          "type": "point",
-          "settings": {
-            "title": "Hair Damage",
-            "text": "Contaminants like chlorine can dry out your hair, leaving it frizzy, brittle and dull."
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2"
-      ],
+    "reviews": {
+      "type": "douce-reviews-strip",
+      "blocks": {},
+      "block_order": [],
+      "disabled": true,
       "settings": {
-        "eyebrow": "The problem",
-        "heading": "Why filter your <em>shower water?</em>",
-        "text": "<p>Did you know hard water is found in homes across the US? Together with chlorine and fine sediment, it can leave your skin and hair feeling dry and dull.</p>",
-        "padding_top": 80,
-        "padding_bottom": 0,
-        "image": "shopify://shop_images/editorialfinal.jpg"
+        "eyebrow": "Reviews",
+        "heading": "What our customers <em>are saying.</em>"
       }
     }
   },
@@ -738,6 +752,7 @@
     "install",
     "quotes",
     "people",
+    "reviews",
     "ba_pairs",
     "faq",
     "sticky_atc"

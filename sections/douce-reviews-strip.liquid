@@ -1,0 +1,149 @@
+{%- comment -%}
+  DOUCE: scrolling strip of review cards (photo, stars, text), same motion as the photo strip.
+  Use only real reviews from real customers, with their permission. Never invent names, dates or ratings.
+{%- endcomment -%}
+{%- liquid
+  assign review_count = section.blocks.size
+  assign duration = section.settings.speed | times: review_count
+-%}
+<section
+  class="dc-section color-{{ section.settings.color_scheme }}{% if section.settings.accent_italic %} dc-accent-italic{% endif %}"
+  style="--dc-pt: {{ section.settings.padding_top }}px; --dc-pb: {{ section.settings.padding_bottom }}px;"
+>
+  {%- if section.settings.heading != blank or section.settings.eyebrow != blank -%}
+    <div class="dc-container">
+      <div class="dc-rv__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="dc-rv__pill">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="dc-heading dc-heading--l">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.summary != blank -%}
+          <p class="dc-rv__summary"><span class="dc-rv__stars" aria-hidden="true">★★★★★</span> {{ section.settings.summary | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if review_count > 0 -%}
+    <div
+      class="dc-strip dc-strip--pausable"
+      style="--dc-strip-duration: {{ duration }}s;"
+      role="group"
+      aria-label="{{ section.settings.heading | strip_html | escape }}"
+    >
+      <div class="dc-strip__track">
+        {%- for copy in (1..2) -%}
+          <ul class="dc-strip__list dc-rv__list" role="list"{% if copy == 2 %} aria-hidden="true"{% endif %}>
+            {%- for block in section.blocks -%}
+              <li class="dc-rv__card" {% if copy == 1 %}{{ block.shopify_attributes }}{% endif %}>
+                {%- if block.settings.image != blank -%}
+                  <div class="dc-media dc-rv__photo">
+                    {%- render 'douce-image',
+                      image: block.settings.image,
+                      sizes: '(min-width: 750px) 300px, 70vw',
+                      alt: block.settings.alt
+                    -%}
+                  </div>
+                {%- endif -%}
+                <div class="dc-rv__body">
+                  <p class="dc-rv__name">
+                    {{- block.settings.name | escape -}}
+                    {%- if block.settings.verified -%}<span class="dc-rv__verified">✓ Verified</span>{%- endif -%}
+                  </p>
+                  {%- if block.settings.date != blank -%}<p class="dc-rv__date">{{ block.settings.date | escape }}</p>{%- endif -%}
+                  <p class="dc-rv__rating" role="img" aria-label="{{ block.settings.rating }} out of 5 stars">
+                    {%- for i in (1..5) -%}<span class="{% if i <= block.settings.rating %}is-on{% endif %}">★</span>{%- endfor -%}
+                  </p>
+                  <p class="dc-rv__text">{{ block.settings.text | escape }}</p>
+                  {%- if block.settings.item != blank -%}
+                    <p class="dc-rv__item">Item type:<br>{{ block.settings.item | escape }}</p>
+                  {%- endif -%}
+                </div>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.note != blank -%}
+    <div class="dc-container">
+      <p class="dc-strip__note">{{ section.settings.note | escape }}</p>
+    </div>
+  {%- endif -%}
+</section>
+
+{% stylesheet %}
+.dc-rv__head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; margin: 0 auto 36px; }
+.dc-rv__head .dc-heading { margin: 0; line-height: 1.05; }
+.dc-rv__pill { margin: 0; padding: 6px 16px; border: 1px solid rgba(var(--color-foreground), 0.35); border-radius: 999px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.dc-rv__summary { margin: 0; font-size: 16px; }
+.dc-rv__stars, .dc-rv__rating { color: #e8b923; letter-spacing: 2px; }
+.dc-rv__list { align-items: flex-start; gap: 16px; }
+.dc-rv__card {
+  flex: none;
+  width: clamp(230px, 24vw, 300px);
+  display: flex;
+  flex-direction: column;
+  background: rgb(var(--color-background));
+  border-radius: var(--dc-radius-m);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+.dc-rv__photo { aspect-ratio: 3 / 4; border-radius: 0; }
+.dc-rv__body { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+.dc-rv__body p { margin: 0; }
+.dc-rv__name { font-weight: 600; font-size: 16px; }
+.dc-rv__verified { margin-left: 8px; font-weight: 400; font-size: 13px; }
+.dc-rv__date { font-size: 12px; color: rgba(var(--color-foreground), 0.6); }
+.dc-rv__rating { font-size: 15px; line-height: 1; }
+.dc-rv__rating span { opacity: 0.25; }
+.dc-rv__rating span.is-on { opacity: 1; }
+.dc-rv__text { font-size: 16px; line-height: 1.5; }
+.dc-rv__item { font-size: 13px; color: rgba(var(--color-foreground), 0.65); }
+@media (max-width: 749px) {
+  .dc-rv__head { margin-bottom: 24px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "DOUCE reviews strip",
+  "tag": "div",
+  "class": "section-douce-reviews-strip",
+  "max_blocks": 16,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Label (pill)", "info": "Optional." },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "What our customers <em>are saying.</em>" },
+    { "type": "text", "id": "summary", "label": "Rating summary", "info": "Only fill in with real numbers, for example: 4.8 from 120 verified reviews. Leave empty until you have them." },
+    { "type": "text", "id": "note", "label": "Small note under the reviews", "info": "Optional. For example: Reviews shared by DOUCE customers." },
+    { "type": "range", "id": "speed", "label": "Seconds per review", "min": 2, "max": 12, "step": 1, "default": 6, "info": "Higher is slower." },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "accent_italic", "label": "Accent colour on italic words", "default": false },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Customer photo", "info": "Optional. Only a photo the customer shared with permission." },
+        { "type": "text", "id": "alt", "label": "Photo description", "info": "For screen readers." },
+        { "type": "text", "id": "name", "label": "Name", "info": "First name and last initial, as given by the customer." },
+        { "type": "checkbox", "id": "verified", "label": "Show \"Verified\" badge", "default": false, "info": "Tick only for a confirmed purchase." },
+        { "type": "text", "id": "date", "label": "Date", "info": "The real review date." },
+        { "type": "range", "id": "rating", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "textarea", "id": "text", "label": "Review", "info": "The customer's own words." },
+        { "type": "text", "id": "item", "label": "Item type", "info": "Optional, for example: Polished Chrome." }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "DOUCE reviews strip" }
+  ]
+}
+{% endschema %}

@@ -734,7 +734,6 @@
       "type": "douce-reviews-strip",
       "blocks": {},
       "block_order": [],
-      "disabled": true,
       "settings": {
         "eyebrow": "Reviews",
         "heading": "What our customers <em>are saying.</em>"

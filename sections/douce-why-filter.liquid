@@ -1,0 +1,135 @@
+{%- comment -%} DOUCE: "Why filter your shower water?" image left, intro + accent-bar points right. {%- endcomment -%}
+<section
+  class="dc-section color-{{ section.settings.color_scheme }}{% if section.settings.accent_italic %} dc-accent-italic{% endif %}"
+  style="--dc-pt: {{ section.settings.padding_top }}px; --dc-pb: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="dc-container">
+    <div class="dc-why">
+      <div class="dc-media dc-why__image">
+        {%- render 'douce-image',
+          image: section.settings.image,
+          sizes: '(min-width: 990px) 40vw, 100vw',
+          placeholder: 'lifestyle-1'
+        -%}
+      </div>
+      <div class="dc-why__body">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="dc-heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="dc-why__intro">{{ section.settings.text }}</div>
+        {%- endif -%}
+        <div class="dc-why__points">
+          {%- for block in section.blocks -%}
+            <div class="dc-why__point" {{ block.shopify_attributes }}>
+              <span class="dc-why__bar" aria-hidden="true"></span>
+              <div class="dc-why__point-text">
+                <h3 class="dc-why__title">{{ block.settings.title }}</h3>
+                <p>{{ block.settings.text }}</p>
+              </div>
+              {%- if block.settings.image != blank -%}
+                <div class="dc-why__thumb">
+                  {%- render 'douce-image', image: block.settings.image, sizes: '120px' -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+.dc-why {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 64px;
+  align-items: stretch;
+}
+.dc-why__image {
+  min-height: 420px;
+  border-radius: var(--dc-radius-xl);
+}
+.dc-why__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+.dc-why .dc-heading { line-height: 1.05; margin: 0; }
+.dc-why__intro {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(var(--color-foreground), 0.75);
+}
+.dc-why__intro p { margin: 0; }
+.dc-why__points { display: flex; flex-direction: column; gap: 14px; }
+.dc-why__point {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 20px 18px 0;
+  background: rgba(var(--color-foreground), 0.04);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.dc-why__bar {
+  align-self: stretch;
+  width: 5px;
+  flex: 0 0 5px;
+  background: rgb(var(--color-accent));
+  border-radius: 0 4px 4px 0;
+}
+.dc-why__point-text { flex: 1 1 auto; min-width: 0; }
+.dc-why__title { margin: 0 0 6px; font-size: 20px; line-height: 1.2; }
+.dc-why__point p { margin: 0; font-size: 16px; line-height: 1.6; color: rgba(var(--color-foreground), 0.75); }
+.dc-why__thumb {
+  flex: 0 0 88px;
+  width: 88px;
+  height: 88px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.dc-why__thumb img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 989px) {
+  .dc-why { grid-template-columns: 1fr; gap: 32px; }
+  .dc-why__image { min-height: 0; aspect-ratio: 4 / 3; }
+  .dc-why__thumb { flex-basis: 64px; width: 64px; height: 64px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "DOUCE why filter",
+  "tag": "div",
+  "class": "section-douce-why-filter",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Why filter your <em>shower water?</em>" },
+    { "type": "richtext", "id": "text", "label": "Intro", "default": "<p>You use water on your skin and hair every day. A filter at the showerhead helps make that water gentler.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Image", "info": "Large image on the left (4:5 portrait works best). Use your own photo." },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "accent_italic", "label": "Accent colour on italic words", "default": false },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Dry, tight skin" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Chlorine can strip natural oils, leaving skin feeling tight after a shower." },
+        { "type": "image_picker", "id": "image", "label": "Small image", "info": "Optional." }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "DOUCE why filter",
+      "blocks": [ { "type": "point" }, { "type": "point" }, { "type": "point" } ]
+    }
+  ]
+}
+{% endschema %}

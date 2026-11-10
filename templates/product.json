@@ -401,6 +401,90 @@
         "padding_bottom": 0
       }
     },
+    "people": {
+      "type": "douce-photo-strip",
+      "blocks": {
+        "photo_7dakqd": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/1.jpg",
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+          }
+        },
+        "photo-1": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/2.jpg",
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+          }
+        },
+        "photo-2": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/3.jpg",
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+          }
+        },
+        "photo-3": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/4.jpg",
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+          }
+        },
+        "photo-4": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/5.jpg",
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+          }
+        },
+        "photo-5": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/6.jpg",
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+          }
+        },
+        "photo-6": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/7.jpg",
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+          }
+        },
+        "photo-7": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/8.jpg",
+            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+          }
+        }
+      },
+      "block_order": [
+        "photo_7dakqd",
+        "photo-1",
+        "photo-2",
+        "photo-3",
+        "photo-4",
+        "photo-5",
+        "photo-6",
+        "photo-7"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "People like you who <em>ditched their old showerhead.</em>",
+        "text": "",
+        "note": "",
+        "speed": 5,
+        "ratio": "4 / 5",
+        "pause_on_hover": true,
+        "color_scheme": "scheme-1",
+        "accent_italic": false,
+        "padding_top": 72,
+        "padding_bottom": 48
+      }
+    },
     "benefits": {
       "type": "douce-icon-columns",
       "blocks": {
@@ -543,88 +627,191 @@
         "padding_bottom": 0
       }
     },
-    "people": {
-      "type": "douce-photo-strip",
+    "reviews": {
+      "type": "douce-reviews-strip",
       "blocks": {
-        "photo_7dakqd": {
-          "type": "photo",
+        "review_PeM9mQ": {
+          "type": "review",
           "settings": {
-            "image": "shopify://shop_images/1.jpg",
-            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+            "image": "shopify://shop_images/2_a9174308-27cb-4620-987b-5dcfceac0253.jpg",
+            "alt": "Customer using the Douce showerhead",
+            "name": "Brandon K.",
+            "verified": true,
+            "date": "02/21/2026",
+            "rating": 5,
+            "text": "My hair has changed drastically since i’ve started using this",
+            "item": ""
           }
         },
-        "photo-1": {
-          "type": "photo",
+        "review_6WnXpz": {
+          "type": "review",
           "settings": {
-            "image": "shopify://shop_images/2.jpg",
-            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+            "image": "shopify://shop_images/3_85966be8-784c-4ad1-9ee6-d6d1c8604c70.jpg",
+            "alt": "",
+            "name": "Rachel L.",
+            "verified": true,
+            "date": "07/01/2026",
+            "rating": 5,
+            "text": "Incredibly easy install ! I used to smell chlorine during my shower but not anymore thanks to Douce",
+            "item": ""
           }
         },
-        "photo-2": {
-          "type": "photo",
+        "review_yBJCnr": {
+          "type": "review",
           "settings": {
-            "image": "shopify://shop_images/3.jpg",
-            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+            "image": "shopify://shop_images/1_609f1f2f-fdf9-42b3-afc3-629b4edbe8f9.jpg",
+            "alt": "Customer using the Douce showerhead",
+            "name": "Lauren G.",
+            "verified": true,
+            "date": "04/29/2026",
+            "rating": 5,
+            "text": "I have been loving my Douce shower head! The water pressure is amazing and I leave the shower with glowy skin and smooth hair. I highly recommend to anyone considering!",
+            "item": ""
           }
         },
-        "photo-3": {
-          "type": "photo",
+        "review_Fpf4E9": {
+          "type": "review",
           "settings": {
-            "image": "shopify://shop_images/4.jpg",
-            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+            "image": "shopify://shop_images/4_a85a7d44-bd22-4029-8555-6dca06a2724c.jpg",
+            "alt": "",
+            "name": "Betty M.",
+            "verified": true,
+            "date": "09/14/2026",
+            "rating": 5,
+            "text": "This filtered shower head has already helped my sensitive skin and has improved my hair health! I have three girls, too, and we all have a lot of hair! Having this shower head helps me feel better about helping my daughters have healthy skin and hair, too!",
+            "item": ""
           }
         },
-        "photo-4": {
-          "type": "photo",
+        "review_3MkhE4": {
+          "type": "review",
           "settings": {
-            "image": "shopify://shop_images/5.jpg",
-            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+            "image": "shopify://shop_images/5_f0154375-680d-4fdc-9b5a-63ecfa398c48.jpg",
+            "alt": "",
+            "name": "Jennifer C.",
+            "verified": true,
+            "date": "09/22/2026",
+            "rating": 5,
+            "text": "The water pressure is AMAZING and the filter works great. My hair and skin are noticeably healthier after using for a couple weeks",
+            "item": ""
           }
         },
-        "photo-5": {
-          "type": "photo",
+        "review_EectUg": {
+          "type": "review",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/6.jpg",
-            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+            "alt": "",
+            "name": "Eva B.",
+            "verified": true,
+            "date": "05/30/2026",
+            "rating": 5,
+            "text": "Best pressure, skin feels softer, love this wish I would have ordered sooner!",
+            "item": ""
           }
         },
-        "photo-6": {
-          "type": "photo",
+        "review_thWp7t": {
+          "type": "review",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/7.jpg",
-            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+            "alt": "",
+            "name": "Emma J.",
+            "verified": false,
+            "date": "07/10/2026",
+            "rating": 5,
+            "text": "Quite honestly, within the first 3 to 4 days, my skin was so much better. I did not even need to re-apply moisturizers as often, and by month 1 I literally threw the moisturizers in the trash.",
+            "item": ""
           }
         },
-        "photo-7": {
-          "type": "photo",
+        "review_XYrLJj": {
+          "type": "review",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/8.jpg",
-            "alt": "Customer holding a DOUCE showerhead in a bathroom"
+            "alt": "",
+            "name": "Olivia S.",
+            "verified": true,
+            "date": "06/06/2026",
+            "rating": 5,
+            "text": "I spent years trying countless moisturizers and skincare products, but nothing worked until I tried Douce. My skin is now hydrated, glowing, and irritation-free.",
+            "item": ""
+          }
+        },
+        "review_QLibBB": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "alt": "",
+            "name": "Erin W.",
+            "verified": false,
+            "date": "08/10/2026",
+            "rating": 5,
+            "text": "I absolutely love this shower head!!! I was excited about the filtering, but was pleasantly surprised at how fantastic the water spray is! Excellent pressure & feel, I love it 🙌🏼🥰",
+            "item": ""
+          }
+        },
+        "review_PMAbxL": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "alt": "",
+            "name": "Nathan W.",
+            "verified": true,
+            "date": "11/01/2026",
+            "rating": 5,
+            "text": "Change the way that I experience my morning shower very impressed. Just overall makes your day worth it.",
+            "item": ""
+          }
+        },
+        "review_TJKtdi": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "alt": "",
+            "name": "Stephanie C.",
+            "verified": true,
+            "date": "09/06/2026",
+            "rating": 5,
+            "text": "I can tell the water feels different in a good way. My hair feels softer, and the shower has a cleaner, fresher feel overall. I would absolutely recommend it",
+            "item": ""
+          }
+        },
+        "review_wJNxrh": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "alt": "",
+            "name": "Megan J.",
+            "verified": true,
+            "date": "10/13/2026",
+            "rating": 5,
+            "text": "The difference in water quality was more noticeable than I expected. My skin feels calmer, and my shower routine just feels healthier overall now.",
+            "item": ""
           }
         }
       },
       "block_order": [
-        "photo_7dakqd",
-        "photo-1",
-        "photo-2",
-        "photo-3",
-        "photo-4",
-        "photo-5",
-        "photo-6",
-        "photo-7"
+        "review_PeM9mQ",
+        "review_6WnXpz",
+        "review_yBJCnr",
+        "review_Fpf4E9",
+        "review_3MkhE4",
+        "review_EectUg",
+        "review_thWp7t",
+        "review_XYrLJj",
+        "review_QLibBB",
+        "review_PMAbxL",
+        "review_TJKtdi",
+        "review_wJNxrh"
       ],
+      "disabled": true,
       "settings": {
-        "eyebrow": "",
-        "heading": "People like you who <em>ditched their old showerhead.</em>",
-        "text": "",
+        "eyebrow": "Reviews",
+        "heading": "What our customers <em>are saying.</em>",
+        "summary": "",
         "note": "",
-        "speed": 5,
-        "ratio": "4 / 5",
-        "pause_on_hover": true,
-        "color_scheme": "scheme-1",
+        "speed": 6,
+        "color_scheme": "",
         "accent_italic": false,
-        "padding_top": 72,
-        "padding_bottom": 48
+        "padding_top": 96,
+        "padding_bottom": 0
       }
     },
     "ba_pairs": {
@@ -729,15 +916,6 @@
         "show_on_mobile": true,
         "color_scheme": "scheme-1"
       }
-    },
-    "reviews": {
-      "type": "douce-reviews-strip",
-      "blocks": {},
-      "block_order": [],
-      "settings": {
-        "eyebrow": "Reviews",
-        "heading": "What our customers <em>are saying.</em>"
-      }
     }
   },
   "order": [
@@ -747,10 +925,10 @@
     "related-products",
     "why_filter",
     "filtration",
+    "people",
     "benefits",
     "install",
     "quotes",
-    "people",
     "reviews",
     "ba_pairs",
     "faq",

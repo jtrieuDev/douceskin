@@ -9,57 +9,21 @@
  */
 {
   "sections": {
+    "breadcrumbs": {
+      "type": "douce-breadcrumbs",
+      "settings": {
+        "home_label": "Home",
+        "shop_label": "Shop",
+        "shop_link": "shopify://products/showerhead-kit",
+        "current_label": "",
+        "aria_label": "Breadcrumb",
+        "color_scheme": "scheme-1",
+        "padding_top": 20
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
-        "rating": {
-          "type": "rating",
-          "settings": {}
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {
-            "douce_card": true,
-            "douce_card_title": "One-time purchase",
-            "douce_card_includes": ""
-          },
-          "disabled": true
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle",
-            "swatch_colors": "Crystal White: #F2F4F5\nSmoky Black: #2B2B2B\nAqua Blue: #8FD3E8\nSoft Green: #B7D9B0"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {},
-          "disabled": true
-        },
-        "ship_by": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'douce-ship-by' %}"
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {},
-          "disabled": true
-        },
         "subtitle": {
           "type": "text",
           "settings": {
@@ -67,54 +31,40 @@
             "text_style": "uppercase"
           }
         },
-        "reassurance": {
-          "type": "icon-with-text",
-          "settings": {
-            "layout": "horizontal",
-            "icon_1": "lock",
-            "heading_1": "Secure checkout",
-            "icon_2": "truck",
-            "heading_2": "Shipping to the US",
-            "icon_3": "none",
-            "heading_3": ""
-          },
-          "disabled": true
+        "title": {
+          "type": "title",
+          "settings": {}
         },
-        "why": {
-          "type": "collapsible_tab",
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "intro": {
+          "type": "text",
           "settings": {
-            "douce_under_gallery": true,
-            "heading": "Why DOUCE",
-            "icon": "leaf",
-            "content": "{{ product.metafields.douce.why | metafield_tag }}"
+            "text": "A replacement calcium sulfite cartridge made for your DOUCE filtered shower head. It helps reduce chlorine as water passes through.",
+            "text_style": "body"
           }
         },
-        "benefits_tab": {
-          "type": "collapsible_tab",
+        "checklist": {
+          "type": "douce_checklist",
           "settings": {
-            "douce_under_gallery": true,
-            "heading": "Key Benefits",
-            "icon": "check_mark",
-            "content": "{{ product.metafields.douce.benefits | metafield_tag }}"
-          },
-          "disabled": true
-        },
-        "filter_tab": {
-          "type": "collapsible_tab",
-          "settings": {
-            "douce_under_gallery": true,
-            "heading": "Filter Replacement",
-            "icon": "recycle",
-            "content": "{{ product.metafields.douce.filter_replacement | metafield_tag }}"
+            "icon": "checkmark",
+            "columns": "2",
+            "item_1": "Helps reduce chlorine",
+            "item_2": "Made for DOUCE shower heads",
+            "item_3": "Quick, tool-free swap",
+            "item_4": "",
+            "item_5": "",
+            "item_6": ""
           }
         },
-        "box_tab": {
-          "type": "collapsible_tab",
+        "variant_picker": {
+          "type": "variant_picker",
           "settings": {
-            "douce_under_gallery": true,
-            "heading": "What's Included in the Box",
-            "icon": "box",
-            "content": "{{ product.metafields.douce.box_contents | metafield_tag }}"
+            "picker_type": "button",
+            "swatch_shape": "circle",
+            "swatch_colors": "Crystal White: #F2F4F5\nSmoky Black: #2B2B2B\nAqua Blue: #8FD3E8\nSoft Green: #B7D9B0"
           }
         },
         "purchase_options": {
@@ -130,6 +80,30 @@
             "savings_format": "amount",
             "one_time_title": "One-time purchase",
             "one_time_description": ""
+          }
+        },
+        "ship_by": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'douce-ship-by' %}"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "payment_icons": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'douce-payment-icons' %}"
           }
         },
         "trust_badges": {
@@ -153,33 +127,35 @@
             "url_4": ""
           }
         },
-        "checklist": {
-          "type": "douce_checklist",
-          "settings": {
-            "icon": "checkmark",
-            "columns": "2",
-            "item_1": "Helps reduce chlorine",
-            "item_2": "Made for DOUCE shower heads",
-            "item_3": "Quick, tool-free swap",
-            "item_4": ""
-          }
-        },
-        "intro": {
-          "type": "text",
-          "settings": {
-            "text": "A replacement calcium sulfite cartridge made for your DOUCE filtered shower head. It helps reduce chlorine as water passes through.",
-            "text_style": "body"
-          }
-        },
-        "shipping_tab": {
+        "why": {
           "type": "collapsible_tab",
           "settings": {
             "douce_under_gallery": true,
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "<p>Free shipping to the US. Orders ship within 1–2 business days, then delivery takes 6–10 business days. Return within 60 days for a full refund. Return shipping is at your cost, unless the item is defective or damaged. See our Return &amp; Refund Policy.</p>"
-          },
-          "disabled": true
+            "heading": "Why DOUCE",
+            "icon": "leaf",
+            "content": "{{ product.metafields.douce.why | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "filter_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "douce_under_gallery": true,
+            "heading": "Filter Replacement",
+            "icon": "recycle",
+            "content": "{{ product.metafields.douce.filter_replacement | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "box_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "douce_under_gallery": true,
+            "heading": "What's Included in the Box",
+            "icon": "box",
+            "content": "{{ product.metafields.douce.box_contents | metafield_tag }}",
+            "page": ""
+          }
         },
         "fit_tab": {
           "type": "collapsible_tab",
@@ -187,7 +163,8 @@
             "douce_under_gallery": true,
             "heading": "Will it fit my shower head?",
             "icon": "check_mark",
-            "content": "<p>Made for the DOUCE filtered shower head, in every color, with or without hose.</p>"
+            "content": "<p>Made for the DOUCE filtered shower head, in every color, with or without hose.</p>",
+            "page": ""
           }
         },
         "replace_tab": {
@@ -196,13 +173,57 @@
             "douce_under_gallery": true,
             "heading": "How to replace it",
             "icon": "recycle",
-            "content": "<p>Open the shower head, swap the used cartridge for the new one, then close it again. No tools needed.</p>"
+            "content": "<p>Open the shower head, swap the used cartridge for the new one, then close it again. No tools needed.</p>",
+            "page": ""
           }
         },
-        "payment_icons": {
-          "type": "custom_liquid",
+        "shipping_tab": {
+          "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
-            "custom_liquid": "{% render 'douce-payment-icons' %}"
+            "douce_under_gallery": true,
+            "heading": "Shipping & Returns",
+            "icon": "truck",
+            "content": "<p>Free shipping to the US. Orders ship within 1–2 business days, then delivery takes 6–10 business days. Return within 60 days for a full refund. Return shipping is at your cost, unless the item is defective or damaged. See our Return &amp; Refund Policy.</p>",
+            "page": ""
+          }
+        },
+        "price": {
+          "type": "price",
+          "disabled": true,
+          "settings": {
+            "douce_card": true,
+            "douce_card_title": "One-time purchase",
+            "douce_card_includes": ""
+          }
+        },
+        "reassurance": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "lock",
+            "heading_1": "Secure checkout",
+            "icon_2": "truck",
+            "heading_2": "Shipping to the US",
+            "icon_3": "none",
+            "heading_3": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "benefits_tab": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "douce_under_gallery": true,
+            "heading": "Key Benefits",
+            "icon": "check_mark",
+            "content": "{{ product.metafields.douce.benefits | metafield_tag }}",
+            "page": ""
           }
         }
       },
@@ -233,6 +254,7 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
+        "douce_media_badge": "",
         "media_size": "medium",
         "constrain_to_viewport": false,
         "media_fit": "cover",
@@ -243,8 +265,7 @@
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 20,
-        "padding_bottom": 48,
-        "douce_media_badge": ""
+        "padding_bottom": 48
       }
     },
     "related-products": {
@@ -273,17 +294,6 @@
         "subtitle": "Free shipping to the US",
         "show_on_mobile": true,
         "color_scheme": "scheme-1"
-      }
-    },
-    "breadcrumbs": {
-      "type": "douce-breadcrumbs",
-      "settings": {
-        "home_label": "Home",
-        "shop_label": "Shop",
-        "current_label": "",
-        "aria_label": "Breadcrumb",
-        "color_scheme": "scheme-1",
-        "padding_top": 20
       }
     }
   },
